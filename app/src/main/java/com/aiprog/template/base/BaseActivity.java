@@ -81,7 +81,7 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
         super.onCreate(savedInstanceState);
         context = this;
         activity = this;
-        getContext(context);
+//        getContext(context);
         initialization(savedInstanceState);
         performDataBinding();
 //        setTitle();
@@ -113,11 +113,15 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
      */
     protected abstract void initialization(@Nullable Bundle state);
 
-    /**
+/*
+    */
+/**
      *
      * @param context is a Activity class context or instance
-     */
+     *//*
+
     public abstract void getContext(Context context);
+*/
 
     /**
      *
