@@ -5,5 +5,7 @@
     <string name="str_ShowOnPermisstion">Please Allow permission for your app.
         If you deny permissions will not be able to use functionality of this app.</string>
     <string name="user_id">User ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
 
 </resources>
