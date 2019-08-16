@@ -58,4 +58,24 @@
     <style name="FullScreenImage" parent="Theme.Design.NoActionBar">
     </style>
 
+    <style name="CardStyle">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="PrimaryFlatButton" parent="Theme.AppCompat.Light">
+        <item name="android:buttonStyle">
+            @style/Widget.AppCompat.Button.Borderless.Colored
+        </item>
+        <item name="colorAccent">#FFAB40</item>
+    </style>
+
+    <style name="CardButtonColor1" parent="Theme.AppCompat.Light">
+        <item name="android:buttonStyle">
+            @style/Widget.AppCompat.Button.Borderless.Colored
+        </item>
+        <item name="colorAccent">#FFAB40</item>
+    </style>
+
 </resources>

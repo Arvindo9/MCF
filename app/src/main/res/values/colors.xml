@@ -21,4 +21,14 @@
 
     <color name="fifty_percent_transparency_grey_400">#80bdbdbd</color>
     <color name="folderBackground">#99A1A6AC</color>
+    <color name="textColorGeneral">#484849</color>
+    <color name="textColorCard">#FFFFFF</color>
+    <color name="cardColor">#4CB1DF</color>
+    <color name="cardColorShadow">#88DCFF</color>
+    <color name="cardColorSno">#7AE459</color>
+    <color name="cardColorReferenceNo">#E2B14F</color>
+    <color name="cardColorFirmName">#88DCFF</color>
+
+    <color name="buttonColor1">#59C29C</color>
+    <color name="buttonColor2">#AED15B</color>
 </resources>

@@ -2,6 +2,10 @@ package com.aiprog.template.data.remote;
 
 
 import com.aiprog.template.data.model.apis.flag.FlagApi;
+import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.aiprog.template.data.model.db.login.LoginDb;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -25,8 +29,32 @@ public class APIs implements APIService {
         this.apiServiceUtils = retrofitUtils.create(APIService.class);
     }
 
+    //Pref----------------------------
+
+
+    //DB------------------------------
+
+
+    //APIs----------------------------
+
     @Override
     public Flowable<FlagApi> countryCode() {
         return apiServiceUtils.countryCode();
     }
+
+    @Override
+    public Flowable<LoginDb> userLogin(String userId, String password) {
+        return apiService.userLogin(userId, password);
+    }
+
+    @Override
+    public Flowable<LoginDb> userLoginVendor(String userId, String password) {
+        return apiService.userLoginVendor(userId, password);
+    }
+
+    @Override
+    public Flowable<List<StatusOfApplicationResponse>> statusOfApplicationApi(String userId) {
+        return apiService.statusOfApplicationApi(userId);
+    }
+
 }

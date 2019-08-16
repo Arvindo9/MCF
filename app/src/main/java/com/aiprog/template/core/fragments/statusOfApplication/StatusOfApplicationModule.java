@@ -1,10 +1,15 @@
-package com.aiprog.template.ui.launcher.credential;
+package com.aiprog.template.core.fragments.statusOfApplication;
 
-import com.aiprog.template.base.BaseNavigator;
+import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
+
+import java.util.ArrayList;
+
+import dagger.Module;
+import dagger.Provides;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 28-07-2019
+ * Created on   : 16-08-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -15,8 +20,11 @@ import com.aiprog.template.base.BaseNavigator;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-interface LoginNavigator extends BaseNavigator {
-    void onLoginClick();
+@Module
+public class StatusOfApplicationModule {
 
-    void openVendorHome();
+    @Provides
+    StatusOfApplicationAdapter provideStatusOfApplicationAdapter() {
+        return new StatusOfApplicationAdapter(new ArrayList<>());
+    }
 }

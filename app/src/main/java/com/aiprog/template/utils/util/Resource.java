@@ -5,6 +5,7 @@ import android.widget.EditText;
 import androidx.appcompat.widget.AppCompatEditText;
 
 import com.aiprog.template.base.BaseActivity;
+import com.aiprog.template.ui.launcher.credential.LoginActivity;
 
 /**
  * Author       : Arvindo Mondal
@@ -21,41 +22,7 @@ import com.aiprog.template.base.BaseActivity;
  */
 public interface Resource {
 
-    <A extends BaseActivity> boolean validateMobile(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateEmail(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateMobileEmail(A activity, EditText editText);
+    <A extends BaseActivity> boolean validateUserId(A activity, EditText editText);
 
     <A extends BaseActivity> boolean validatePassword(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validatePasswordVerify(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validatePasswordConfirm(A activity, EditText passwordText, EditText confirmText);
-
-//    <A extends BaseActivity, V extends BaseViewModel> boolean validateCountryCode(A activity, V viewModel,
-//          EditText editText, int value, ObservableMap<String, Integer> flagSet,
-//          ObservableList<Flag> flagList);
-
-    <A extends BaseActivity> boolean validateFirstName(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateLastName(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateName(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateOtp(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateDay(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateMonth(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateYear(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validateDate(A activity, EditText editText);
-
-    <A extends BaseActivity> boolean validatePinCode(A activity, EditText pinCode);
-
-    <A extends BaseActivity> boolean validateMinimumAge(A activity, EditText minAge);
-
-    <A extends BaseActivity> boolean validateMaximumAge(A activity, EditText minAge);
 }

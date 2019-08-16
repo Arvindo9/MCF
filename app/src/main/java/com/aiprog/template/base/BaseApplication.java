@@ -93,8 +93,4 @@ public class BaseApplication extends Application  implements HasActivityInjector
                 });
         // [END subscribe_topics]
     }*/
-
-    static {
-        System.loadLibrary("algorithm-lib");
-    }
 }

@@ -23,4 +23,17 @@ public interface PreferencesService {
     void setMobile(String mobile);
 
     String getMobile();
+
+    void setUserId(String userId);
+
+    String getUserId();
+
+    void setUserName(String userName);
+
+    String getUserName();
+
+    void setUserType(String userType);
+
+    String getUserType();
+
 }

@@ -7,6 +7,8 @@ import com.aiprog.template.data.DataManager;
 import com.aiprog.template.utils.rx.SchedulerProvider;
 import com.aiprog.template.utils.tasks.Task;
 
+import static com.aiprog.template.utils.AppConstants.USER_TYPE_VENDOR;
+
 /**
  * Author       : Arvindo Mondal
  * Created on   : 09-05-2019
@@ -45,7 +47,7 @@ public class SplashViewModel extends BaseViewModel<SplashNavigator> {
         this.task = task;
     }
 
-    void onStart(String currentVersion) {
+    void onStart() {
         isAppReady = false;
         isWaitComplete = false;
 
@@ -64,7 +66,7 @@ public class SplashViewModel extends BaseViewModel<SplashNavigator> {
             taskId = LOGGED_IN_MODE_LOGGED_OUT;
         }
         else if(getDataManager().getLoggedInMode() ==
-                DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN_HOME.getType()){
+                DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN.getType()){
             taskId = LOGGED_IN_MODE_LOGGED_IN_HOME;
         }
 
@@ -82,7 +84,10 @@ public class SplashViewModel extends BaseViewModel<SplashNavigator> {
                     getNavigator().openLoginActivity();
                     break;
                 case LOGGED_IN_MODE_LOGGED_IN_HOME:
-                    getNavigator().openHomeActivity();
+                    if(getDataManager().getUserType().equals(USER_TYPE_VENDOR)){
+                        getNavigator().openVendorHomeActivity();
+                    }
+//                    getNavigator().openHomeActivity();
                     break;
             }
         }

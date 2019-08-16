@@ -15,7 +15,6 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Author       : Arvindo Mondal
@@ -39,7 +38,7 @@ public abstract class BaseAdapter<B extends ViewDataBinding, D> extends
     private FilterClass filter = null;
 
     /**
-     * 
+     *
      * @param adapterList list args require to bind adapter up to the size of array
      */
     public BaseAdapter(ArrayList<D> adapterList) {
@@ -85,7 +84,7 @@ public abstract class BaseAdapter<B extends ViewDataBinding, D> extends
 
     @Override
 //    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BaseAdapter.ViewHolder holder, int position) {
         holder.bind(list.get(position), position);
     }
 
@@ -167,7 +166,7 @@ public abstract class BaseAdapter<B extends ViewDataBinding, D> extends
      * class use for the filter of adapter view
      */
     public abstract class FilterClass extends Filter {
-//        private AdapterFilterCalls adapterFilterCalls;
+        //        private AdapterFilterCalls adapterFilterCalls;
         private ArrayList<D> filteredArrayList;
 
         /**
@@ -284,7 +283,7 @@ public abstract class BaseAdapter<B extends ViewDataBinding, D> extends
          * @param data data
          */
         public abstract void setClickListeners(ViewHolderClickListener thisContext,
-                                                                     B binding, D data);
+                                               B binding, D data);
 
 
         /**

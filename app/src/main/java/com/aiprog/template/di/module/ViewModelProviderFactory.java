@@ -3,7 +3,11 @@ package com.aiprog.template.di.module;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.aiprog.template.core.fragments.FragmentHandlerViewModel;
+import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationViewModel;
 import com.aiprog.template.data.DataManager;
+import com.aiprog.template.ui.home.vendor.VendorHomeViewModel;
+import com.aiprog.template.ui.launcher.credential.LoginViewModel;
 import com.aiprog.template.ui.launcher.splash.SplashViewModel;
 import com.aiprog.template.ui.launcher.welcome.WelcomeViewModel;
 import com.aiprog.template.utils.rx.SchedulerProvider;
@@ -57,6 +61,22 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         else if (modelClass.isAssignableFrom(WelcomeViewModel.class)) {
             //noinspection unchecked
             return (T) new WelcomeViewModel(dataManager,schedulerProvider, task);
+        }
+        else if (modelClass.isAssignableFrom(LoginViewModel.class)) {
+            //noinspection unchecked
+            return (T) new LoginViewModel(dataManager,schedulerProvider, task);
+        }
+        else if (modelClass.isAssignableFrom(VendorHomeViewModel.class)) {
+            //noinspection unchecked
+            return (T) new VendorHomeViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(FragmentHandlerViewModel.class)) {
+            //noinspection unchecked
+            return (T) new FragmentHandlerViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(StatusOfApplicationViewModel.class)) {
+            //noinspection unchecked
+            return (T) new StatusOfApplicationViewModel(dataManager,schedulerProvider);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

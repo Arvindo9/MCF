@@ -19,6 +19,9 @@ public class AppPreferences implements PreferencesService {
     private static final String KEY_EMAIL = "PREF_KEY_EMAIL";
     private static final String KEY_COUNTRY_CODE = "PREF_KEY_COUNTRY_CODE";
     private static final String KEY_MOBILE = "PREF_KEY_MOBILE";
+    private static final String KEY_USER_ID = "PREF_KEY_USER_ID";
+    private static final String KEY_USER_NAME = "PREF_KEY_USER_NAME";
+    private static final String KEY_USER_TYPE = "PREF_KEY_USER_TYPE";
 
     private final SharedPreferences pref;
 
@@ -67,6 +70,46 @@ public class AppPreferences implements PreferencesService {
     @Override
     public String getMobile() {
         return pref.getString(KEY_MOBILE, "");
+    }
+
+  /*  @Override
+    public void setVendorId(String vendorId) {
+        pref.edit().putString(KEY_VENDOR_ID, vendorId).apply();
+    }
+
+    @Override
+    public String getVendorId() {
+        return pref.getString(KEY_VENDOR_ID, "");
+    }*/
+
+    @Override
+    public void setUserId(String userId) {
+        pref.edit().putString(KEY_USER_ID, userId).apply();
+    }
+
+    @Override
+    public String getUserId() {
+        return pref.getString(KEY_USER_ID, "");
+    }
+
+    @Override
+    public void setUserName(String userName) {
+        pref.edit().putString(KEY_USER_NAME, userName).apply();
+    }
+
+    @Override
+    public String getUserName() {
+        return pref.getString(KEY_USER_NAME, "");
+    }
+
+    @Override
+    public void setUserType(String userType) {
+        pref.edit().putString(KEY_USER_TYPE, userType).apply();
+    }
+
+    @Override
+    public String getUserType() {
+        return pref.getString(KEY_USER_TYPE, "");
     }
 
 }

@@ -2,14 +2,16 @@ package com.aiprog.template.data.remote;
 
 
 import com.aiprog.template.data.model.apis.flag.FlagApi;
+import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.aiprog.template.data.model.db.login.LoginDb;
+
+import java.util.List;
 
 import io.reactivex.Flowable;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 
 /**
  * Author       : Arvindo Mondal
@@ -27,5 +29,26 @@ public interface APIService {
             @Part MultipartBody.Part file
     );
 */
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/GetUserDetails")
+    Flowable<LoginDb> userLogin(
+            @Field("UserId") String userId,
+            @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/GetUserDetails1")
+    Flowable<LoginDb> userLoginVendor(
+            @Field("UserId") String userId,
+            @Field("password") String password
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindStatus")
+    Flowable<List<StatusOfApplicationResponse>> statusOfApplicationApi(
+            @Field("id") String userId
+    );
+
 
 }

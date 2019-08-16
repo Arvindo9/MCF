@@ -1,12 +1,10 @@
-package com.aiprog.template.core.dialogs.flag;
+package com.aiprog.template.core.fragments;
 
-import com.aiprog.template.data.model.db.flag.Flag;
-
-import java.util.List;
+import com.aiprog.template.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 22-05-2019
+ * Created on   : 16-08-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -17,16 +15,5 @@ import java.util.List;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-public interface FlagNavigator {
-
-    void onBackButtonClick();
-
-    void onClearButtonClick();
-
-    void onSearchClick();
-
-    void updateListView(List<Flag> model);
-
-    void handleError(Throwable throwable);
-
+interface FragmentHandlerNavigator extends BaseNavigator {
 }

@@ -117,7 +117,9 @@ public class WelcomeActivity extends BaseActivity<WelcomeActivityBinding, Welcom
 
     private void openStartAppActivity() {
         if(!isNextActivityStart) {
-            startActivity(LoginActivity.newIntent(context));
+            Intent intent = LoginActivity.newIntent(this);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
             finish();
             isNextActivityStart = true;
         }

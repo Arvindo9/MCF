@@ -1,13 +1,12 @@
-package com.aiprog.template.core.dialogs.flag.module;
+package com.aiprog.template.core.fragments;
 
-import com.aiprog.template.core.dialogs.flag.FlagDialog;
-
-import dagger.Module;
-import dagger.android.ContributesAndroidInjector;
+import com.aiprog.template.base.BaseViewModel;
+import com.aiprog.template.data.DataManager;
+import com.aiprog.template.utils.rx.SchedulerProvider;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 24-05-2019
+ * Created on   : 16-08-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -18,9 +17,9 @@ import dagger.android.ContributesAndroidInjector;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-@Module
-public abstract class FlagProvider {
+public class FragmentHandlerViewModel extends BaseViewModel<FragmentHandlerNavigator> {
 
-    @ContributesAndroidInjector(modules = FlagModule.class)
-    abstract FlagDialog provideFlagDialog();
+    public FragmentHandlerViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        super(dataManager, schedulerProvider);
+    }
 }

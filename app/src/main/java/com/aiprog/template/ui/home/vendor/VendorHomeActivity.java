@@ -1,4 +1,4 @@
-package com.aiprog.template.ui.launcher.credential;
+package com.aiprog.template.ui.home.vendor;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,20 +10,16 @@ import androidx.lifecycle.ViewModelProviders;
 import com.aiprog.template.BR;
 import com.aiprog.template.R;
 import com.aiprog.template.base.BaseActivity;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.databinding.ActivityLoginBinding;
-import com.aiprog.template.databinding.SplashActivityBinding;
+import com.aiprog.template.core.fragments.FragmentHandlerActivity;
+import com.aiprog.template.databinding.ActivityVendorHomeBinding;
 import com.aiprog.template.di.module.ViewModelProviderFactory;
-import com.aiprog.template.ui.home.vendor.VendorHomeActivity;
 import com.aiprog.template.ui.launcher.splash.SplashActivity;
-import com.aiprog.template.ui.launcher.splash.SplashViewModel;
-import com.aiprog.template.utils.util.Resource;
 
 import javax.inject.Inject;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 28-07-2019
+ * Created on   : 05-08-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -34,25 +30,23 @@ import javax.inject.Inject;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginNavigator{
-
+public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, VendorHomeViewModel> implements
+        VendorHomeNavigator{
     @Inject
     ViewModelProviderFactory factory;
-    @Inject
-    Resource resource;
-    private LoginViewModel viewModel;
+    private VendorHomeViewModel viewModel;
 
-    private ActivityLoginBinding binding;
+    private ActivityVendorHomeBinding binding;
 
     public static Intent newIntent(Context context) {
-        return new Intent(context, LoginActivity.class);
+        return new Intent(context, VendorHomeActivity.class);
     }
 
     /**
      * @param binding activity class data binding
      */
     @Override
-    public void getActivityBinding(ActivityLoginBinding binding) {
+    public void getActivityBinding(ActivityVendorHomeBinding binding) {
         this.binding = binding;
     }
 
@@ -69,7 +63,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
      */
     @Override
     protected int getLayout() {
-        return R.layout.activity_login;
+        return R.layout.activity_vendor_home;
     }
 
     /**
@@ -88,8 +82,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
      * @return viewModel = ViewModelProviders.of(this,factory).get(WelcomeViewModel.class);
      */
     @Override
-    public LoginViewModel getViewModel() {
-        return viewModel = ViewModelProviders.of(this,factory).get(LoginViewModel.class);
+    public VendorHomeViewModel getViewModel() {
+        return viewModel = ViewModelProviders.of(this,factory).get(VendorHomeViewModel.class);
     }
 
     /**
@@ -99,49 +93,55 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     protected void init() {
         viewModel.setNavigator(this);
+        setUp();
     }
+
+    private void setUp() {
+        setSupportActionBar(binding.toolbarLayout.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle(R.string.home);
+
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    //Navigator---------------------
 
     @Override
     public void handleError(Throwable throwable) {
-        throwable.printStackTrace();
+
     }
 
     @Override
     public void handleMessage(String message) {
-        showToast(message);
+
     }
 
     @Override
     public void handleMessage(int index) {
-        showToast(index);
+
     }
 
     @Override
-    public void onLoginClick() {
-        submitForm();
-    }
-
-    @Override
-    public void openVendorHome() {
-        Intent intent = VendorHomeActivity.newIntent(this);
+    public void onLogOutClick() {
+        Intent intent = SplashActivity.newIntent(this);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
 
-    //Additional-------------
-
-    private void submitForm() {
-        if (!resource.validateUserId(this, binding.userId)) {
-            return;
-        }
-        if (!resource.validatePassword(this, binding.password)) {
-            return;
-        }
-
-        String userId = binding.userId.getText() != null ? binding.userId.getText().toString() : "";
-        String password = binding.password.getText() != null ? binding.password.getText().toString() : "";
-
-        viewModel.doLogin(userId, password);
+    @Override
+    public void onStatusOfApplicationClick() {
+        startActivity(FragmentHandlerActivity.newIntent(this, FragmentHandlerActivity.STATUS_OF_APPLICATION));
     }
+
+    @Override
+    public void onDeficienciesAdvisedClick() {
+
+    }
+
+    //Additional---------------------
 }

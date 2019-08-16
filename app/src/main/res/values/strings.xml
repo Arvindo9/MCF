@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dating</string>
+    <string name="app_name">MCF</string>
 
 
     <string name="str_ShowOnPermisstion">Please Allow permission for your app.
@@ -7,5 +7,25 @@
     <string name="user_id">User ID</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
+    <string name="network_error">No internet available</string>
+    <string name="invalide_password">Password not correct</string>
+    <string name="invalide_user_Id">Incorrect user Id</string>
+    <string name="welcome">Welcome</string>
+    <string name="mr">Mr.</string>
+    <string name="deficiencies_advised">Deficiencies Advised</string>
+    <string name="status_of_application">Status of Application</string>
+    <string name="search">Search</string>
+    <string name="s_no">S. No.</string>
+    <string name="reference_no">Reference no.</string>
+    <string name="colon">:</string>
+    <string name="firm_name">Firm name</string>
+    <string name="stage">Stage</string>
+    <string name="view_items">View items</string>
+    <string name="view_application">View application</string>
+    <string name="date_of_approve_rejected">Date of Approve/Rejected</string>
+    <string name="home">Home</string>
 
 </resources>

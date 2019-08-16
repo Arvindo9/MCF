@@ -8,13 +8,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity android:name=".ui.launcher.splash.SplashActivity">
             <intent-filter>
@@ -25,6 +26,8 @@
         </activity>
         <activity android:name=".ui.launcher.welcome.WelcomeActivity" />
         <activity android:name=".ui.launcher.credential.LoginActivity" />
+        <activity android:name=".ui.home.vendor.VendorHomeActivity" />
+        <activity android:name=".core.fragments.FragmentHandlerActivity" />
     </application>
 
 </manifest>

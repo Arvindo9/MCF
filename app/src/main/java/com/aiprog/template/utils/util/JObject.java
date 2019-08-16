@@ -9,9 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.aiprog.template.utils.AppConstants.DATA_PARAMS;
-import static com.aiprog.template.utils.AppConstants.DATA_SIZE_PARAMS;
-
 /**
  * Author       : Arvindo Mondal
  * Created on   : 17-06-2019
@@ -28,110 +25,6 @@ import static com.aiprog.template.utils.AppConstants.DATA_SIZE_PARAMS;
 public class JObject {
 
     private JObject(){}
-
-    public static JSONObject paramsJsonObject(String data, int dataSize) throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        if(dataSize == 0){
-            jsonObject.put(DATA_PARAMS, "");
-        }
-        else{
-            jsonObject.put(DATA_PARAMS, data);
-        }
-        jsonObject.put(DATA_SIZE_PARAMS, dataSize);
-
-        return jsonObject;
-    }
-
-    public static JSONObject paramsJsonObject(String data, int dataSize, HashMap<String, String> map)
-            throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        if(dataSize == 0){
-            jsonObject.put(DATA_PARAMS, "");
-        }
-        else{
-            jsonObject.put(DATA_PARAMS, data);
-        }
-        jsonObject.put(DATA_SIZE_PARAMS, dataSize);
-
-        if(map != null && !map.isEmpty()){
-            for(Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                jsonObject.put(key, value);
-            }
-        }
-
-        return jsonObject;
-    }
-
-    public static JSONObject paramsJsonObject(String data, int dataSize, HashMap<String, String> map,
-                                              HashMap<String, JSONObject> mapObject) throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        if(dataSize == 0){
-            jsonObject.put(DATA_PARAMS, "");
-        }
-        else{
-            jsonObject.put(DATA_PARAMS, data);
-        }
-        jsonObject.put(DATA_SIZE_PARAMS, dataSize);
-
-        if(map != null && !map.isEmpty()){
-            for(Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                jsonObject.put(key, value);
-            }
-        }
-
-        if(mapObject != null && !mapObject.isEmpty()){
-            for(Map.Entry<String, JSONObject> entry : mapObject.entrySet()) {
-                String key = entry.getKey();
-                JSONObject value = entry.getValue();
-                jsonObject.put(key, value);
-            }
-        }
-
-        return jsonObject;
-    }
-
-    public static JSONObject paramsJsonObject(String data, int dataSize, HashMap<String, String> map,
-                                              HashMap<String, JSONObject> mapObject,
-                                              HashMap<String, JSONArray> mapArray) throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        if(dataSize == 0){
-            jsonObject.put(DATA_PARAMS, "");
-        }
-        else{
-            jsonObject.put(DATA_PARAMS, data);
-        }
-        jsonObject.put(DATA_SIZE_PARAMS, dataSize);
-
-        if(map != null && !map.isEmpty()){
-            for(Map.Entry<String, String> entry : map.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                jsonObject.put(key, value);
-            }
-        }
-
-        if(mapObject != null && !mapObject.isEmpty()){
-            for(Map.Entry<String, JSONObject> entry : mapObject.entrySet()) {
-                String key = entry.getKey();
-                JSONObject value = entry.getValue();
-                jsonObject.put(key, value);
-            }
-        }
-
-        if(mapArray != null && !mapArray.isEmpty()){
-            for(Map.Entry<String, JSONArray> entry : mapArray.entrySet()) {
-                String key = entry.getKey();
-                JSONArray value = entry.getValue();
-                jsonObject.put(key, value);
-            }
-        }
-
-        return jsonObject;
-    }
 
     public static String getParamsData(String... params){
         char c = 160;

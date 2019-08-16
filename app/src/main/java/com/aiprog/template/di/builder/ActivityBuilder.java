@@ -1,5 +1,9 @@
 package com.aiprog.template.di.builder;
 
+import com.aiprog.template.core.fragments.FragmentHandlerActivity;
+import com.aiprog.template.core.fragments.FragmentHandlerProvider;
+import com.aiprog.template.ui.home.vendor.VendorHomeActivity;
+import com.aiprog.template.ui.launcher.credential.LoginActivity;
 import com.aiprog.template.ui.launcher.splash.SplashActivity;
 import com.aiprog.template.ui.launcher.welcome.WelcomeActivity;
 import com.aiprog.template.ui.launcher.welcome.WelcomeModule;
@@ -28,5 +32,14 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = WelcomeModule.class)
     abstract WelcomeActivity bindWelcomeActivity();
+
+    @ContributesAndroidInjector(modules = FragmentHandlerProvider.class)
+    abstract FragmentHandlerActivity bindFragmentHandlerActivity();
+
+    @ContributesAndroidInjector()
+    abstract VendorHomeActivity bindVendorHomeActivity();
+
+    @ContributesAndroidInjector()
+    abstract LoginActivity bindLoginActivity();
 
 }

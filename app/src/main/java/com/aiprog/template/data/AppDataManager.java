@@ -5,7 +5,9 @@ import android.content.Context;
 import com.aiprog.template.data.local.db.DatabaseService;
 import com.aiprog.template.data.local.prefs.PreferencesService;
 import com.aiprog.template.data.model.apis.flag.FlagApi;
+import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.aiprog.template.data.model.db.flag.Flag;
+import com.aiprog.template.data.model.db.login.LoginDb;
 import com.aiprog.template.data.remote.APIService;
 import com.google.gson.Gson;
 
@@ -95,6 +97,36 @@ public class AppDataManager implements DataManager {
         return pref.getMobile();
     }
 
+    @Override
+    public void setUserId(String userId) {
+        pref.setUserId(userId);
+    }
+
+    @Override
+    public String getUserId() {
+        return pref.getUserId();
+    }
+
+    @Override
+    public void setUserName(String userName) {
+        pref.setUserName(userName);
+    }
+
+    @Override
+    public String getUserName() {
+        return pref.getUserName();
+    }
+
+    @Override
+    public void setUserType(String userType) {
+        pref.setUserType(userType);
+    }
+
+    @Override
+    public String getUserType() {
+        return pref.getUserType();
+    }
+
     //Database---------------------------------
 
     @Override
@@ -115,6 +147,21 @@ public class AppDataManager implements DataManager {
     @Override
     public Flowable<FlagApi> countryCode() {
         return apiService.countryCode();
+    }
+
+    @Override
+    public Flowable<LoginDb> userLogin(String userName, String password) {
+        return apiService.userLogin(userName, password);
+    }
+
+    @Override
+    public Flowable<LoginDb> userLoginVendor(String userName, String password) {
+        return apiService.userLoginVendor(userName, password);
+    }
+
+    @Override
+    public Flowable<List<StatusOfApplicationResponse>> statusOfApplicationApi(String userId) {
+        return apiService.statusOfApplicationApi(userId);
     }
 
 }

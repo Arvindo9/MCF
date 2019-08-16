@@ -6,8 +6,10 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import com.aiprog.template.data.local.db.dao.FlagDao;
+import com.aiprog.template.data.local.db.dao.LoginDao;
 import com.aiprog.template.data.local.db.utils.DateConverter;
 import com.aiprog.template.data.model.db.flag.Flag;
+import com.aiprog.template.data.model.db.login.LoginDb;
 
 /**
  * Author       : Arvindo Mondal
@@ -22,10 +24,12 @@ import com.aiprog.template.data.model.db.flag.Flag;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-@Database(entities = {Flag.class},
+@Database(entities = {Flag.class, LoginDb.class},
         version = 1, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract FlagDao flagDao();
+
+    public abstract LoginDao loginDao();
 }

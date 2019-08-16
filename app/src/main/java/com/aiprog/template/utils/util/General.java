@@ -17,7 +17,9 @@ import java.util.Locale;
 import static com.aiprog.template.utils.AppConstants.DATE_FORMAT_INTEGER;
 import static com.aiprog.template.utils.AppConstants.DATE_TIME_NAME_FORMAT;
 import static com.aiprog.template.utils.AppConstants.GENERAL_DATE_FORMAT;
+import static com.aiprog.template.utils.AppConstants.GENERAL_DATE_TIME_FORMAT;
 import static com.aiprog.template.utils.AppConstants.LOG_DELETE_DATE_INCREMENT;
+import static com.aiprog.template.utils.AppConstants.STANDARD_DATE_FORMAT;
 
 /**
  * Author       : Arvindo Mondal
@@ -30,7 +32,7 @@ public class General {
 
     public static String getDateTime(){
         Date date = new Date();
-        SimpleDateFormat df = new SimpleDateFormat(GENERAL_DATE_FORMAT, Locale.ENGLISH);
+        SimpleDateFormat df = new SimpleDateFormat(GENERAL_DATE_TIME_FORMAT, Locale.ENGLISH);
         return  df.format(date);
     }
 
@@ -54,7 +56,7 @@ public class General {
     }
 
     public static int integerDate(String date){
-        SimpleDateFormat df = new SimpleDateFormat(GENERAL_DATE_FORMAT, Locale.ENGLISH);
+        SimpleDateFormat df = new SimpleDateFormat(GENERAL_DATE_TIME_FORMAT, Locale.ENGLISH);
         int newDate = 0;
         try {
             Date dateObj = df.parse(date);
@@ -80,6 +82,27 @@ public class General {
         c.add(Calendar.DATE, LOG_DELETE_DATE_INCREMENT); // Adding 10 days
         String dateStr = sdf.format(c.getTime());
         return Integer.parseInt(dateStr);
+    }
+
+    public static String standardFormatDate(String date){
+        SimpleDateFormat format1 = new SimpleDateFormat(GENERAL_DATE_FORMAT, Locale.ENGLISH);
+        SimpleDateFormat format2 = new SimpleDateFormat(STANDARD_DATE_FORMAT, Locale.ENGLISH);
+        Date date1 = null;
+        try {
+            date1 = format1.parse(date);
+            if (date1 != null) {
+                return format2.format(date1);
+            }
+            else{
+                return date;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return date;
+//        SimpleDateFormat df = new SimpleDateFormat(STANDARD_DATE_FORMAT, Locale.ENGLISH);
+//        return df.format(date);
     }
 
     //-----------------------

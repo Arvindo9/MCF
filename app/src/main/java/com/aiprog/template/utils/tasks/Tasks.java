@@ -10,10 +10,6 @@ import java.util.List;
 
 import javax.inject.Singleton;
 
-import static com.aiprog.template.utils.AppConstants.FLAG_EMPTY_API;
-import static com.aiprog.template.utils.AppConstants.FLAG_GET_ERROR_DB;
-import static com.aiprog.template.utils.AppConstants.FLAG_GET_SUCCESS_API;
-import static com.aiprog.template.utils.AppConstants.FLAG_GET_SUCCESS_DB;
 import static com.aiprog.template.utils.AppConstants.RESULT_SUCCESS;
 
 /**
@@ -68,11 +64,7 @@ public class Tasks extends BaseViewModel<Task> implements Task{
                 .observeOn(getSchedulerProvider().newThread())
                 .subscribe(response -> {
                     if (response != null && response.getStatus() == RESULT_SUCCESS) {
-                        viewModel.onResponse(FLAG_GET_SUCCESS_API, response);
                         _saveFlagDb( response.getData().getFlag(), response.getData().getFlagBaseUrl());
-                    }
-                    else{
-                        viewModel.onResponse(FLAG_EMPTY_API, response);
                     }
                 }, Throwable::printStackTrace));
     }
@@ -122,12 +114,10 @@ public class Tasks extends BaseViewModel<Task> implements Task{
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
                     if(response != null && !response.isEmpty()){
-                        viewModel.onResponse(FLAG_GET_SUCCESS_DB, response);
+//                        viewModel.onResponse(FLAG_GET_SUCCESS_DB, response);
                     }
                     //Inserted
-                }, throwable -> {
-                    viewModel.onResponse(FLAG_GET_ERROR_DB, throwable);
-                }));
+                }, Throwable::printStackTrace));
     }
 
 }

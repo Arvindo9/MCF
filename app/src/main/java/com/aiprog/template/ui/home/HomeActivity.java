@@ -13,5 +13,5 @@ package com.aiprog.template.ui.home;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-public class HomeActivity {
+public class HomeActivity{
 }

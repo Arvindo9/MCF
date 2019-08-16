@@ -1,15 +1,10 @@
-package com.aiprog.template.core.dialogs.flag.module;
+package com.aiprog.template.ui.home.vendor;
 
-import com.aiprog.template.core.dialogs.flag.adapter.FlagAdapter;
-
-import java.util.ArrayList;
-
-import dagger.Module;
-import dagger.Provides;
+import com.aiprog.template.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 24-05-2019
+ * Created on   : 05-08-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -20,11 +15,10 @@ import dagger.Provides;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-@Module
-public class FlagModule {
+interface VendorHomeNavigator extends BaseNavigator {
+    void onLogOutClick();
 
-    @Provides
-    FlagAdapter provideFlagAdapter() {
-        return new FlagAdapter(new ArrayList<>());
-    }
+    void onStatusOfApplicationClick();
+
+    void onDeficienciesAdvisedClick();
 }

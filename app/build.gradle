@@ -13,11 +13,13 @@ android {
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+/*
         externalNativeBuild {
             cmake {
                 cppFlags ""
             }
         }
+*/
 
         manifestPlaceholders = [ACTION_MULTIPLE_PICK:"placeHolterString"]
     }
@@ -26,12 +28,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField("String", "BASE_URL", "\"http://192.168.0.8/\"")
+            buildConfigField("String", "BASE_URL", "\"http://mcf.ggn.rcil.gov.in/\"")
             buildConfigField("String", "CACHE_DIR", "\"default/Cache\"")
         }
 
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://192.168.0.8/\"")
+            buildConfigField("String", "BASE_URL", "\"http://mcf.ggn.rcil.gov.in/\"")
             buildConfigField("String", "CACHE_DIR", "\"default/Cache\"")
         }
     }
@@ -45,12 +47,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+/*
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
             version "3.10.2"
         }
     }
+*/
 
     testOptions {
         unitTests.includeAndroidResources = true

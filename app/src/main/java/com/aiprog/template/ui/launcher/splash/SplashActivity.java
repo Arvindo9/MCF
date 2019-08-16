@@ -12,6 +12,8 @@ import com.aiprog.template.R;
 import com.aiprog.template.base.BaseActivity;
 import com.aiprog.template.databinding.SplashActivityBinding;
 import com.aiprog.template.di.module.ViewModelProviderFactory;
+import com.aiprog.template.ui.home.vendor.VendorHomeActivity;
+import com.aiprog.template.ui.launcher.credential.LoginActivity;
 import com.aiprog.template.ui.launcher.welcome.WelcomeActivity;
 
 import javax.inject.Inject;
@@ -76,16 +78,8 @@ public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashVi
     @Override
     protected void init() {
         viewModel.setNavigator(this);
-        viewModel.onStart("");
-        showToast(stringFromJNI());
+        viewModel.onStart();
     }
-
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
 
     //Navigator-----------------------
 
@@ -94,10 +88,15 @@ public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashVi
         Intent intent = WelcomeActivity.newIntent(this);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
 
     @Override
     public void openLoginActivity() {
+        Intent intent = LoginActivity.newIntent(this);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -105,6 +104,15 @@ public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashVi
 //        Intent intent = HomeActivity.newIntent(this);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 //        startActivity(intent);
+//        finish();
+    }
+
+    @Override
+    public void openVendorHomeActivity() {
+        Intent intent = VendorHomeActivity.newIntent(this);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override

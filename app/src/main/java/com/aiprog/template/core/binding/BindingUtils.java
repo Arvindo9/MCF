@@ -23,8 +23,8 @@ import androidx.databinding.ObservableField;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiprog.template.R;
-import com.aiprog.template.core.dialogs.flag.adapter.FlagAdapter;
-import com.aiprog.template.data.model.db.flag.Flag;
+import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
+import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -125,9 +125,18 @@ public final class BindingUtils {
 
     //List view-----------------------------------
 
-    @BindingAdapter({"FlagAdapter"})
+/*    @BindingAdapter({"FlagAdapter"})
     public static void addFlagAdapter(RecyclerView recyclerView, List<Flag> list) {
         FlagAdapter adapter = (FlagAdapter) recyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(list);
+        }
+    }*/
+
+    @BindingAdapter({"StatusOfApplicationAdapter"})
+    public static void addStatusOfApplicationAdapter(RecyclerView recyclerView, List<StatusOfApplicationResponse> list) {
+        StatusOfApplicationAdapter adapter = (StatusOfApplicationAdapter) recyclerView.getAdapter();
         if (adapter != null) {
             adapter.clearItems();
             adapter.addItems(list);

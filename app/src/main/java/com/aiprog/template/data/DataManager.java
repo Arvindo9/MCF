@@ -31,9 +31,7 @@ public interface DataManager extends DatabaseService, PreferencesService, APISer
     enum LoggedInMode {
         LOGGED_IN_MODE_FIRST_TIME(0),
         LOGGED_IN_MODE_LOGGED_OUT(1),                       //login screen
-        LOGGED_IN_MODE_LOGGED_IN_HOME(2),
-        LOGGED_IN_MODE_LOGGED_GOOGLE(3),
-        LOGGED_IN_MODE_LOGGED_FACEBOOK(4);
+        LOGGED_IN_MODE_LOGGED_IN(2);
 
         private final int mType;
 
