@@ -129,6 +129,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         finish();
     }
 
+    @Override
+    public void openSSEHome() {
+
+    }
+
     //Additional-------------
 
     private void submitForm() {

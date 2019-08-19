@@ -19,4 +19,6 @@ interface LoginNavigator extends BaseNavigator {
     void onLoginClick();
 
     void openVendorHome();
+
+    void openSSEHome();
 }

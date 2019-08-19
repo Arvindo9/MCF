@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -16,8 +15,11 @@ import com.aiprog.template.BR;
 import com.aiprog.template.R;
 import com.aiprog.template.base.BaseActivity;
 import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
+import com.aiprog.template.core.fragments.viewItem.ViewItemFragment;
 import com.aiprog.template.databinding.ActivityFragmentHandlerBinding;
 import com.aiprog.template.di.module.ViewModelProviderFactory;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
 
@@ -39,7 +41,7 @@ import dagger.android.support.HasSupportFragmentInjector;
  * Website      : www.aiprog.in
  */
 public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandlerBinding, FragmentHandlerViewModel>
-        implements FragmentHandlerNavigator, HasSupportFragmentInjector {
+        implements FragmentHandlerNavigator, HasSupportFragmentInjector, FragmentListener {
     public static final String TAG = FragmentHandlerActivity.class.getSimpleName();
 
     public static final String KEY_OPEN_INTERFACE = "KEY_OPEN_INTERFACE";
@@ -147,6 +149,7 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
         switch (OPEN_INTERFACE){
             case STATUS_OF_APPLICATION:
                 StatusOfApplicationFragment fragment = StatusOfApplicationFragment.newInstance();
+                fragment.setCallBack(this);
                 transaction.replace(R.id.fragment, fragment,
                         StatusOfApplicationFragment.TAG);
                 transaction.addToBackStack(StatusOfApplicationFragment.TAG);
@@ -167,19 +170,28 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
             manager.popBackStackImmediate();
             return;
         }
-        super.onBackPressed();
+//        super.onBackPressed();
+        finish();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
+            if (manager.getBackStackEntryCount() == 1){
+                manager.popBackStackImmediate();
+            }
+            else if(manager.getBackStackEntryCount() > 1){
+                manager.popBackStackImmediate();
+                return super.onOptionsItemSelected(item);
+            }
             finish();
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    //Navigator--------------------------
 
     @Override
     public void handleError(Throwable throwable) {
@@ -196,4 +208,26 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
 
     }
 
+    @Override
+    public void onSuccessResponse(String tag, String... params) {
+        if(tag.equals(StatusOfApplicationFragment.TAG)){
+            if(params != null && params.length >= 2){
+                String data = params[0];
+
+                if(data.equals(String.valueOf(VIEW_ITEM_DETAILS))) {
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    ViewItemFragment fragment = ViewItemFragment.newInstance(params[1]);
+                    fragment.setCallBack(this);
+                    transaction.replace(R.id.fragment, fragment, ViewItemFragment.TAG);
+                    transaction.addToBackStack(ViewItemFragment.TAG);
+                    transaction.commit();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onFailureResponse(String tag, int errorCode, String message, Throwable throwable) {
+
+    }
 }

@@ -1,21 +1,15 @@
 package com.aiprog.template.core.fragments.statusOfApplication;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
 
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.aiprog.template.BR;
 import com.aiprog.template.R;
 import com.aiprog.template.base.BaseFragment;
-import com.aiprog.template.core.fragments.FragmentHandlerActivity;
 import com.aiprog.template.core.fragments.FragmentListener;
 import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
 import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.databinding.ActivityFragmentHandlerBinding;
 import com.aiprog.template.databinding.FragmentStatusOfApplicationBinding;
 import com.aiprog.template.di.module.ViewModelProviderFactory;
 
@@ -39,7 +33,6 @@ import javax.inject.Inject;
 public class StatusOfApplicationFragment extends
         BaseFragment<FragmentStatusOfApplicationBinding, StatusOfApplicationViewModel>
         implements StatusOfApplicationNavigator, StatusOfApplicationAdapter.AdapterListener {
-
     public static final String TAG = StatusOfApplicationFragment.class.getSimpleName();
 
     @Inject
@@ -176,7 +169,6 @@ public class StatusOfApplicationFragment extends
     }
 */
 
-
     //Navigator--------------------------
 
     @Override
@@ -212,5 +204,10 @@ public class StatusOfApplicationFragment extends
     @Override
     public void onRetryClick() {
 
+    }
+
+    @Override
+    public void onViewItemDetailsClick(int openInterfaceType, String applicationId) {
+        callBack.onSuccessResponse(TAG, String.valueOf(openInterfaceType), applicationId);
     }
 }

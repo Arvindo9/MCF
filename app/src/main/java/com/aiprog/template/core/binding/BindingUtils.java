@@ -24,7 +24,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aiprog.template.R;
 import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
+import com.aiprog.template.core.fragments.viewItem.adapter.ViewItemAdapter;
 import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.aiprog.template.data.model.apis.viewItem.ViewItem;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -137,6 +139,15 @@ public final class BindingUtils {
     @BindingAdapter({"StatusOfApplicationAdapter"})
     public static void addStatusOfApplicationAdapter(RecyclerView recyclerView, List<StatusOfApplicationResponse> list) {
         StatusOfApplicationAdapter adapter = (StatusOfApplicationAdapter) recyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(list);
+        }
+    }
+
+    @BindingAdapter({"ViewItemAdapter"})
+    public static void addViewItemAdapter(RecyclerView recyclerView, List<ViewItem> list) {
+        ViewItemAdapter adapter = (ViewItemAdapter) recyclerView.getAdapter();
         if (adapter != null) {
             adapter.clearItems();
             adapter.addItems(list);

@@ -36,4 +36,8 @@ public interface PreferencesService {
 
     String getUserType();
 
+    void setReferenceId(String referenceId);
+
+    String getReferenceId();
+
 }

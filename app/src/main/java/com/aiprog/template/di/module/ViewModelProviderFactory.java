@@ -3,8 +3,10 @@ package com.aiprog.template.di.module;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.aiprog.template.core.dialogs.deficiencies.DeficienciesViewModel;
 import com.aiprog.template.core.fragments.FragmentHandlerViewModel;
 import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationViewModel;
+import com.aiprog.template.core.fragments.viewItem.ViewItemViewModel;
 import com.aiprog.template.data.DataManager;
 import com.aiprog.template.ui.home.vendor.VendorHomeViewModel;
 import com.aiprog.template.ui.launcher.credential.LoginViewModel;
@@ -77,6 +79,14 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         else if (modelClass.isAssignableFrom(StatusOfApplicationViewModel.class)) {
             //noinspection unchecked
             return (T) new StatusOfApplicationViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(ViewItemViewModel.class)) {
+            //noinspection unchecked
+            return (T) new ViewItemViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(DeficienciesViewModel.class)) {
+            //noinspection unchecked
+            return (T) new DeficienciesViewModel(dataManager,schedulerProvider);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

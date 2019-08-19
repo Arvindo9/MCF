@@ -22,6 +22,7 @@ public class AppPreferences implements PreferencesService {
     private static final String KEY_USER_ID = "PREF_KEY_USER_ID";
     private static final String KEY_USER_NAME = "PREF_KEY_USER_NAME";
     private static final String KEY_USER_TYPE = "PREF_KEY_USER_TYPE";
+    private static final String KEY_APPLICATION_ID = "PREF_KEY_APPLICATION_ID";
 
     private final SharedPreferences pref;
 
@@ -110,6 +111,16 @@ public class AppPreferences implements PreferencesService {
     @Override
     public String getUserType() {
         return pref.getString(KEY_USER_TYPE, "");
+    }
+
+    @Override
+    public void setReferenceId(String referenceId) {
+        pref.edit().putString(KEY_APPLICATION_ID, referenceId).apply();
+    }
+
+    @Override
+    public String getReferenceId() {
+        return pref.getString(KEY_APPLICATION_ID, "");
     }
 
 }

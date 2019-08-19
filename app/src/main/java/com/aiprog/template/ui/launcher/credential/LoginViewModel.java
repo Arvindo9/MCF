@@ -6,6 +6,7 @@ import com.aiprog.template.utils.Logger;
 import com.aiprog.template.utils.rx.SchedulerProvider;
 import com.aiprog.template.utils.tasks.Task;
 
+import static com.aiprog.template.utils.AppConstants.USER_TYPE_SSE;
 import static com.aiprog.template.utils.AppConstants.USER_TYPE_VENDOR;
 
 /**
@@ -41,9 +42,26 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
                     if (response != null) {
-                    }
-                    else {
-                        isLoginError = true;
+                        if(response.getUserId() != null){
+                            getDataManager().setUserId(response.getUserId());
+                        }
+                        if(response.getUserName() != null){
+                            getDataManager().setUserName(response.getUserName());
+                        }
+                        if(response.getId() != null){
+                            String id = response.getId().toString();
+                            String ids = id.contains(".") ? id.substring(0, id.indexOf(".")-1) : id;
+                            getDataManager().setReferenceId(ids);
+                        }
+                        if(response.getUserType() != null && response.getUserType().equals(USER_TYPE_SSE)){
+                            getDataManager().setUserType(USER_TYPE_SSE);
+                            getNavigator().openSSEHome();
+                        }
+
+
+                        getDataManager().setLoggedInMode(DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
+
+                        Logger.e("admin login");
                     }
                 }, throwable -> {
                     if(isLoginError) {
@@ -58,25 +76,23 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
                     if (response != null) {
-                        if(response.getUserId() != null) {
+                        if(response.getUserId() != null){
                             getDataManager().setUserId(response.getUserId());
                         }
-
-                        if(response.getUserType() == null || response.getUserType().equalsIgnoreCase("")){
-                            if(response.getVendorId() != null){
-                                getDataManager().setUserId(response.getVendorId().toString());
-                            }
-                            if(response.getVendorName() != null){
-                                getDataManager().setUserName(response.getVendorName());
-                            }
-                            getDataManager().setUserType(USER_TYPE_VENDOR);
-                            getNavigator().openVendorHome();
+                        if(response.getVendorName() != null){
+                            getDataManager().setUserName(response.getVendorName());
                         }
-
+                        if(response.getVendorId() != null){
+                            String id = response.getVendorId().toString();
+                            String ids = id.contains(".") ? id.substring(0, id.indexOf(".")) : id;
+                            getDataManager().setReferenceId(ids);
+                        }
+                        getDataManager().setUserType(USER_TYPE_VENDOR);
+                        getNavigator().openVendorHome();
 
                         getDataManager().setLoggedInMode(DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
 
-                        Logger.e("knsdfndsflndf");
+                        Logger.e("vendor login");
                     }
                 }, throwable -> getNavigator().handleError(throwable)));
     }

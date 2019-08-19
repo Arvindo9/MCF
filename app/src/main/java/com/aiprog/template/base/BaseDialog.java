@@ -65,7 +65,7 @@ public abstract class BaseDialog<B extends ViewDataBinding, V extends BaseViewMo
     /**
      * Override for set binding variable
      *
-     * @return variable id
+     * @return BR.data;
      */
     public abstract int getBindingVariable();
 

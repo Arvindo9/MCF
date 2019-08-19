@@ -27,5 +27,16 @@
     <string name="view_application">View application</string>
     <string name="date_of_approve_rejected">Date of Approve/Rejected</string>
     <string name="home">Home</string>
+    <string name="category">Category</string>
+    <string name="drawingNo">Drawing no.</string>
+    <string name="subCategory">Sub category</string>
+    <string name="plNo">PL No.</string>
+    <string name="specificationNo">Specification no.</string>
+    <string name="item_name">Item name</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_the_following">Select the following</string>
+    <string name="deficiency_after_scrutiny">Deficiency after Scrutiny</string>
+    <string name="deficiency_after_assessment_scrutiny">Deficiency after Assessment Scrutiny</string>
+    <string name="modern_coach_factory_nraebareli">Modern Coach Factory,  Raebareli</string>
 
 </resources>

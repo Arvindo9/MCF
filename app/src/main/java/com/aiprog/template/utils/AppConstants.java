@@ -77,5 +77,11 @@ public enum  AppConstants {
     //userType-----------------------------
 
     public static final String USER_TYPE_VENDOR = "VENDOR";
+    public static final String USER_TYPE_SSE = "SSE";
+
+    //Extra--------------------------------
+
+    public static final String DEFICIENCY_AFTER_SCRUTINY = "deficiencyAfterScrutiny";
+    public static final String DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY = "deficiencyAfterAssessmentScrutiny";
 
 }

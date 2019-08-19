@@ -58,7 +58,7 @@ public class StatusOfApplicationViewModel extends BaseViewModel<StatusOfApplicat
     //APIs--------------------------------------------
 
     private void  callApi() {
-        String userId = getDataManager().getUserId();
+        String userId = getDataManager().getReferenceId();
         getCompositeDisposable().add(getDataManager()
                 .statusOfApplicationApi(userId)
                 .subscribeOn(getSchedulerProvider().io())

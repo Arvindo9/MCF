@@ -35,7 +35,7 @@ public class AdapterViewModel {
 
     private String validateDate(String date){
         String dataStr = General.standardFormatDate(date);
-        if(dataStr.length() >= 10){
+        if(dataStr != null && dataStr.length() >= 10){
             return dataStr.substring(0, 10);
         }
         return date;

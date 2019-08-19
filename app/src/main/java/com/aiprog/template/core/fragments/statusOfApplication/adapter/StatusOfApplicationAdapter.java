@@ -11,6 +11,8 @@ import com.aiprog.template.databinding.AdapterStatusOfApplicationBinding;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.aiprog.template.core.fragments.FragmentHandlerActivity.VIEW_ITEM_DETAILS;
+
 /**
  * Author       : Arvindo Mondal
  * Created on   : 16-08-2019
@@ -32,6 +34,8 @@ public class StatusOfApplicationAdapter extends BaseAdapter<AdapterStatusOfAppli
 
     public interface AdapterListener {
         void onRetryClick();
+
+        void onViewItemDetailsClick(int openInterfaceType, String applicationId);
     }
 
     public void setListener(AdapterListener listener) {
@@ -107,6 +111,7 @@ public class StatusOfApplicationAdapter extends BaseAdapter<AdapterStatusOfAppli
                                           AdapterStatusOfApplicationBinding binding, StatusOfApplicationResponse data) {
                 binding.viewApplicationButton.setOnClickListener(thisContext);
                 binding.viewItemButton.setOnClickListener(thisContext);
+                binding.attachedLetter.setOnClickListener(thisContext);
             }
 
             /**
@@ -121,9 +126,18 @@ public class StatusOfApplicationAdapter extends BaseAdapter<AdapterStatusOfAppli
                     public void onClick(View view) {
                         switch (view.getId()){
                             case R.id.viewItemButton:
+                                //TODO view item
+                                String id = data.getID().toString();
+                                String ids = id.contains(".") ? id.substring(0, id.indexOf(".")) : id;
+                                listener.onViewItemDetailsClick(VIEW_ITEM_DETAILS, ids);
                                 break;
 
                             case R.id.viewApplicationButton:
+                                //TODO view Application
+                                break;
+
+                            case R.id.attachedLetter:
+                                //TODO download letter
                                 break;
                         }
                     }

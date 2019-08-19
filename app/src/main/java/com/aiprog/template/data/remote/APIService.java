@@ -3,6 +3,7 @@ package com.aiprog.template.data.remote;
 
 import com.aiprog.template.data.model.apis.flag.FlagApi;
 import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.aiprog.template.data.model.apis.viewItem.ViewItem;
 import com.aiprog.template.data.model.db.login.LoginDb;
 
 import java.util.List;
@@ -47,7 +48,13 @@ public interface APIService {
     @FormUrlEncoded
     @POST("/mcf_vr/DataService.asmx/BindStatus")
     Flowable<List<StatusOfApplicationResponse>> statusOfApplicationApi(
-            @Field("id") String userId
+            @Field("id") String applicationId
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/ViewItemDetails")
+    Flowable<List<ViewItem>> viewItemDetailsApi(
+            @Field("ApplicationId") String applicationId
     );
 
 

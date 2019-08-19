@@ -4,10 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-
     <!-- Resources-->
     <color name="snackBarActionColor">@color/colorPrimary</color>
-
 
     <!-- Colors-->
     <color name="white">#FFFFFF</color>
@@ -31,4 +29,6 @@
 
     <color name="buttonColor1">#59C29C</color>
     <color name="buttonColor2">#AED15B</color>
+
+    <color name="dialogTitleColor">#D81B60</color>
 </resources>

@@ -96,8 +96,10 @@ public class General {
             else{
                 return date;
             }
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } catch (ParseException ignore) {
+//            e.printStackTrace();
+        }catch (NullPointerException ignore) {
+//            e.printStackTrace();
         }
 
         return date;

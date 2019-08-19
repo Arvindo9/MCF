@@ -1,7 +1,10 @@
 package com.aiprog.template.core.fragments;
 
+import com.aiprog.template.core.dialogs.deficiencies.DeficienciesDialog;
 import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
 import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationModule;
+import com.aiprog.template.core.fragments.viewItem.ViewItemFragment;
+import com.aiprog.template.core.fragments.viewItem.ViewItemModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -24,4 +27,10 @@ public abstract class FragmentHandlerProvider {
 
     @ContributesAndroidInjector(modules = StatusOfApplicationModule.class)
     abstract StatusOfApplicationFragment provideStatusOfApplicationFragment();
+
+    @ContributesAndroidInjector(modules = ViewItemModule.class)
+    abstract ViewItemFragment provideViewItemFragment();
+
+    @ContributesAndroidInjector()
+    abstract DeficienciesDialog provideDeficienciesDialog();
 }

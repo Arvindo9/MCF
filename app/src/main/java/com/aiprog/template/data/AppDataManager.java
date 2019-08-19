@@ -6,6 +6,7 @@ import com.aiprog.template.data.local.db.DatabaseService;
 import com.aiprog.template.data.local.prefs.PreferencesService;
 import com.aiprog.template.data.model.apis.flag.FlagApi;
 import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.aiprog.template.data.model.apis.viewItem.ViewItem;
 import com.aiprog.template.data.model.db.flag.Flag;
 import com.aiprog.template.data.model.db.login.LoginDb;
 import com.aiprog.template.data.remote.APIService;
@@ -127,6 +128,16 @@ public class AppDataManager implements DataManager {
         return pref.getUserType();
     }
 
+    @Override
+    public void setReferenceId(String referenceId) {
+        pref.setReferenceId(referenceId);
+    }
+
+    @Override
+    public String getReferenceId() {
+        return pref.getReferenceId();
+    }
+
     //Database---------------------------------
 
     @Override
@@ -162,6 +173,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Flowable<List<StatusOfApplicationResponse>> statusOfApplicationApi(String userId) {
         return apiService.statusOfApplicationApi(userId);
+    }
+
+    @Override
+    public Flowable<List<ViewItem>> viewItemDetailsApi(String applicationId) {
+        return apiService.viewItemDetailsApi(applicationId);
     }
 
 }
