@@ -51,6 +51,7 @@ public class ScrutinyOfDocumentViewModel extends BaseViewModel<ScrutinyOfDocumen
     //APIs--------------------------------------------
 
     void  callApi(String applicationId) {
+        setIsLoading(true);
         getCompositeDisposable().add(getDataManager()
                 .dashboardScrutinyOfDocuments(applicationId)
                 .subscribeOn(getSchedulerProvider().io())
@@ -59,7 +60,8 @@ public class ScrutinyOfDocumentViewModel extends BaseViewModel<ScrutinyOfDocumen
                     if (response != null) {
                         modelLiveData.setValue(response);
                     }
-                }, Throwable::printStackTrace));
+                    setIsLoading(false);
+                },throwable -> setIsLoading(false)));
     }
 
 

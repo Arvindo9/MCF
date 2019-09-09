@@ -51,6 +51,7 @@ public class CasesAfterAssessmentViewModel extends BaseViewModel<CasesAfterAsses
     //APIs--------------------------------------------
 
     void  callApiFresh() {
+        setIsLoading(true);
         String userId = getDataManager().getReferenceId();
         getCompositeDisposable().add(getDataManager()
                 .casesAfterAssessmentFresh(userId)
@@ -60,10 +61,13 @@ public class CasesAfterAssessmentViewModel extends BaseViewModel<CasesAfterAsses
                     if (response != null) {
                         modelLiveData.setValue(response);
                     }
-                }, Throwable::printStackTrace));
+                    setIsLoading(false);
+                }, throwable ->
+                        setIsLoading(false)));
     }
 
     void  callApiReverted() {
+        setIsLoading(true);
         String userId = getDataManager().getReferenceId();
         getCompositeDisposable().add(getDataManager()
                 .casesAfterAssessmentReverted(userId)
@@ -73,7 +77,9 @@ public class CasesAfterAssessmentViewModel extends BaseViewModel<CasesAfterAsses
                     if (response != null) {
                         modelLiveData.setValue(response);
                     }
-                }, Throwable::printStackTrace));
+                    setIsLoading(false);
+                }, throwable ->
+                        setIsLoading(false)));
     }
 
 

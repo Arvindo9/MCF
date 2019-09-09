@@ -36,6 +36,7 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
     }
 
     public void doLogin(String userId, String password) {
+        setIsLoading(true);
         getCompositeDisposable().add(getDataManager()
                 .userLogin(userId, password)
                 .subscribeOn(getSchedulerProvider().io())
@@ -63,11 +64,14 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
 
                         Logger.e("admin login");
                     }
+
+                    setIsLoading(false);
                 }, throwable -> {
                     if(isLoginError) {
                         getNavigator().handleError(throwable);
                     }
                     isLoginError = true;
+                    setIsLoading(false);
                 }));
 
         getCompositeDisposable().add(getDataManager()
@@ -93,7 +97,11 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                         getDataManager().setLoggedInMode(DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_IN);
 
                         Logger.e("vendor login");
+                        setIsLoading(false);
                     }
-                }, throwable -> getNavigator().handleError(throwable)));
+                }, throwable -> {
+                    getNavigator().handleError(throwable);
+                    setIsLoading(false);}
+                ));
     }
 }

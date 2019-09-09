@@ -53,6 +53,7 @@ public class DashboardViewModel extends BaseViewModel<DashboardNavigator> {
     //APIs--------------------------------------------
 
     private void  callApi() {
+        setIsLoading(false);
         String userId = getDataManager().getReferenceId();
         getCompositeDisposable().add(getDataManager()
                 .dashboardData(userId)
@@ -62,7 +63,10 @@ public class DashboardViewModel extends BaseViewModel<DashboardNavigator> {
                     if (response != null) {
                         modelLiveData.setValue(response);
                     }
-                }, Throwable::printStackTrace));
+                    setIsLoading(false);
+                }, throwable -> {
+                    setIsLoading(false);
+                }));
     }
 
 

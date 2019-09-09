@@ -41,6 +41,7 @@ public class VendorWiseViewModel extends BaseViewModel<VendorWiseNavigator> {
     //Additional------------------------
 
     private void onFirmsNameLoad(){
+        setIsLoading(true);
         getCompositeDisposable().add(getDataManager()
                 .userLogin("", "")
                 .subscribeOn(getSchedulerProvider().io())
@@ -48,7 +49,11 @@ public class VendorWiseViewModel extends BaseViewModel<VendorWiseNavigator> {
                 .subscribe(response -> {
                     if (response != null) {
                         getNavigator().onSpinnerDataLoad(null);
+                        setIsLoading(false);
                     }
-                }, throwable -> getNavigator().handleError(throwable)));
+                }, throwable -> {
+                    getNavigator().handleError(throwable);
+                    setIsLoading(false);
+                }));
     }
 }

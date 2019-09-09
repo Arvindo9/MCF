@@ -54,6 +54,7 @@ public class ViewItemViewModel extends BaseViewModel<ViewItemNavigator> {
     //APIs--------------------------------------------
 
     void  callApi(String applicationId) {
+        setIsLoading(true);
         getCompositeDisposable().add(getDataManager()
                 .viewItemDetailsApi(applicationId)
                 .subscribeOn(getSchedulerProvider().io())
@@ -62,7 +63,11 @@ public class ViewItemViewModel extends BaseViewModel<ViewItemNavigator> {
                     if (response != null) {
                         modelLiveData.setValue(response);
                     }
-                }, Throwable::printStackTrace));
+                    setIsLoading(false);
+                }, throwable -> {
+                    throwable.printStackTrace();
+                    setIsLoading(false);
+                }));
     }
 
 

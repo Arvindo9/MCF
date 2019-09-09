@@ -55,6 +55,7 @@ public class StatusOfApplicationViewModel extends BaseViewModel<StatusOfApplicat
     //APIs--------------------------------------------
 
     private void  callApi() {
+        setIsLoading(true);
         String userId = getDataManager().getReferenceId();
         getCompositeDisposable().add(getDataManager()
                 .statusOfApplicationApi(userId)
@@ -64,7 +65,10 @@ public class StatusOfApplicationViewModel extends BaseViewModel<StatusOfApplicat
                     if (response != null) {
                         modelLiveData.setValue(response);
                     }
-                }, Throwable::printStackTrace));
+                    setIsLoading(false);
+                }, throwable -> {
+                    setIsLoading(false);
+                }));
     }
 
 
