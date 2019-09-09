@@ -7,7 +7,7 @@
     <data>
         <variable
             name="data"
-            type="com.indtel.template.core.fragments.FragmentHandlerViewModel" />
+            type="com.indtel.mcf.core.fragments.FragmentHandlerViewModel" />
     </data>
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"

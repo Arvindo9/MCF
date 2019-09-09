@@ -6,7 +6,7 @@
     <data>
         <variable
             name="data"
-            type="com.indtel.template.core.fragments.statusOfApplication.adapter.AdapterViewModel" />
+            type="com.indtel.mcf.core.fragments.statusOfApplication.adapter.AdapterViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

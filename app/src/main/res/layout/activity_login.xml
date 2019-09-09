@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="com.indtel.template.ui.launcher.credential.LoginViewModel" />
+            type="com.indtel.mcf.ui.launcher.credential.LoginViewModel" />
     </data>
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"

@@ -7,7 +7,7 @@
     <data>
         <variable
             name="data"
-            type="com.indtel.template.core.fragments.viewItem.adapter.ViewItemAdapterViewModel" />
+            type="com.indtel.mcf.core.fragments.viewItem.adapter.ViewItemAdapterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

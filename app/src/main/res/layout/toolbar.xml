@@ -10,7 +10,7 @@
 
         <variable
             name="data"
-            type="com.indtel.template.core.binding.BindingUtils" />
+            type="com.indtel.mcf.core.binding.BindingUtils" />
     </data>
 
     <androidx.appcompat.widget.Toolbar

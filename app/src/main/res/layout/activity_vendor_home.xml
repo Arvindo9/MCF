@@ -7,7 +7,7 @@
     <data>
         <variable
             name="data"
-            type="com.indtel.template.ui.home.vendor.VendorHomeViewModel" />
+            type="com.indtel.mcf.ui.home.vendor.VendorHomeViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
