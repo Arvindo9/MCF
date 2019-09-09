@@ -1,16 +1,16 @@
-package com.aiprog.template.utils.tasks;
+package com.indtel.template.utils.tasks;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.data.model.db.flag.Flag;
-import com.aiprog.template.utils.Logger;
-import com.aiprog.template.utils.rx.SchedulerProvider;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.data.model.db.flag.Flag;
+import com.indtel.template.utils.Logger;
+import com.indtel.template.utils.rx.SchedulerProvider;
 
 import java.util.List;
 
 import javax.inject.Singleton;
 
-import static com.aiprog.template.utils.AppConstants.RESULT_SUCCESS;
+import static com.indtel.template.utils.AppConstants.RESULT_SUCCESS;
 
 /**
  * Author       : Arvindo Mondal

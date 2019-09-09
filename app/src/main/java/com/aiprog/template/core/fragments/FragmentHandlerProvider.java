@@ -1,10 +1,10 @@
-package com.aiprog.template.core.fragments;
+package com.indtel.template.core.fragments;
 
-import com.aiprog.template.core.dialogs.deficiencies.DeficienciesDialog;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationModule;
-import com.aiprog.template.core.fragments.viewItem.ViewItemFragment;
-import com.aiprog.template.core.fragments.viewItem.ViewItemModule;
+import com.indtel.template.core.dialogs.deficiencies.DeficienciesDialog;
+import com.indtel.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
+import com.indtel.template.core.fragments.statusOfApplication.StatusOfApplicationModule;
+import com.indtel.template.core.fragments.viewItem.ViewItemFragment;
+import com.indtel.template.core.fragments.viewItem.ViewItemModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

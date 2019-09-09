@@ -1,4 +1,4 @@
-package com.aiprog.template.core.fragments;
+package com.indtel.template.core.fragments;
 
 import android.os.Parcel;
 import android.os.Parcelable;

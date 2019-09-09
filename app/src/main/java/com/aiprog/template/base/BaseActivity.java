@@ -1,4 +1,4 @@
-package com.aiprog.template.base;
+package com.indtel.template.base;
 
 import android.Manifest;
 import android.app.Activity;
@@ -28,7 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.aiprog.template.R;
+import com.indtel.template.R;
 
 import org.jetbrains.annotations.NotNull;
 

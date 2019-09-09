@@ -1,13 +1,13 @@
-package com.aiprog.template.ui.launcher.credential;
+package com.indtel.template.ui.launcher.credential;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.utils.Logger;
-import com.aiprog.template.utils.rx.SchedulerProvider;
-import com.aiprog.template.utils.tasks.Task;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.utils.Logger;
+import com.indtel.template.utils.rx.SchedulerProvider;
+import com.indtel.template.utils.tasks.Task;
 
-import static com.aiprog.template.utils.AppConstants.USER_TYPE_SSE;
-import static com.aiprog.template.utils.AppConstants.USER_TYPE_VENDOR;
+import static com.indtel.template.utils.AppConstants.USER_TYPE_SSE;
+import static com.indtel.template.utils.AppConstants.USER_TYPE_VENDOR;
 
 /**
  * Author       : Arvindo Mondal

@@ -1,8 +1,8 @@
-package com.aiprog.template.core.fragments;
+package com.indtel.template.core.fragments;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.utils.rx.SchedulerProvider;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.utils.rx.SchedulerProvider;
 
 /**
  * Author       : Arvindo Mondal

@@ -1,9 +1,9 @@
-package com.aiprog.template.utils.util;
+package com.indtel.template.utils.util;
 
 import android.widget.EditText;
 
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseActivity;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseActivity;
 
 import javax.inject.Singleton;
 

@@ -1,6 +1,6 @@
-package com.aiprog.template.core.fragments;
+package com.indtel.template.core.fragments;
 
-import com.aiprog.template.base.BaseNavigator;
+import com.indtel.template.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal

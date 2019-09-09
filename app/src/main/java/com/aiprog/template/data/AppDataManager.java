@@ -1,15 +1,15 @@
-package com.aiprog.template.data;
+package com.indtel.template.data;
 
 import android.content.Context;
 
-import com.aiprog.template.data.local.db.DatabaseService;
-import com.aiprog.template.data.local.prefs.PreferencesService;
-import com.aiprog.template.data.model.apis.flag.FlagApi;
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.data.model.apis.viewItem.ViewItem;
-import com.aiprog.template.data.model.db.flag.Flag;
-import com.aiprog.template.data.model.db.login.LoginDb;
-import com.aiprog.template.data.remote.APIService;
+import com.indtel.template.data.local.db.DatabaseService;
+import com.indtel.template.data.local.prefs.PreferencesService;
+import com.indtel.template.data.model.apis.flag.FlagApi;
+import com.indtel.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.indtel.template.data.model.apis.viewItem.ViewItem;
+import com.indtel.template.data.model.db.flag.Flag;
+import com.indtel.template.data.model.db.login.LoginDb;
+import com.indtel.template.data.remote.APIService;
 import com.google.gson.Gson;
 
 import java.util.List;

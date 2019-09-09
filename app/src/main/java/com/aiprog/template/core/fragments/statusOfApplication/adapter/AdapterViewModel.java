@@ -1,9 +1,9 @@
-package com.aiprog.template.core.fragments.statusOfApplication.adapter;
+package com.indtel.template.core.fragments.statusOfApplication.adapter;
 
 import androidx.databinding.ObservableField;
 
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.utils.util.General;
+import com.indtel.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.indtel.template.utils.util.General;
 
 /**
  * Author       : Arvindo Mondal

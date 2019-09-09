@@ -14,7 +14,7 @@
  *  limitations under the License
  */
 
-package com.aiprog.template.core.binding;
+package com.indtel.template.core.binding;
 
 import android.widget.ImageView;
 
@@ -22,11 +22,11 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableField;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aiprog.template.R;
-import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
-import com.aiprog.template.core.fragments.viewItem.adapter.ViewItemAdapter;
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.data.model.apis.viewItem.ViewItem;
+import com.indtel.template.R;
+import com.indtel.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
+import com.indtel.template.core.fragments.viewItem.adapter.ViewItemAdapter;
+import com.indtel.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.indtel.template.data.model.apis.viewItem.ViewItem;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;

@@ -1,4 +1,4 @@
-package com.aiprog.template.base;
+package com.indtel.template.base;
 
 import android.content.Context;
 import android.os.Bundle;

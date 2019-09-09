@@ -1,6 +1,6 @@
-package com.aiprog.template.ui.home.vendor;
+package com.indtel.template.ui.home.vendor;
 
-import com.aiprog.template.base.BaseNavigator;
+import com.indtel.template.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal

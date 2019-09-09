@@ -1,4 +1,4 @@
-package com.aiprog.template.core.dialogs;
+package com.indtel.template.core.dialogs;
 
 import java.util.List;
 

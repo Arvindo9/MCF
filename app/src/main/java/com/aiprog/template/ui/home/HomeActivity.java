@@ -1,4 +1,4 @@
-package com.aiprog.template.ui.home;
+package com.indtel.template.ui.home;
 
 /**
  * Author       : Arvindo Mondal

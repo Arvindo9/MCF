@@ -1,4 +1,4 @@
-package com.aiprog.template.data.remote;
+package com.indtel.template.data.remote;
 
 
 /**

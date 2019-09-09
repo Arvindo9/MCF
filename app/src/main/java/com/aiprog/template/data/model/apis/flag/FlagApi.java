@@ -1,5 +1,5 @@
 
-package com.aiprog.template.data.model.apis.flag;
+package com.indtel.template.data.model.apis.flag;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

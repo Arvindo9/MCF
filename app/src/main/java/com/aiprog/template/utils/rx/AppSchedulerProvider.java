@@ -1,4 +1,4 @@
-package com.aiprog.template.utils.rx;
+package com.indtel.template.utils.rx;
 
 
 import io.reactivex.Scheduler;

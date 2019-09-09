@@ -1,4 +1,4 @@
-package com.aiprog.template.core.dialogs.deficiencies;
+package com.indtel.template.core.dialogs.deficiencies;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,17 +6,17 @@ import android.widget.RadioButton;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import com.aiprog.template.BR;
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseDialog;
-import com.aiprog.template.core.dialogs.DialogListener;
-import com.aiprog.template.databinding.DialogDeficienciesBinding;
-import com.aiprog.template.di.module.ViewModelProviderFactory;
+import com.indtel.template.BR;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseDialog;
+import com.indtel.template.core.dialogs.DialogListener;
+import com.indtel.template.databinding.DialogDeficienciesBinding;
+import com.indtel.template.di.module.ViewModelProviderFactory;
 
 import javax.inject.Inject;
 
-import static com.aiprog.template.utils.AppConstants.DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY;
-import static com.aiprog.template.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
+import static com.indtel.template.utils.AppConstants.DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY;
+import static com.indtel.template.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
 
 /**
  * Author       : Arvindo Mondal

@@ -1,15 +1,15 @@
-package com.aiprog.template.data.local.db;
+package com.indtel.template.data.local.db;
 
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.aiprog.template.data.local.db.dao.FlagDao;
-import com.aiprog.template.data.local.db.dao.LoginDao;
-import com.aiprog.template.data.local.db.utils.DateConverter;
-import com.aiprog.template.data.model.db.flag.Flag;
-import com.aiprog.template.data.model.db.login.LoginDb;
+import com.indtel.template.data.local.db.dao.FlagDao;
+import com.indtel.template.data.local.db.dao.LoginDao;
+import com.indtel.template.data.local.db.utils.DateConverter;
+import com.indtel.template.data.model.db.flag.Flag;
+import com.indtel.template.data.model.db.login.LoginDb;
 
 /**
  * Author       : Arvindo Mondal

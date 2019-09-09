@@ -1,9 +1,9 @@
-package com.aiprog.template.data;
+package com.indtel.template.data;
 
 
-import com.aiprog.template.data.local.db.DatabaseService;
-import com.aiprog.template.data.local.prefs.PreferencesService;
-import com.aiprog.template.data.remote.APIService;
+import com.indtel.template.data.local.db.DatabaseService;
+import com.indtel.template.data.local.prefs.PreferencesService;
+import com.indtel.template.data.remote.APIService;
 
 /**
  * Author       : Arvindo Mondal

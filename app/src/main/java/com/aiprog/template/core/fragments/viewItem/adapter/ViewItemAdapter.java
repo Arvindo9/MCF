@@ -1,10 +1,9 @@
-package com.aiprog.template.core.fragments.viewItem.adapter;
+package com.indtel.template.core.fragments.viewItem.adapter;
 
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseAdapter;
-import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
-import com.aiprog.template.data.model.apis.viewItem.ViewItem;
-import com.aiprog.template.databinding.AdapterViewItemBinding;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseAdapter;
+import com.indtel.template.data.model.apis.viewItem.ViewItem;
+import com.indtel.template.databinding.AdapterViewItemBinding;
 
 import java.util.ArrayList;
 import java.util.List;

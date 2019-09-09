@@ -1,11 +1,11 @@
-package com.aiprog.template.ui.launcher.welcome;
+package com.indtel.template.ui.launcher.welcome;
 
 import android.content.Context;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.utils.rx.SchedulerProvider;
-import com.aiprog.template.utils.tasks.Task;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.utils.rx.SchedulerProvider;
+import com.indtel.template.utils.tasks.Task;
 
 import java.lang.ref.WeakReference;
 

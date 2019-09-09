@@ -1,30 +1,30 @@
-package com.aiprog.template.di.module;
+package com.indtel.template.di.module;
 
 import android.app.Application;
 import android.content.Context;
 
 import androidx.room.Room;
 
-import com.aiprog.template.data.AppDataManager;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.data.local.db.AppDatabase;
-import com.aiprog.template.data.local.db.Database;
-import com.aiprog.template.data.local.db.DatabaseService;
-import com.aiprog.template.data.local.prefs.AppPreferences;
-import com.aiprog.template.data.local.prefs.PreferencesService;
-import com.aiprog.template.data.remote.APIService;
-import com.aiprog.template.data.remote.APIs;
-import com.aiprog.template.di.annotation.ApiService;
-import com.aiprog.template.di.annotation.DatabaseInfo;
-import com.aiprog.template.di.annotation.PassPhraseField;
-import com.aiprog.template.di.annotation.PreferenceInfo;
-import com.aiprog.template.utils.AppConstants;
-import com.aiprog.template.utils.rx.AppSchedulerProvider;
-import com.aiprog.template.utils.rx.SchedulerProvider;
-import com.aiprog.template.utils.tasks.Task;
-import com.aiprog.template.utils.tasks.Tasks;
-import com.aiprog.template.utils.util.Resource;
-import com.aiprog.template.utils.util.ResourceUtils;
+import com.indtel.template.data.AppDataManager;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.data.local.db.AppDatabase;
+import com.indtel.template.data.local.db.Database;
+import com.indtel.template.data.local.db.DatabaseService;
+import com.indtel.template.data.local.prefs.AppPreferences;
+import com.indtel.template.data.local.prefs.PreferencesService;
+import com.indtel.template.data.remote.APIService;
+import com.indtel.template.data.remote.APIs;
+import com.indtel.template.di.annotation.ApiService;
+import com.indtel.template.di.annotation.DatabaseInfo;
+import com.indtel.template.di.annotation.PassPhraseField;
+import com.indtel.template.di.annotation.PreferenceInfo;
+import com.indtel.template.utils.AppConstants;
+import com.indtel.template.utils.rx.AppSchedulerProvider;
+import com.indtel.template.utils.rx.SchedulerProvider;
+import com.indtel.template.utils.tasks.Task;
+import com.indtel.template.utils.tasks.Tasks;
+import com.indtel.template.utils.util.Resource;
+import com.indtel.template.utils.util.ResourceUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -44,7 +44,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-import static com.aiprog.template.BuildConfig.BASE_URL;
+import static com.indtel.template.BuildConfig.BASE_URL;
 
 /**
  * Author       : Arvindo Mondal

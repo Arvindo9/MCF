@@ -1,6 +1,6 @@
-package com.aiprog.template.core.fragments.statusOfApplication;
+package com.indtel.template.core.fragments.statusOfApplication;
 
-import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
+import com.indtel.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
 
 import java.util.ArrayList;
 

@@ -1,17 +1,17 @@
-package com.aiprog.template.core.fragments.statusOfApplication.adapter;
+package com.indtel.template.core.fragments.statusOfApplication.adapter;
 
 import android.content.Context;
 import android.view.View;
 
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseAdapter;
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.databinding.AdapterStatusOfApplicationBinding;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseAdapter;
+import com.indtel.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.indtel.template.databinding.AdapterStatusOfApplicationBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.aiprog.template.core.fragments.FragmentHandlerActivity.VIEW_ITEM_DETAILS;
+import static com.indtel.template.core.fragments.FragmentHandlerActivity.VIEW_ITEM_DETAILS;
 
 /**
  * Author       : Arvindo Mondal

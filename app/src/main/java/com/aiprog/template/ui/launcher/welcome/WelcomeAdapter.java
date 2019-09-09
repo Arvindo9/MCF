@@ -1,4 +1,4 @@
-package com.aiprog.template.ui.launcher.welcome;
+package com.indtel.template.ui.launcher.welcome;
 
 
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.aiprog.template.R;
+import com.indtel.template.R;
 
 /**
  * Author       : Arvindo Mondal

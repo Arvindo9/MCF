@@ -1,7 +1,7 @@
-package com.aiprog.template.data.local.prefs;
+package com.indtel.template.data.local.prefs;
 
 
-import com.aiprog.template.data.DataManager;
+import com.indtel.template.data.DataManager;
 
 /**
  * Author       : Arvindo Mondal

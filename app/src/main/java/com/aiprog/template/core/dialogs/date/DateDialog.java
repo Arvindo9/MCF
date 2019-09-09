@@ -1,4 +1,4 @@
-package com.aiprog.template.core.dialogs.date;
+package com.indtel.template.core.dialogs.date;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.widget.DatePicker;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
-import com.aiprog.template.R;
-import com.aiprog.template.utils.Logger;
+import com.indtel.template.R;
+import com.indtel.template.utils.Logger;
 
 import java.util.Calendar;
 

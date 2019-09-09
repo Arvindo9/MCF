@@ -1,4 +1,4 @@
-package com.aiprog.template.data.local.db.utils;
+package com.indtel.template.data.local.db.utils;
 
 
 import androidx.room.TypeConverter;

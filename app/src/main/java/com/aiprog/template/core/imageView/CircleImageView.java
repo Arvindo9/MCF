@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aiprog.template.core.imageView;
+package com.indtel.template.core.imageView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -45,7 +45,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.aiprog.template.R;
+import com.indtel.template.R;
 
 /**
  * Author       : Arvindo Mondal

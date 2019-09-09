@@ -1,11 +1,11 @@
-package com.aiprog.template.base;
+package com.indtel.template.base;
 
 import android.app.Activity;
 import android.app.Application;
 import android.app.Service;
 
-import com.aiprog.template.di.component.DaggerAppComponent;
-import com.aiprog.template.utils.Logger;
+import com.indtel.template.di.component.DaggerAppComponent;
+import com.indtel.template.utils.Logger;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 

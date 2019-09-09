@@ -1,10 +1,6 @@
-package com.aiprog.template.ui.home.vendor;
+package com.indtel.template.ui.home.vendor;
 
-import com.aiprog.template.core.dialogs.deficiencies.DeficienciesDialog;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationModule;
-import com.aiprog.template.core.fragments.viewItem.ViewItemFragment;
-import com.aiprog.template.core.fragments.viewItem.ViewItemModule;
+import com.indtel.template.core.dialogs.deficiencies.DeficienciesDialog;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

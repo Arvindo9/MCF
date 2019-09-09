@@ -1,4 +1,4 @@
-package com.aiprog.template.core.recyclerview;
+package com.indtel.template.core.recyclerview;
 
 
 import androidx.recyclerview.widget.GridLayoutManager;

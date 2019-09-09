@@ -1,11 +1,11 @@
-package com.aiprog.template.data.local.prefs;
+package com.indtel.template.data.local.prefs;
 
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.di.annotation.PreferenceInfo;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.di.annotation.PreferenceInfo;
 
 import javax.inject.Inject;
 

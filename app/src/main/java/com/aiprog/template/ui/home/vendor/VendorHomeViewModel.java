@@ -1,12 +1,10 @@
-package com.aiprog.template.ui.home.vendor;
+package com.indtel.template.ui.home.vendor;
 
 import androidx.databinding.ObservableField;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.utils.rx.SchedulerProvider;
-
-import io.reactivex.internal.operators.observable.ObservableTake;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.utils.rx.SchedulerProvider;
 
 /**
  * Author       : Arvindo Mondal

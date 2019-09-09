@@ -1,4 +1,4 @@
-package com.aiprog.template.utils.location;
+package com.indtel.template.utils.location;
 
 import android.app.AlertDialog;
 import android.app.Service;

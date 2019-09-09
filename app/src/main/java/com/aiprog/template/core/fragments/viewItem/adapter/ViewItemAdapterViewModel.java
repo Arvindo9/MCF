@@ -1,10 +1,8 @@
-package com.aiprog.template.core.fragments.viewItem.adapter;
+package com.indtel.template.core.fragments.viewItem.adapter;
 
 import androidx.databinding.ObservableField;
 
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.data.model.apis.viewItem.ViewItem;
-import com.aiprog.template.utils.util.General;
+import com.indtel.template.data.model.apis.viewItem.ViewItem;
 
 /**
  * Author       : Arvindo Mondal

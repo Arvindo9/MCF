@@ -1,10 +1,10 @@
-package com.aiprog.template.data.remote;
+package com.indtel.template.data.remote;
 
 
-import com.aiprog.template.data.model.apis.flag.FlagApi;
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.data.model.apis.viewItem.ViewItem;
-import com.aiprog.template.data.model.db.login.LoginDb;
+import com.indtel.template.data.model.apis.flag.FlagApi;
+import com.indtel.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.indtel.template.data.model.apis.viewItem.ViewItem;
+import com.indtel.template.data.model.db.login.LoginDb;
 
 import java.util.List;
 

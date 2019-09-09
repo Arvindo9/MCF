@@ -1,4 +1,4 @@
-package com.aiprog.template.di.annotation;
+package com.indtel.template.di.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

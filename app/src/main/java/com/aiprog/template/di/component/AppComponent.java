@@ -1,11 +1,11 @@
-package com.aiprog.template.di.component;
+package com.indtel.template.di.component;
 
 
 import android.app.Application;
 
-import com.aiprog.template.base.BaseApplication;
-import com.aiprog.template.di.builder.ActivityBuilder;
-import com.aiprog.template.di.module.AppModule;
+import com.indtel.template.base.BaseApplication;
+import com.indtel.template.di.builder.ActivityBuilder;
+import com.indtel.template.di.module.AppModule;
 
 import javax.inject.Singleton;
 

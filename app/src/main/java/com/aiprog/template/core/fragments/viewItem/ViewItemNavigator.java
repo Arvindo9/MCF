@@ -1,8 +1,7 @@
-package com.aiprog.template.core.fragments.viewItem;
+package com.indtel.template.core.fragments.viewItem;
 
-import com.aiprog.template.base.BaseNavigator;
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.data.model.apis.viewItem.ViewItem;
+import com.indtel.template.base.BaseNavigator;
+import com.indtel.template.data.model.apis.viewItem.ViewItem;
 
 import java.util.List;
 

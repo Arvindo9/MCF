@@ -1,4 +1,4 @@
-package com.aiprog.template.ui.launcher.welcome;
+package com.indtel.template.ui.launcher.welcome;
 
 /**
  * Author       : Arvindo Mondal

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="data"
-            type="com.aiprog.template.core.dialogs.deficiencies.DeficienciesViewModel" />
+            type="com.indtel.template.core.dialogs.deficiencies.DeficienciesViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

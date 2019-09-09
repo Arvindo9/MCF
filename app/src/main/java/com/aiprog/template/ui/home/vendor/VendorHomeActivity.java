@@ -1,4 +1,4 @@
-package com.aiprog.template.ui.home.vendor;
+package com.indtel.template.ui.home.vendor;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,15 +8,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.aiprog.template.BR;
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseActivity;
-import com.aiprog.template.core.dialogs.DialogListener;
-import com.aiprog.template.core.dialogs.deficiencies.DeficienciesDialog;
-import com.aiprog.template.core.fragments.FragmentHandlerActivity;
-import com.aiprog.template.databinding.ActivityVendorHomeBinding;
-import com.aiprog.template.di.module.ViewModelProviderFactory;
-import com.aiprog.template.ui.launcher.splash.SplashActivity;
+import com.indtel.template.BR;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseActivity;
+import com.indtel.template.core.dialogs.DialogListener;
+import com.indtel.template.core.dialogs.deficiencies.DeficienciesDialog;
+import com.indtel.template.core.fragments.FragmentHandlerActivity;
+import com.indtel.template.databinding.ActivityVendorHomeBinding;
+import com.indtel.template.di.module.ViewModelProviderFactory;
+import com.indtel.template.ui.launcher.splash.SplashActivity;
 
 import javax.inject.Inject;
 
@@ -24,7 +24,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-import static com.aiprog.template.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
+import static com.indtel.template.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
 
 /**
  * Author       : Arvindo Mondal

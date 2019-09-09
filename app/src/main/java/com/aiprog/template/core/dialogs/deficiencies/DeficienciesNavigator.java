@@ -1,8 +1,8 @@
-package com.aiprog.template.core.dialogs.deficiencies;
+package com.indtel.template.core.dialogs.deficiencies;
 
 import android.view.View;
 
-import com.aiprog.template.base.BaseNavigator;
+import com.indtel.template.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal

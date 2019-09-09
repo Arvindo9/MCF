@@ -1,22 +1,18 @@
-package com.aiprog.template.core.fragments.viewItem;
+package com.indtel.template.core.fragments.viewItem;
 
 import android.os.Bundle;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import com.aiprog.template.BR;
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseFragment;
-import com.aiprog.template.core.fragments.FragmentListener;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationViewModel;
-import com.aiprog.template.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
-import com.aiprog.template.core.fragments.viewItem.adapter.ViewItemAdapter;
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.data.model.apis.viewItem.ViewItem;
-import com.aiprog.template.databinding.FragmentStatusOfApplicationBinding;
-import com.aiprog.template.databinding.FragmentViewItemBinding;
-import com.aiprog.template.di.module.ViewModelProviderFactory;
+import com.indtel.template.BR;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseFragment;
+import com.indtel.template.core.fragments.FragmentListener;
+import com.indtel.template.core.fragments.viewItem.adapter.ViewItemAdapter;
+import com.indtel.template.data.model.apis.viewItem.ViewItem;
+import com.indtel.template.databinding.FragmentStatusOfApplicationBinding;
+import com.indtel.template.databinding.FragmentViewItemBinding;
+import com.indtel.template.di.module.ViewModelProviderFactory;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.aiprog.template.ui.launcher.splash;
+package com.indtel.template.ui.launcher.splash;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,14 +7,14 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.aiprog.template.BR;
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseActivity;
-import com.aiprog.template.databinding.SplashActivityBinding;
-import com.aiprog.template.di.module.ViewModelProviderFactory;
-import com.aiprog.template.ui.home.vendor.VendorHomeActivity;
-import com.aiprog.template.ui.launcher.credential.LoginActivity;
-import com.aiprog.template.ui.launcher.welcome.WelcomeActivity;
+import com.indtel.template.BR;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseActivity;
+import com.indtel.template.databinding.SplashActivityBinding;
+import com.indtel.template.di.module.ViewModelProviderFactory;
+import com.indtel.template.ui.home.vendor.VendorHomeActivity;
+import com.indtel.template.ui.launcher.credential.LoginActivity;
+import com.indtel.template.ui.launcher.welcome.WelcomeActivity;
 
 import javax.inject.Inject;
 

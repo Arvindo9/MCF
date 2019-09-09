@@ -1,4 +1,4 @@
-package com.aiprog.template.core.fragments;
+package com.indtel.template.core.fragments;
 
 import java.util.List;
 

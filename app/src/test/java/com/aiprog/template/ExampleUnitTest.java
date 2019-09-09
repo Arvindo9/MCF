@@ -1,4 +1,4 @@
-package com.aiprog.template;
+package com.indtel.template;
 
 import org.junit.Test;
 

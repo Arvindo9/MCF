@@ -1,13 +1,13 @@
-package com.aiprog.template.core.fragments.statusOfApplication;
+package com.indtel.template.core.fragments.statusOfApplication;
 
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
 import androidx.lifecycle.MutableLiveData;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.aiprog.template.utils.rx.SchedulerProvider;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.indtel.template.utils.rx.SchedulerProvider;
 
 import java.util.List;
 

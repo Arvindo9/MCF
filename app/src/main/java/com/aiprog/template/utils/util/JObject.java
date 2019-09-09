@@ -1,4 +1,4 @@
-package com.aiprog.template.utils.util;
+package com.indtel.template.utils.util;
 
 import org.json.JSONArray;
 import org.json.JSONException;

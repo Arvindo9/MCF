@@ -1,7 +1,7 @@
-package com.aiprog.template.data.local.db;
+package com.indtel.template.data.local.db;
 
 
-import com.aiprog.template.data.model.db.flag.Flag;
+import com.indtel.template.data.model.db.flag.Flag;
 
 import java.util.List;
 

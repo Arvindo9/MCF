@@ -1,20 +1,20 @@
-package com.aiprog.template.di.module;
+package com.indtel.template.di.module;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.aiprog.template.core.dialogs.deficiencies.DeficienciesViewModel;
-import com.aiprog.template.core.fragments.FragmentHandlerViewModel;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationViewModel;
-import com.aiprog.template.core.fragments.viewItem.ViewItemViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.ui.home.vendor.VendorHomeViewModel;
-import com.aiprog.template.ui.launcher.credential.LoginViewModel;
-import com.aiprog.template.ui.launcher.splash.SplashViewModel;
-import com.aiprog.template.ui.launcher.welcome.WelcomeViewModel;
-import com.aiprog.template.utils.rx.SchedulerProvider;
-import com.aiprog.template.utils.tasks.Task;
-import com.aiprog.template.utils.tasks.Tasks;
+import com.indtel.template.core.dialogs.deficiencies.DeficienciesViewModel;
+import com.indtel.template.core.fragments.FragmentHandlerViewModel;
+import com.indtel.template.core.fragments.statusOfApplication.StatusOfApplicationViewModel;
+import com.indtel.template.core.fragments.viewItem.ViewItemViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.ui.home.vendor.VendorHomeViewModel;
+import com.indtel.template.ui.launcher.credential.LoginViewModel;
+import com.indtel.template.ui.launcher.splash.SplashViewModel;
+import com.indtel.template.ui.launcher.welcome.WelcomeViewModel;
+import com.indtel.template.utils.rx.SchedulerProvider;
+import com.indtel.template.utils.tasks.Task;
+import com.indtel.template.utils.tasks.Tasks;
 
 import org.jetbrains.annotations.NotNull;
 

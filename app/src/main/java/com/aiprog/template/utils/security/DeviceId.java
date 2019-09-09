@@ -1,9 +1,8 @@
-package com.aiprog.template.utils.security;
+package com.indtel.template.utils.security;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;

@@ -1,11 +1,11 @@
-package com.aiprog.template.data.local.db.dao;
+package com.indtel.template.data.local.db.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.aiprog.template.data.model.db.flag.Flag;
+import com.indtel.template.data.model.db.flag.Flag;
 
 import java.util.List;
 

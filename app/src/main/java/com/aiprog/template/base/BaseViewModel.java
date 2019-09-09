@@ -1,11 +1,11 @@
-package com.aiprog.template.base;
+package com.indtel.template.base;
 
 import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.ViewModel;
 
-import com.aiprog.template.core.binding.BindingUtils;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.utils.rx.SchedulerProvider;
+import com.indtel.template.core.binding.BindingUtils;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.utils.rx.SchedulerProvider;
 
 import java.lang.ref.WeakReference;
 

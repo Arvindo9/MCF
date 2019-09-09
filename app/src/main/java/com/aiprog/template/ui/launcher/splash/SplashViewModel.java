@@ -1,13 +1,13 @@
-package com.aiprog.template.ui.launcher.splash;
+package com.indtel.template.ui.launcher.splash;
 
 import android.os.Handler;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.DataManager;
-import com.aiprog.template.utils.rx.SchedulerProvider;
-import com.aiprog.template.utils.tasks.Task;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.DataManager;
+import com.indtel.template.utils.rx.SchedulerProvider;
+import com.indtel.template.utils.tasks.Task;
 
-import static com.aiprog.template.utils.AppConstants.USER_TYPE_VENDOR;
+import static com.indtel.template.utils.AppConstants.USER_TYPE_VENDOR;
 
 /**
  * Author       : Arvindo Mondal

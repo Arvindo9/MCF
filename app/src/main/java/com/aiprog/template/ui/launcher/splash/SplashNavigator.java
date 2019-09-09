@@ -1,6 +1,6 @@
-package com.aiprog.template.ui.launcher.splash;
+package com.indtel.template.ui.launcher.splash;
 
-import com.aiprog.template.base.BaseNavigator;
+import com.indtel.template.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal

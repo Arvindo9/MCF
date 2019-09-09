@@ -1,4 +1,4 @@
-package com.aiprog.template.data.model.apis.viewItem;
+package com.indtel.template.data.model.apis.viewItem;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,7 +1,7 @@
-package com.aiprog.template.utils.tasks;
+package com.indtel.template.utils.tasks;
 
-import com.aiprog.template.base.BaseViewModel;
-import com.aiprog.template.data.model.db.flag.Flag;
+import com.indtel.template.base.BaseViewModel;
+import com.indtel.template.data.model.db.flag.Flag;
 
 import java.util.List;
 

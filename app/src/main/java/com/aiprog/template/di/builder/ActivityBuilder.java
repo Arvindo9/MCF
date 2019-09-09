@@ -1,13 +1,13 @@
-package com.aiprog.template.di.builder;
+package com.indtel.template.di.builder;
 
-import com.aiprog.template.core.fragments.FragmentHandlerActivity;
-import com.aiprog.template.core.fragments.FragmentHandlerProvider;
-import com.aiprog.template.ui.home.vendor.VendorHomeActivity;
-import com.aiprog.template.ui.home.vendor.VendorHomeProvider;
-import com.aiprog.template.ui.launcher.credential.LoginActivity;
-import com.aiprog.template.ui.launcher.splash.SplashActivity;
-import com.aiprog.template.ui.launcher.welcome.WelcomeActivity;
-import com.aiprog.template.ui.launcher.welcome.WelcomeModule;
+import com.indtel.template.core.fragments.FragmentHandlerActivity;
+import com.indtel.template.core.fragments.FragmentHandlerProvider;
+import com.indtel.template.ui.home.vendor.VendorHomeActivity;
+import com.indtel.template.ui.home.vendor.VendorHomeProvider;
+import com.indtel.template.ui.launcher.credential.LoginActivity;
+import com.indtel.template.ui.launcher.splash.SplashActivity;
+import com.indtel.template.ui.launcher.welcome.WelcomeActivity;
+import com.indtel.template.ui.launcher.welcome.WelcomeModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

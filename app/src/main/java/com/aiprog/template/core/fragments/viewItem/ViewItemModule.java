@@ -1,6 +1,6 @@
-package com.aiprog.template.core.fragments.viewItem;
+package com.indtel.template.core.fragments.viewItem;
 
-import com.aiprog.template.core.fragments.viewItem.adapter.ViewItemAdapter;
+import com.indtel.template.core.fragments.viewItem.adapter.ViewItemAdapter;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.aiprog.template.core.fragments;
+package com.indtel.template.core.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,13 +11,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.aiprog.template.BR;
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseActivity;
-import com.aiprog.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
-import com.aiprog.template.core.fragments.viewItem.ViewItemFragment;
-import com.aiprog.template.databinding.ActivityFragmentHandlerBinding;
-import com.aiprog.template.di.module.ViewModelProviderFactory;
+import com.indtel.template.BR;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseActivity;
+import com.indtel.template.core.fragments.statusOfApplication.StatusOfApplicationFragment;
+import com.indtel.template.core.fragments.viewItem.ViewItemFragment;
+import com.indtel.template.databinding.ActivityFragmentHandlerBinding;
+import com.indtel.template.di.module.ViewModelProviderFactory;
 
 import org.jetbrains.annotations.NotNull;
 

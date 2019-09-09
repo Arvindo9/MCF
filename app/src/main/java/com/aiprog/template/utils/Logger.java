@@ -14,9 +14,9 @@
  *  limitations under the License
  */
 
-package com.aiprog.template.utils;
+package com.indtel.template.utils;
 
-import com.aiprog.template.BuildConfig;
+import com.indtel.template.BuildConfig;
 
 import timber.log.Timber;
 

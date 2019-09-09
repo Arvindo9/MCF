@@ -1,4 +1,4 @@
-package com.aiprog.template.utils.util;
+package com.indtel.template.utils.util;
 
 
 import android.app.Activity;
@@ -14,12 +14,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.aiprog.template.utils.AppConstants.DATE_FORMAT_INTEGER;
-import static com.aiprog.template.utils.AppConstants.DATE_TIME_NAME_FORMAT;
-import static com.aiprog.template.utils.AppConstants.GENERAL_DATE_FORMAT;
-import static com.aiprog.template.utils.AppConstants.GENERAL_DATE_TIME_FORMAT;
-import static com.aiprog.template.utils.AppConstants.LOG_DELETE_DATE_INCREMENT;
-import static com.aiprog.template.utils.AppConstants.STANDARD_DATE_FORMAT;
+import static com.indtel.template.utils.AppConstants.DATE_FORMAT_INTEGER;
+import static com.indtel.template.utils.AppConstants.DATE_TIME_NAME_FORMAT;
+import static com.indtel.template.utils.AppConstants.GENERAL_DATE_FORMAT;
+import static com.indtel.template.utils.AppConstants.GENERAL_DATE_TIME_FORMAT;
+import static com.indtel.template.utils.AppConstants.LOG_DELETE_DATE_INCREMENT;
+import static com.indtel.template.utils.AppConstants.STANDARD_DATE_FORMAT;
 
 /**
  * Author       : Arvindo Mondal

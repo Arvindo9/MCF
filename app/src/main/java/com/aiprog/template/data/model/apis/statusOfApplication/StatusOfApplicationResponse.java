@@ -1,4 +1,4 @@
-package com.aiprog.template.data.model.apis.statusOfApplication;
+package com.indtel.template.data.model.apis.statusOfApplication;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

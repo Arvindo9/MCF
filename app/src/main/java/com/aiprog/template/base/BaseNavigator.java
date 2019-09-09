@@ -1,4 +1,4 @@
-package com.aiprog.template.base;
+package com.indtel.template.base;
 
 /**
  * Author       : Arvindo Mondal

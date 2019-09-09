@@ -1,4 +1,4 @@
-package com.aiprog.template.data.model.db.login;
+package com.indtel.template.data.model.db.login;
 
 import android.os.Parcel;
 import android.os.Parcelable;

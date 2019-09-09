@@ -1,5 +1,5 @@
 
-package com.aiprog.template.data.model.db.flag;
+package com.indtel.template.data.model.db.flag;
 
 import android.os.Parcel;
 import android.os.Parcelable;

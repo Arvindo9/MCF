@@ -1,4 +1,4 @@
-package com.aiprog.template.ui.launcher.welcome;
+package com.indtel.template.ui.launcher.welcome;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,13 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
-import com.aiprog.template.BR;
-import com.aiprog.template.R;
-import com.aiprog.template.base.BaseActivity;
-import com.aiprog.template.databinding.WelcomeActivityBinding;
-import com.aiprog.template.di.module.ViewModelProviderFactory;
-import com.aiprog.template.ui.launcher.credential.LoginActivity;
-import com.aiprog.template.utils.Logger;
+import com.indtel.template.BR;
+import com.indtel.template.R;
+import com.indtel.template.base.BaseActivity;
+import com.indtel.template.databinding.WelcomeActivityBinding;
+import com.indtel.template.di.module.ViewModelProviderFactory;
+import com.indtel.template.ui.launcher.credential.LoginActivity;
+import com.indtel.template.utils.Logger;
 
 import java.io.IOException;
 

@@ -14,7 +14,7 @@
  *  limitations under the License
  */
 
-package com.aiprog.template.utils;
+package com.indtel.template.utils;
 
 /**
  * Author       : Arvindo Mondal

@@ -1,4 +1,4 @@
-package com.aiprog.template.base;
+package com.indtel.template.base;
 
 import android.app.Dialog;
 import android.content.Context;

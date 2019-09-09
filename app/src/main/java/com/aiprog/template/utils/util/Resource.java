@@ -1,11 +1,8 @@
-package com.aiprog.template.utils.util;
+package com.indtel.template.utils.util;
 
 import android.widget.EditText;
 
-import androidx.appcompat.widget.AppCompatEditText;
-
-import com.aiprog.template.base.BaseActivity;
-import com.aiprog.template.ui.launcher.credential.LoginActivity;
+import com.indtel.template.base.BaseActivity;
 
 /**
  * Author       : Arvindo Mondal
