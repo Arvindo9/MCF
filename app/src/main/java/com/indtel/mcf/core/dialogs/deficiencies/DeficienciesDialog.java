@@ -6,22 +6,20 @@ import android.widget.RadioButton;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import com.indtel.mcf.BR;
-import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseDialog;
 import com.indtel.mcf.core.dialogs.DialogListener;
-import com.indtel.mcf.databinding.DialogDeficienciesBinding;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.utils.AppConstants;
+import com.indtel.mcf.BR;
+import com.indtel.mcf.R;
+import com.indtel.mcf.databinding.DialogDeficienciesBinding;
 
 import javax.inject.Inject;
-
-import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY;
-import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
 
 /**
  * Author       : Arvindo Mondal
  * Created on   : 18-08-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -29,7 +27,7 @@ import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class DeficienciesDialog extends BaseDialog<DialogDeficienciesBinding, DeficienciesViewModel>
         implements DeficienciesNavigator{
@@ -124,12 +122,12 @@ public class DeficienciesDialog extends BaseDialog<DialogDeficienciesBinding, De
         switch (view.getId()){
             case R.id.deficiencyAfterScrutiny:
                 if(checked)
-                callBack.onSuccessDialogResponse(TAG, DEFICIENCY_AFTER_SCRUTINY);
+                callBack.onSuccessDialogResponse(TAG, AppConstants.DEFICIENCY_AFTER_SCRUTINY);
                 break;
 
             case R.id.deficiencyAfterAssessmentScrutiny:
                 if(checked)
-                callBack.onSuccessDialogResponse(TAG, DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY);
+                callBack.onSuccessDialogResponse(TAG, AppConstants.DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY);
                 break;
         }
     }

@@ -19,7 +19,7 @@ package com.indtel.mcf.utils;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 09-05-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -27,7 +27,7 @@ package com.indtel.mcf.utils;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 
 public enum  AppConstants {
@@ -39,7 +39,7 @@ public enum  AppConstants {
         // This utility class is not publicly instantiable
     }
 
-    public static final String DB_NAME = "indtel.db";
+    public static final String DB_NAME = "aiprog.db";
 
     public static final String PASS_PHRASE_FIELD = "PASS_PHRASE_FIELD.db";
 
@@ -83,5 +83,10 @@ public enum  AppConstants {
 
     public static final String DEFICIENCY_AFTER_SCRUTINY = "deficiencyAfterScrutiny";
     public static final String DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY = "deficiencyAfterAssessmentScrutiny";
+    public static final String FRESH_CASES = "freshCases";
+    public static final String CASES_REVERTED_BY_AME_VDC = "casesRevertedByAmeVdc";
+    public static final String CASE_IN_PROGRASS = "caseInProgress";
+    public static final String APPROVED = "approved";
+    public static final String CLOSED = "closed";
 
 }

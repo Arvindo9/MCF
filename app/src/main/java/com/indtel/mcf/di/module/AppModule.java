@@ -5,6 +5,10 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+import com.indtel.mcf.di.annotation.ApiService;
+import com.indtel.mcf.di.annotation.DatabaseInfo;
+import com.indtel.mcf.di.annotation.PassPhraseField;
+import com.indtel.mcf.di.annotation.PreferenceInfo;
 import com.indtel.mcf.data.AppDataManager;
 import com.indtel.mcf.data.DataManager;
 import com.indtel.mcf.data.local.db.AppDatabase;
@@ -14,10 +18,6 @@ import com.indtel.mcf.data.local.prefs.AppPreferences;
 import com.indtel.mcf.data.local.prefs.PreferencesService;
 import com.indtel.mcf.data.remote.APIService;
 import com.indtel.mcf.data.remote.APIs;
-import com.indtel.mcf.di.annotation.ApiService;
-import com.indtel.mcf.di.annotation.DatabaseInfo;
-import com.indtel.mcf.di.annotation.PassPhraseField;
-import com.indtel.mcf.di.annotation.PreferenceInfo;
 import com.indtel.mcf.utils.AppConstants;
 import com.indtel.mcf.utils.rx.AppSchedulerProvider;
 import com.indtel.mcf.utils.rx.SchedulerProvider;
@@ -49,7 +49,7 @@ import static com.indtel.mcf.BuildConfig.BASE_URL;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 09-05-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -57,7 +57,7 @@ import static com.indtel.mcf.BuildConfig.BASE_URL;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 @Module
 public class AppModule {

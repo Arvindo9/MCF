@@ -38,5 +38,26 @@
     <string name="deficiency_after_scrutiny">Deficiency after Scrutiny</string>
     <string name="deficiency_after_assessment_scrutiny">Deficiency after Assessment Scrutiny</string>
     <string name="modern_coach_factory_nraebareli">Modern Coach Factory,  Raebareli</string>
+    <string name="vendor_replied_cases">Vendor Replied Cases</string>
+    <string name="cases_after_assessment">Cases After Assessment</string>
+    <string name="revert_cases">Revert Cases</string>
+    <string name="vendor_wise_report">Vendor wise Report</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="fresh_cases">Fresh cases</string>
+    <string name="cases_reverted_by_ame_vdc">Cases reverted by AME/VDC</string>
+    <string name="case_in_progress">Case in Progress</string>
+    <string name="approved">Approved</string>
+    <string name="closed">Closed</string>
+    <string name="proceed">Proceed</string>
+    <string name="select_firm_name">Select firm name</string>
+    <string name="enter_firm_name">Enter firm name</string>
+    <string name="total_cases">Total cases</string>
+    <string name="scrutiny_of_documents">Scrutiny of documents</string>
+    <string name="date_of_application">Date of application</string>
+    <string name="address">Address</string>
+    <string name="is_assessment_required">Is Assessment Required</string>
+    <string name="status">Status</string>
+    <string name="remark">Remark</string>
+    <string name="date_of_receiving">Date of receiving</string>
 
 </resources>

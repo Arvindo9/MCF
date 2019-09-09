@@ -4,14 +4,14 @@ import android.os.Bundle;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import com.indtel.mcf.BR;
-import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseFragment;
-import com.indtel.mcf.core.fragments.FragmentListener;
 import com.indtel.mcf.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
-import com.indtel.mcf.databinding.FragmentStatusOfApplicationBinding;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.BR;
+import com.indtel.mcf.R;
+import com.indtel.mcf.core.fragments.FragmentListener;
+import com.indtel.mcf.databinding.FragmentStatusOfApplicationBinding;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import javax.inject.Inject;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 16-08-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -28,7 +28,7 @@ import javax.inject.Inject;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class StatusOfApplicationFragment extends
         BaseFragment<FragmentStatusOfApplicationBinding, StatusOfApplicationViewModel>

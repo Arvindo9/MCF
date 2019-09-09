@@ -1,6 +1,9 @@
 package com.indtel.mcf.data.remote;
 
 
+import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
+import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
+import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
 import com.indtel.mcf.data.model.apis.flag.FlagApi;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
@@ -61,6 +64,26 @@ public class APIs implements APIService {
     @Override
     public Flowable<List<ViewItem>> viewItemDetailsApi(String applicationId) {
         return apiService.viewItemDetailsApi(applicationId);
+    }
+
+    @Override
+    public Flowable<List<Dashboard>> dashboardData(String referenceCode) {
+        return apiService.dashboardData(referenceCode);
+    }
+
+    @Override
+    public Flowable<List<DashboardScrutinyOfDocument>> dashboardScrutinyOfDocuments(String id) {
+        return apiService.dashboardScrutinyOfDocuments(id);
+    }
+
+    @Override
+    public Flowable<List<CasesAfterAssessment>> casesAfterAssessmentFresh(String id) {
+        return apiService.casesAfterAssessmentFresh(id);
+    }
+
+    @Override
+    public Flowable<List<CasesAfterAssessment>> casesAfterAssessmentReverted(String id) {
+        return apiService.casesAfterAssessmentReverted(id);
     }
 
 }

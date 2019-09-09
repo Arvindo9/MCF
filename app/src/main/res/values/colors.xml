@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+<!--    <color name="colorPrimary">#007585</color>-->
+<!--    <color name="colorPrimaryDark">#00574B</color>-->
+    <color name="colorPrimary">#002C85</color>
+    <color name="colorPrimaryDark">#001657</color>
     <color name="colorAccent">#D81B60</color>
 
     <!-- Resources-->
@@ -14,18 +16,18 @@
 
     <!-- Custom-->
     <color name="welcomePagerDots">#756E6E</color>
-    <color name="clickText">#3B9CE7</color>
+    <color name="clickText">#3B88E7</color>
     <color name="imageBorder">#00C42F2F</color>
 
     <color name="fifty_percent_transparency_grey_400">#80bdbdbd</color>
     <color name="folderBackground">#99A1A6AC</color>
     <color name="textColorGeneral">#484849</color>
     <color name="textColorCard">#FFFFFF</color>
-    <color name="cardColor">#4CB1DF</color>
-    <color name="cardColorShadow">#88DCFF</color>
+    <color name="cardColor">#4C82DF</color>
+    <color name="cardColorShadow">#88C7FF</color>
     <color name="cardColorSno">#7AE459</color>
     <color name="cardColorReferenceNo">#E2B14F</color>
-    <color name="cardColorFirmName">#88DCFF</color>
+    <color name="cardColorFirmName">#88B4FF</color>
 
     <color name="buttonColor1">#59C29C</color>
     <color name="buttonColor2">#AED15B</color>

@@ -11,13 +11,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.indtel.mcf.BR;
-import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseActivity;
+import com.indtel.mcf.core.fragments.dashboard.DashboardFragment;
+import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentFragment;
 import com.indtel.mcf.core.fragments.statusOfApplication.StatusOfApplicationFragment;
 import com.indtel.mcf.core.fragments.viewItem.ViewItemFragment;
-import com.indtel.mcf.databinding.ActivityFragmentHandlerBinding;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.BR;
+import com.indtel.mcf.R;
+import com.indtel.mcf.core.fragments.casesAfterAssessment.CasesAfterAssessmentFragment;
+import com.indtel.mcf.databinding.ActivityFragmentHandlerBinding;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,7 +33,7 @@ import dagger.android.support.HasSupportFragmentInjector;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 16-08-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -38,7 +41,7 @@ import dagger.android.support.HasSupportFragmentInjector;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandlerBinding, FragmentHandlerViewModel>
         implements FragmentHandlerNavigator, HasSupportFragmentInjector, FragmentListener {
@@ -50,9 +53,10 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
     public static final int DEFAULT_INTERFACE = 0;
     public static final int STATUS_OF_APPLICATION = 1;
     public static final int VIEW_ITEM_DETAILS = 2;
-    public static final int EDIT_ADDITIONAL_DETAILS_INTERFACE = 2;
-    public static final int PREFERENCES_INTERFACE = 3;
-    public static final int _INTERFACE = 4;
+    public static final int DASHBOARD = 3;
+    public static final int DASHBOARD_SCRUTINY_OF_DOCUMENTS = 4;
+    public static final int CASES_AFTER_ASSESSMENT_FRESH = 5;
+    public static final int CASES_AFTER_ASSESSMENT_REVERTED = 6;
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
@@ -150,13 +154,31 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
             case STATUS_OF_APPLICATION:
                 StatusOfApplicationFragment fragment = StatusOfApplicationFragment.newInstance();
                 fragment.setCallBack(this);
-                transaction.replace(R.id.fragment, fragment,
-                        StatusOfApplicationFragment.TAG);
+                transaction.replace(R.id.fragment, fragment, StatusOfApplicationFragment.TAG);
                 transaction.addToBackStack(StatusOfApplicationFragment.TAG);
                 transaction.commit();
                 break;
 
             case VIEW_ITEM_DETAILS:
+                break;
+
+
+            case DASHBOARD:
+                DashboardFragment dashboardFragment = DashboardFragment.newInstance();
+                dashboardFragment.setCallBack(this);
+                transaction.replace(R.id.fragment, dashboardFragment, DashboardFragment.TAG);
+                transaction.addToBackStack(DashboardFragment.TAG);
+                transaction.commit();
+                break;
+
+            case CASES_AFTER_ASSESSMENT_FRESH:
+            case CASES_AFTER_ASSESSMENT_REVERTED:
+                CasesAfterAssessmentFragment casesAfterAssessmentFragment =
+                        CasesAfterAssessmentFragment.newInstance(OPEN_INTERFACE);
+                casesAfterAssessmentFragment.setCallBack(this);
+                transaction.replace(R.id.fragment, casesAfterAssessmentFragment, CasesAfterAssessmentFragment.TAG);
+                transaction.addToBackStack(CasesAfterAssessmentFragment.TAG);
+                transaction.commit();
                 break;
         }
     }
@@ -220,6 +242,34 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                     fragment.setCallBack(this);
                     transaction.replace(R.id.fragment, fragment, ViewItemFragment.TAG);
                     transaction.addToBackStack(ViewItemFragment.TAG);
+                    transaction.commit();
+                }
+            }
+        }
+        else if(tag.equals(CasesAfterAssessmentFragment.TAG)){
+            if(params != null && params.length >= 2){
+                String data = params[0];
+
+                if(data.equals(String.valueOf(VIEW_ITEM_DETAILS))) {
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    ViewItemFragment fragment = ViewItemFragment.newInstance(params[1]);
+                    fragment.setCallBack(this);
+                    transaction.replace(R.id.fragment, fragment, ViewItemFragment.TAG);
+                    transaction.addToBackStack(ViewItemFragment.TAG);
+                    transaction.commit();
+                }
+            }
+        }
+        else if(tag.equals(DashboardFragment.TAG)){
+            if(params != null && params.length >= 2){
+                String data = params[0];
+
+                if(data.equals(String.valueOf(DASHBOARD_SCRUTINY_OF_DOCUMENTS))) {
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    ScrutinyOfDocumentFragment fragment = ScrutinyOfDocumentFragment.newInstance(params[1]);
+                    fragment.setCallBack(this);
+                    transaction.replace(R.id.fragment, fragment, ScrutinyOfDocumentFragment.TAG);
+                    transaction.addToBackStack(ScrutinyOfDocumentFragment.TAG);
                     transaction.commit();
                 }
             }

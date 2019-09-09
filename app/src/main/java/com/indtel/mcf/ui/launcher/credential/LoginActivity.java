@@ -7,12 +7,12 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.indtel.mcf.base.BaseActivity;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
-import com.indtel.mcf.base.BaseActivity;
 import com.indtel.mcf.databinding.ActivityLoginBinding;
-import com.indtel.mcf.databinding.SplashActivityBinding;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.ui.home.sse.SseHomeActivity;
 import com.indtel.mcf.ui.home.vendor.VendorHomeActivity;
 import com.indtel.mcf.utils.util.Resource;
 
@@ -21,7 +21,7 @@ import javax.inject.Inject;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 28-07-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -29,7 +29,7 @@ import javax.inject.Inject;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginNavigator{
 
@@ -128,7 +128,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     @Override
     public void openSSEHome() {
-
+        Intent intent = SseHomeActivity.newIntent(this);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     //Additional-------------

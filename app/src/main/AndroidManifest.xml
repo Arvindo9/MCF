@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.indtel.mcf.base.BaseApplication"
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,18 +19,18 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name="com.indtel.mcf.ui.launcher.splash.SplashActivity">
+        <activity android:name=".ui.launcher.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.indtel.mcf.ui.launcher.welcome.WelcomeActivity" />
-        <activity android:name="com.indtel.mcf.ui.launcher.credential.LoginActivity" />
-        <activity android:name="com.indtel.mcf.ui.home.vendor.VendorHomeActivity" />
-        <activity android:name="com.indtel.mcf.core.fragments.FragmentHandlerActivity" />
-
+        <activity android:name=".ui.launcher.welcome.WelcomeActivity" />
+        <activity android:name=".ui.launcher.credential.LoginActivity" />
+        <activity android:name=".ui.home.vendor.VendorHomeActivity" />
+        <activity android:name=".core.fragments.FragmentHandlerActivity" />
+        <activity android:name=".ui.home.sse.SseHomeActivity" />
 
         <!--android:name="android.support.v4.content.FileProvider"-->
         <provider
@@ -47,5 +47,4 @@
         </provider>
 
     </application>
-
 </manifest>

@@ -4,8 +4,8 @@ package com.indtel.mcf.data.local.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.indtel.mcf.data.DataManager;
 import com.indtel.mcf.di.annotation.PreferenceInfo;
+import com.indtel.mcf.data.DataManager;
 
 import javax.inject.Inject;
 

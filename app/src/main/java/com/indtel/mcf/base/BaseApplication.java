@@ -15,13 +15,13 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import dagger.android.HasServiceInjector;
-//import static com.indtel.mcf.utils.AppConstants.FIREBASE_NOTIFICATION_TOPIC;
+//import static com.aiprog.template.utils.AppConstants.FIREBASE_NOTIFICATION_TOPIC;
 
 
 /**
  * Author       : Arvindo Mondal
  * Created on   : 09-05-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -29,7 +29,7 @@ import dagger.android.HasServiceInjector;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class BaseApplication extends Application  implements HasActivityInjector, HasServiceInjector{
 

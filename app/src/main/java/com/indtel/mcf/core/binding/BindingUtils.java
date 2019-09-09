@@ -23,8 +23,14 @@ import androidx.databinding.ObservableField;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.indtel.mcf.R;
+import com.indtel.mcf.core.fragments.casesAfterAssessment.adapter.CasesAfterAssessmentAdapter;
+import com.indtel.mcf.core.fragments.dashboard.adapter.DashboardAdapter;
+import com.indtel.mcf.core.fragments.scrutinyOfdocuments.adapter.ScrutinyOfDocumentAdapter;
 import com.indtel.mcf.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
 import com.indtel.mcf.core.fragments.viewItem.adapter.ViewItemAdapter;
+import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
+import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
+import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
 import com.squareup.picasso.Callback;
@@ -37,7 +43,7 @@ import java.util.List;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 09-05-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -45,7 +51,7 @@ import java.util.List;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public final class BindingUtils {
     //ObservableField must not have final
@@ -148,6 +154,33 @@ public final class BindingUtils {
     @BindingAdapter({"ViewItemAdapter"})
     public static void addViewItemAdapter(RecyclerView recyclerView, List<ViewItem> list) {
         ViewItemAdapter adapter = (ViewItemAdapter) recyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(list);
+        }
+    }
+
+    @BindingAdapter({"DashboardAdapter"})
+    public static void addDashboardAdapter(RecyclerView recyclerView, List<Dashboard> list) {
+        DashboardAdapter adapter = (DashboardAdapter) recyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(list);
+        }
+    }
+
+    @BindingAdapter({"DashboardBindAdapter"})
+    public static void addDashboardBindAdapter(RecyclerView recyclerView, List<DashboardScrutinyOfDocument> list) {
+        ScrutinyOfDocumentAdapter adapter = (ScrutinyOfDocumentAdapter) recyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(list);
+        }
+    }
+
+    @BindingAdapter({"CasesAfterAssessmentAdapter"})
+    public static void addCasesAfterAssessmentAdapter(RecyclerView recyclerView, List<CasesAfterAssessment> list) {
+        CasesAfterAssessmentAdapter adapter = (CasesAfterAssessmentAdapter) recyclerView.getAdapter();
         if (adapter != null) {
             adapter.clearItems();
             adapter.addItems(list);

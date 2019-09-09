@@ -1,8 +1,8 @@
 package com.indtel.mcf.core.fragments.viewItem.adapter;
 
-import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseAdapter;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
+import com.indtel.mcf.R;
 import com.indtel.mcf.databinding.AdapterViewItemBinding;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 18-08-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -19,7 +19,7 @@ import java.util.List;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class ViewItemAdapter extends BaseAdapter<AdapterViewItemBinding, ViewItem> {
     public static final String TAG = ViewItemAdapter.class.getSimpleName();

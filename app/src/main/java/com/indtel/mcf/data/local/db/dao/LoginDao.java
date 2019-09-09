@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 05-08-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -21,7 +21,7 @@ import java.util.List;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 @Dao
 public interface LoginDao {

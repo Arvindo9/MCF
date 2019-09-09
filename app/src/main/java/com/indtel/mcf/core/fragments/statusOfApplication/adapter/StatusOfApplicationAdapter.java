@@ -3,9 +3,9 @@ package com.indtel.mcf.core.fragments.statusOfApplication.adapter;
 import android.content.Context;
 import android.view.View;
 
-import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseAdapter;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
+import com.indtel.mcf.R;
 import com.indtel.mcf.databinding.AdapterStatusOfApplicationBinding;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.VIEW_ITEM_DE
 /**
  * Author       : Arvindo Mondal
  * Created on   : 16-08-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -24,7 +24,7 @@ import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.VIEW_ITEM_DE
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class StatusOfApplicationAdapter extends BaseAdapter<AdapterStatusOfApplicationBinding,
         StatusOfApplicationResponse> {

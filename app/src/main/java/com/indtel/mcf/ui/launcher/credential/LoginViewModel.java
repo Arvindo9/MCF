@@ -12,7 +12,7 @@ import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 28-07-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -20,7 +20,7 @@ import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class LoginViewModel extends BaseViewModel<LoginNavigator> {
     private boolean isLoginError = false;

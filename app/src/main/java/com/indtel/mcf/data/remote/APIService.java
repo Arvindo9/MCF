@@ -1,10 +1,14 @@
 package com.indtel.mcf.data.remote;
 
 
+import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
+import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
+import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
 import com.indtel.mcf.data.model.apis.flag.FlagApi;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
 import com.indtel.mcf.data.model.db.login.LoginDb;
+
 
 import java.util.List;
 
@@ -55,6 +59,30 @@ public interface APIService {
     @POST("/mcf_vr/DataService.asmx/ViewItemDetails")
     Flowable<List<ViewItem>> viewItemDetailsApi(
             @Field("ApplicationId") String applicationId
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/sseWiseDashobard ")
+    Flowable<List<Dashboard>> dashboardData(
+            @Field("userid") String referenceCode
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindDashboard ")
+    Flowable<List<DashboardScrutinyOfDocument>> dashboardScrutinyOfDocuments(
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindSSEAssessment ")
+    Flowable<List<CasesAfterAssessment>> casesAfterAssessmentFresh(
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindSSEAssessmentRevertAME ")
+    Flowable<List<CasesAfterAssessment>> casesAfterAssessmentReverted(
+            @Field("id") String id
     );
 
 

@@ -8,15 +8,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.indtel.mcf.BR;
-import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseActivity;
 import com.indtel.mcf.core.dialogs.DialogListener;
+import com.indtel.mcf.ui.launcher.splash.SplashActivity;
+import com.indtel.mcf.BR;
+import com.indtel.mcf.R;
 import com.indtel.mcf.core.dialogs.deficiencies.DeficienciesDialog;
 import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.databinding.ActivityVendorHomeBinding;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
-import com.indtel.mcf.ui.launcher.splash.SplashActivity;
 
 import javax.inject.Inject;
 
@@ -29,7 +29,7 @@ import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 05-08-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -37,10 +37,11 @@ import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, VendorHomeViewModel> implements
         VendorHomeNavigator, HasSupportFragmentInjector, DialogListener {
+    public static final String TAG = VendorHomeActivity.class.getSimpleName();
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
@@ -137,12 +138,12 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
 
     @Override
     public void handleMessage(String message) {
-
+        showToast(message);
     }
 
     @Override
     public void handleMessage(int index) {
-
+        showToast(index);
     }
 
     @Override
@@ -164,7 +165,6 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
         selectionDialog.setCallBack(this);
         selectionDialog.show(getSupportFragmentManager(), DeficienciesDialog.TAG);
     }
-
 
     //Dialogs-----------------------
 

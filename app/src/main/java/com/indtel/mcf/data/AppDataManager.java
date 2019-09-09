@@ -4,12 +4,15 @@ import android.content.Context;
 
 import com.indtel.mcf.data.local.db.DatabaseService;
 import com.indtel.mcf.data.local.prefs.PreferencesService;
+import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
+import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
 import com.indtel.mcf.data.model.apis.flag.FlagApi;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
 import com.indtel.mcf.data.model.db.flag.Flag;
 import com.indtel.mcf.data.model.db.login.LoginDb;
 import com.indtel.mcf.data.remote.APIService;
+import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -22,7 +25,7 @@ import io.reactivex.Flowable;
 /**
  * Author       : Arvindo Mondal
  * Created on   : 09-05-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -30,7 +33,7 @@ import io.reactivex.Flowable;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 @Singleton
 public class AppDataManager implements DataManager {
@@ -178,6 +181,26 @@ public class AppDataManager implements DataManager {
     @Override
     public Flowable<List<ViewItem>> viewItemDetailsApi(String applicationId) {
         return apiService.viewItemDetailsApi(applicationId);
+    }
+
+    @Override
+    public Flowable<List<Dashboard>> dashboardData(String referenceCode) {
+        return apiService.dashboardData(referenceCode);
+    }
+
+    @Override
+    public Flowable<List<DashboardScrutinyOfDocument>> dashboardScrutinyOfDocuments(String id) {
+        return apiService.dashboardScrutinyOfDocuments(id);
+    }
+
+    @Override
+    public Flowable<List<CasesAfterAssessment>> casesAfterAssessmentFresh(String id) {
+        return apiService.casesAfterAssessmentFresh(id);
+    }
+
+    @Override
+    public Flowable<List<CasesAfterAssessment>> casesAfterAssessmentReverted(String id) {
+        return apiService.casesAfterAssessmentReverted(id);
     }
 
 }

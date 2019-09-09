@@ -7,12 +7,13 @@ import com.indtel.mcf.data.DataManager;
 import com.indtel.mcf.utils.rx.SchedulerProvider;
 import com.indtel.mcf.utils.tasks.Task;
 
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_SSE;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
 
 /**
  * Author       : Arvindo Mondal
  * Created on   : 09-05-2019
- * Email        : arvindo@indtel.in
+ * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
  * About        : I am a human can only think, I can't be a person like machine which have lots of memory and knowledge.
@@ -20,7 +21,7 @@ import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
  * Strength     : Never give up
  * Motto        : To be known as great Mathematician
  * Skills       : Algorithms and logic
- * Website      : www.indtel.in
+ * Website      : www.aiprog.in
  */
 public class SplashViewModel extends BaseViewModel<SplashNavigator> {
 
@@ -86,6 +87,9 @@ public class SplashViewModel extends BaseViewModel<SplashNavigator> {
                 case LOGGED_IN_MODE_LOGGED_IN_HOME:
                     if(getDataManager().getUserType().equals(USER_TYPE_VENDOR)){
                         getNavigator().openVendorHomeActivity();
+                    }
+                    else if(getDataManager().getUserType().equals(USER_TYPE_SSE)){
+                        getNavigator().openSseHomeActivity();
                     }
 //                    getNavigator().openHomeActivity();
                     break;
