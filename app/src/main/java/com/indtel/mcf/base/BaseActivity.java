@@ -232,7 +232,7 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
                             Manifest.permission.INTERNET,
                             Manifest.permission.ACCESS_NETWORK_STATE
                     },
-                    R.string.str_ShowOnPermisstion,
+                    R.string.str_ShowOnPermission,
                     REQUEST_PERMISSIONS);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -254,7 +254,7 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
             onPermissionGranted();
         } else {
             Snackbar mSnackBar = Snackbar.make(findViewById(android.R.id.content),
-                    getString( R.string.str_ShowOnPermisstion),
+                    getString( R.string.str_ShowOnPermission),
                     Snackbar.LENGTH_INDEFINITE).setAction("ENABLE",
                     new View.OnClickListener() {
                         @Override

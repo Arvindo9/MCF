@@ -23,7 +23,7 @@ public class VendorWiseViewModel extends BaseViewModel<VendorWiseNavigator> {
 
     public VendorWiseViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
-        onFirmsNameLoad();
+
     }
 
     //Resource--------------------------
@@ -40,17 +40,69 @@ public class VendorWiseViewModel extends BaseViewModel<VendorWiseNavigator> {
 
     //Additional------------------------
 
-    private void onFirmsNameLoad(){
+    void onProcessListOfVendors(){
         setIsLoading(true);
+        String userType = getDataManager().getUserType();
+        String userId = getDataManager().getReferenceId();
         getCompositeDisposable().add(getDataManager()
-                .userLogin("", "")
+                .firmNameInProcessListOfVendors(userType, userId)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
                     if (response != null) {
-                        getNavigator().onSpinnerDataLoad(null);
-                        setIsLoading(false);
+                        String[] strings = new String[response.size()];
+                        for(int i=0; i<response.size(); i++){
+                            strings[i] = response.get(i).getNameOfFirm();
+                        }
+                        getNavigator().onSpinnerDataLoad(strings, response);
                     }
+                    setIsLoading(false);
+                }, throwable -> {
+                    getNavigator().handleError(throwable);
+                    setIsLoading(false);
+                }));
+    }
+
+    void onApprovedVendorList(){
+        setIsLoading(true);
+        String userType = getDataManager().getUserType();
+        String userId = getDataManager().getReferenceId();
+        getCompositeDisposable().add(getDataManager()
+                .firmNameApprovedVendorList(userType, userId)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(response -> {
+                    if (response != null) {
+                        String[] strings = new String[response.size()];
+                        for(int i=0; i<response.size(); i++){
+                            strings[i] = response.get(i).getNameOfFirm();
+                        }
+                        getNavigator().onSpinnerDataLoad(strings, response);
+                    }
+                    setIsLoading(false);
+                }, throwable -> {
+                    getNavigator().handleError(throwable);
+                    setIsLoading(false);
+                }));
+    }
+
+    void onClosedVendorList(){
+        setIsLoading(true);
+        String userType = getDataManager().getUserType();
+        String userId = getDataManager().getReferenceId();
+        getCompositeDisposable().add(getDataManager()
+                .firmNameClosedVendorList(userType, userId)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(response -> {
+                    if (response != null) {
+                        String[] strings = new String[response.size()];
+                        for(int i=0; i<response.size(); i++){
+                            strings[i] = response.get(i).getNameOfFirm();
+                        }
+                        getNavigator().onSpinnerDataLoad(strings, response);
+                    }
+                    setIsLoading(false);
                 }, throwable -> {
                     getNavigator().handleError(throwable);
                     setIsLoading(false);

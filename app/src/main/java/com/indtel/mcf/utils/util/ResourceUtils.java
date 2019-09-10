@@ -39,7 +39,7 @@ public class ResourceUtils implements Resource {
     private <A extends BaseActivity> boolean _validateUserId(A activity, EditText editText) {
         if(editText.getText() != null) {
             if (editText.getText().toString().trim().isEmpty()) {
-                editText.setError(activity.getString(R.string.invalide_user_Id));
+                editText.setError(activity.getString(R.string.invalid_user_Id));
                 activity.requestFocus(editText);
                 return false;
             } else {
@@ -47,7 +47,7 @@ public class ResourceUtils implements Resource {
             }
         }
         else{
-            editText.setError(activity.getString(R.string.invalide_user_Id));
+            editText.setError(activity.getString(R.string.invalid_user_Id));
             return false;
         }
         return true;
@@ -56,7 +56,7 @@ public class ResourceUtils implements Resource {
     private <A extends BaseActivity> boolean _validatePassword(A activity, EditText editText) {
         if(editText.getText() != null) {
             if (editText.getText().toString().trim().isEmpty()) {
-                editText.setError(activity.getString(R.string.invalide_password));
+                editText.setError(activity.getString(R.string.invalid_password));
                 activity.requestFocus(editText);
                 return false;
             } else {
@@ -64,7 +64,7 @@ public class ResourceUtils implements Resource {
             }
         }
         else{
-            editText.setError(activity.getString(R.string.invalide_password));
+            editText.setError(activity.getString(R.string.invalid_password));
             return false;
         }
         return true;

@@ -10,11 +10,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.indtel.mcf.base.BaseDialog;
 import com.indtel.mcf.core.dialogs.DialogListener;
+import com.indtel.mcf.data.model.apis.firmName.FirmName;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
 import com.indtel.mcf.utils.AppConstants;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
 import com.indtel.mcf.databinding.DialogVendorWiseBinding;
+
+import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -37,12 +41,11 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
 
     @Inject
     ViewModelProviderFactory factory;
-    private ArrayAdapter<String> adapter;
     private VendorWiseViewModel viewModel;
     private DialogVendorWiseBinding binding;
     private DialogListener callBack;
     private String selectionRadio = "";
-    private String selectionSpinner= "";
+    private HashMap<String, Integer> map;
 
     public static VendorWiseDialog newInstance() {
         VendorWiseDialog fragment = new VendorWiseDialog();
@@ -98,9 +101,10 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
     protected void init() {
         viewModel.setNavigator(this);
         setUp();
-        setUpSpinner();
+//        setUpSpinner();
     }
 
+/*
     private void setUpSpinner() {
         binding.firmNameAuto.setOnItemClickListener((parent, view, position, id) -> {
 
@@ -111,15 +115,21 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
 //            Log.e("idcc", idTb);
         });
     }
+*/
 
     private void setUp() {
-
+        map = new HashMap<>();
+        binding.caseInProgress.setChecked(true);
+        selectionRadio = AppConstants.CASE_IN_PROGRESS;
+        viewModel.onProcessListOfVendors();
+//        viewModel.onApprovedVendorList();
+//        viewModel.onClosedVendorList();
     }
 
     //Navigator-----------------------
 
     @Override
-    public void onSpinnerDataLoad(String[] strings) {
+    public void onSpinnerDataLoad(String[] strings, List<FirmName> response) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseActivity(),
                 android.R.layout.simple_spinner_dropdown_item, strings);
 
@@ -127,6 +137,12 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
         binding.firmNameAuto.setAdapter(adapter);
 //        binding.firmNameAuto.setOnItemSelectedListener(this);
         adapter.notifyDataSetChanged();
+
+
+        map.clear();
+        for (FirmName data: response) {
+            map.put(data.getNameOfFirm(), data.getReferenceId());
+        }
     }
 
     @Override
@@ -154,18 +170,27 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
         boolean checked = ((RadioButton) view).isChecked();
         switch (view.getId()){
             case R.id.caseInProgress:
-                if(checked)
-                    selectionRadio = AppConstants.CASE_IN_PROGRASS;
+                if(checked) {
+                    viewModel.onProcessListOfVendors();
+                    selectionRadio = AppConstants.CASE_IN_PROGRESS;
+                    binding.firmNameAuto.setText("");
+                }
                 break;
 
             case R.id.approved:
-                if(checked)
+                if(checked) {
+                    viewModel.onApprovedVendorList();
                     selectionRadio = AppConstants.APPROVED;
+                    binding.firmNameAuto.setText("");
+                }
                 break;
 
             case R.id.closed:
-                if(checked)
+                if(checked) {
+                    viewModel.onClosedVendorList();
                     selectionRadio = AppConstants.CLOSED;
+                    binding.firmNameAuto.setText("");
+                }
                 break;
         }
     }
@@ -176,10 +201,12 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
             return;
         }
 
-        if(selectionSpinner.isEmpty()){
+        if(binding.firmNameAuto.getText() != null && binding.firmNameAuto.getText().toString().equals("")){
             return;
         }
 
-        callBack.onSuccessDialogResponse(TAG, selectionRadio, selectionSpinner);
+        Integer id = map.get(binding.firmNameAuto.getText().toString());
+
+        callBack.onSuccessDialogResponse(TAG, selectionRadio, String.valueOf(id));
     }
 }

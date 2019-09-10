@@ -26,11 +26,13 @@ import com.indtel.mcf.R;
 import com.indtel.mcf.core.fragments.casesAfterAssessment.adapter.CasesAfterAssessmentAdapter;
 import com.indtel.mcf.core.fragments.dashboard.adapter.DashboardAdapter;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.adapter.ScrutinyOfDocumentAdapter;
+import com.indtel.mcf.core.fragments.sse.adapter.SseAdapter;
 import com.indtel.mcf.core.fragments.statusOfApplication.adapter.StatusOfApplicationAdapter;
 import com.indtel.mcf.core.fragments.viewItem.adapter.ViewItemAdapter;
 import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
 import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
 import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
+import com.indtel.mcf.data.model.apis.sse.CaseList;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
 import com.squareup.picasso.Callback;
@@ -181,6 +183,15 @@ public final class BindingUtils {
     @BindingAdapter({"CasesAfterAssessmentAdapter"})
     public static void addCasesAfterAssessmentAdapter(RecyclerView recyclerView, List<CasesAfterAssessment> list) {
         CasesAfterAssessmentAdapter adapter = (CasesAfterAssessmentAdapter) recyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(list);
+        }
+    }
+
+    @BindingAdapter({"SseAdapter"})
+    public static void addSseAdapter(RecyclerView recyclerView, List<CaseList> list) {
+        SseAdapter adapter = (SseAdapter) recyclerView.getAdapter();
         if (adapter != null) {
             adapter.clearItems();
             adapter.addItems(list);

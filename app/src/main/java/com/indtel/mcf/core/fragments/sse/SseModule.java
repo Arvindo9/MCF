@@ -1,15 +1,16 @@
-package com.indtel.mcf.core.dialogs.vendorWise;
+package com.indtel.mcf.core.fragments.sse;
 
-import android.view.View;
+import com.indtel.mcf.core.fragments.scrutinyOfdocuments.adapter.ScrutinyOfDocumentAdapter;
+import com.indtel.mcf.core.fragments.sse.adapter.SseAdapter;
 
-import com.indtel.mcf.base.BaseNavigator;
-import com.indtel.mcf.data.model.apis.firmName.FirmName;
+import java.util.ArrayList;
 
-import java.util.List;
+import dagger.Module;
+import dagger.Provides;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 22-08-2019
+ * Created on   : 10-09-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -20,12 +21,11 @@ import java.util.List;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-interface VendorWiseNavigator extends BaseNavigator {
-    void onCancelClick();
+@Module
+public class SseModule {
 
-    void onSelectionClick(View view);
-
-    void onSpinnerDataLoad(String[] strings, List<FirmName> response);
-
-    void onProceedClick();
+    @Provides
+    SseAdapter provideSseAdapter() {
+        return new SseAdapter(new ArrayList<>());
+    }
 }

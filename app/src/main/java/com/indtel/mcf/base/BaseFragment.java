@@ -149,7 +149,6 @@ public abstract class BaseFragment<B extends ViewDataBinding,
 
     /**
      * Write rest of the code of fragment in onCreateView after view created
-     * viewModel.setNavigator(this);
      */
     protected abstract void init();
 

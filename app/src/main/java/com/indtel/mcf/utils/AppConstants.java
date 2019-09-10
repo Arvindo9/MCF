@@ -85,7 +85,7 @@ public enum  AppConstants {
     public static final String DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY = "deficiencyAfterAssessmentScrutiny";
     public static final String FRESH_CASES = "freshCases";
     public static final String CASES_REVERTED_BY_AME_VDC = "casesRevertedByAmeVdc";
-    public static final String CASE_IN_PROGRASS = "caseInProgress";
+    public static final String CASE_IN_PROGRESS = "caseInProgress";
     public static final String APPROVED = "approved";
     public static final String CLOSED = "closed";
 

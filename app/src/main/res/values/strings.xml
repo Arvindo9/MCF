@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">MCF</string>
 
-
-    <string name="str_ShowOnPermisstion">Please Allow permission for your app.
+    <string name="str_ShowOnPermission">Please Allow permission for your app.
         If you deny permissions will not be able to use functionality of this app.</string>
     <string name="user_id">User ID</string>
     <string name="password">Password</string>
@@ -11,8 +10,8 @@
     <string name="next">Next</string>
     <string name="start">Start</string>
     <string name="network_error">No internet available</string>
-    <string name="invalide_password">Password not correct</string>
-    <string name="invalide_user_Id">Incorrect user Id</string>
+    <string name="invalid_password">Password not correct</string>
+    <string name="invalid_user_Id">Incorrect user Id</string>
     <string name="welcome">Welcome</string>
     <string name="mr">Mr.</string>
     <string name="deficiencies_advised">Deficiencies Advised</string>
@@ -59,5 +58,10 @@
     <string name="status">Status</string>
     <string name="remark">Remark</string>
     <string name="date_of_receiving">Date of receiving</string>
-
+    <string name="default_error">Something went wrong</string>
+    <string name="date">Date</string>
+    <string name="tender_no">Tender no.</string>
+    <string name="tender_date">Tender date</string>
+    <string name="letter_no">Letter no.</string>
+    <string name="letter_date">Letter date</string>
 </resources>

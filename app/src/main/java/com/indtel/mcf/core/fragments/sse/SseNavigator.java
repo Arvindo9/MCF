@@ -1,15 +1,10 @@
-package com.indtel.mcf.core.dialogs.vendorWise;
-
-import android.view.View;
+package com.indtel.mcf.core.fragments.sse;
 
 import com.indtel.mcf.base.BaseNavigator;
-import com.indtel.mcf.data.model.apis.firmName.FirmName;
-
-import java.util.List;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 22-08-2019
+ * Created on   : 10-09-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -20,12 +15,11 @@ import java.util.List;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-interface VendorWiseNavigator extends BaseNavigator {
-    void onCancelClick();
+interface SseNavigator extends BaseNavigator {
 
-    void onSelectionClick(View view);
+    void onBackButtonClick();
 
-    void onSpinnerDataLoad(String[] strings, List<FirmName> response);
+    void onClearButtonClick();
 
-    void onProceedClick();
+    void onSearchClick();
 }

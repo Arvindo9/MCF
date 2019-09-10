@@ -1,14 +1,15 @@
 package com.indtel.mcf.data.remote;
 
 
+import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
 import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
 import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
-import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
+import com.indtel.mcf.data.model.apis.firmName.FirmName;
 import com.indtel.mcf.data.model.apis.flag.FlagApi;
+import com.indtel.mcf.data.model.apis.sse.SseResponse;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
 import com.indtel.mcf.data.model.db.login.LoginDb;
-
 
 import java.util.List;
 
@@ -62,27 +63,72 @@ public interface APIService {
     );
 
     @FormUrlEncoded
-    @POST("/mcf_vr/DataService.asmx/sseWiseDashobard ")
+    @POST("/mcf_vr/DataService.asmx/sseWiseDashobard")
     Flowable<List<Dashboard>> dashboardData(
             @Field("userid") String referenceCode
     );
 
     @FormUrlEncoded
-    @POST("/mcf_vr/DataService.asmx/BindDashboard ")
+    @POST("/mcf_vr/DataService.asmx/BindDashboard")
     Flowable<List<DashboardScrutinyOfDocument>> dashboardScrutinyOfDocuments(
             @Field("id") String id
     );
 
     @FormUrlEncoded
-    @POST("/mcf_vr/DataService.asmx/BindSSEAssessment ")
+    @POST("/mcf_vr/DataService.asmx/BindSSEAssessment")
     Flowable<List<CasesAfterAssessment>> casesAfterAssessmentFresh(
             @Field("id") String id
     );
 
     @FormUrlEncoded
-    @POST("/mcf_vr/DataService.asmx/BindSSEAssessmentRevertAME ")
+    @POST("/mcf_vr/DataService.asmx/BindSSEAssessmentRevertAME")
     Flowable<List<CasesAfterAssessment>> casesAfterAssessmentReverted(
             @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/App_SSE_CasesAferScrutinyOfDocuments")
+    Flowable<SseResponse> sseCasesAfterScrutinyOfDocuments(
+            @Field("SSE_Id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/App_SSE_CasesAfterAssessmentReportScrutiny")
+    Flowable<SseResponse> sseCasesAfterAssessmentReportScrutiny(
+            @Field("SSE_Id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/App_SSE_CasesRevertedtoVendorafterAssessmentReport")
+    Flowable<SseResponse> sseCasesRevertedtoVendorafterAssessmentReport (
+            @Field("SSE_Id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/App_InProcessListOfVendors")
+    Flowable<List<FirmName>> firmNameInProcessListOfVendors (
+            @Field("OfficerUserType") String userType,
+            @Field("OfficerId") String userId
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/App_ApprovedVendorList")
+    Flowable<List<FirmName>> firmNameApprovedVendorList(
+            @Field("OfficerUserType") String userType,
+            @Field("OfficerId") String userId
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/App_ClosedVendorList ")
+    Flowable<List<FirmName>> firmNameClosedVendorList(
+            @Field("OfficerUserType") String userType,
+            @Field("OfficerId") String userId
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/StatusOfApplication  ")
+    Flowable<List<StatusOfApplicationResponse>> statusOfApplication (
+            @Field("id") String applicationId
     );
 
 

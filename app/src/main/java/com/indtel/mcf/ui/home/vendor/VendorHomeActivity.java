@@ -156,7 +156,8 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
 
     @Override
     public void onStatusOfApplicationClick() {
-        startActivity(FragmentHandlerActivity.newIntent(this, FragmentHandlerActivity.STATUS_OF_APPLICATION));
+        startActivity(FragmentHandlerActivity.newIntent(this,
+                FragmentHandlerActivity.STATUS_OF_APPLICATION, ""));
     }
 
     @Override

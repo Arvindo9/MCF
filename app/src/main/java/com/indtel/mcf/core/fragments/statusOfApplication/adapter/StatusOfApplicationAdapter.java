@@ -31,6 +31,7 @@ public class StatusOfApplicationAdapter extends BaseAdapter<AdapterStatusOfAppli
     public static final String TAG = StatusOfApplicationAdapter.class.getSimpleName();
 
     private AdapterListener listener;
+    private boolean isDefault = true;
 
     public interface AdapterListener {
         void onRetryClick();
@@ -38,8 +39,9 @@ public class StatusOfApplicationAdapter extends BaseAdapter<AdapterStatusOfAppli
         void onViewItemDetailsClick(int openInterfaceType, String applicationId);
     }
 
-    public void setListener(AdapterListener listener) {
+    public void setListener(AdapterListener listener, boolean isDefault) {
         this.listener = listener;
+        this.isDefault = isDefault;
     }
 
     public void addItems(List<StatusOfApplicationResponse> model) {

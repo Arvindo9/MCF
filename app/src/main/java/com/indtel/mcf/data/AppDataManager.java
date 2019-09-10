@@ -2,18 +2,20 @@ package com.indtel.mcf.data;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
 import com.indtel.mcf.data.local.db.DatabaseService;
 import com.indtel.mcf.data.local.prefs.PreferencesService;
+import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
 import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
 import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
+import com.indtel.mcf.data.model.apis.firmName.FirmName;
 import com.indtel.mcf.data.model.apis.flag.FlagApi;
+import com.indtel.mcf.data.model.apis.sse.SseResponse;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
 import com.indtel.mcf.data.model.db.flag.Flag;
 import com.indtel.mcf.data.model.db.login.LoginDb;
 import com.indtel.mcf.data.remote.APIService;
-import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
-import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -201,6 +203,41 @@ public class AppDataManager implements DataManager {
     @Override
     public Flowable<List<CasesAfterAssessment>> casesAfterAssessmentReverted(String id) {
         return apiService.casesAfterAssessmentReverted(id);
+    }
+
+    @Override
+    public Flowable<SseResponse> sseCasesAfterScrutinyOfDocuments(String id) {
+        return apiService.sseCasesAfterScrutinyOfDocuments(id);
+    }
+
+    @Override
+    public Flowable<SseResponse> sseCasesAfterAssessmentReportScrutiny(String id) {
+        return apiService.sseCasesAfterAssessmentReportScrutiny(id);
+    }
+
+    @Override
+    public Flowable<SseResponse> sseCasesRevertedtoVendorafterAssessmentReport(String id) {
+        return apiService.sseCasesRevertedtoVendorafterAssessmentReport(id);
+    }
+
+    @Override
+    public Flowable<List<FirmName>> firmNameInProcessListOfVendors(String userType, String userId) {
+        return apiService.firmNameInProcessListOfVendors(userType, userId);
+    }
+
+    @Override
+    public Flowable<List<FirmName>> firmNameApprovedVendorList(String userType, String userId) {
+        return apiService.firmNameApprovedVendorList(userType, userId);
+    }
+
+    @Override
+    public Flowable<List<FirmName>> firmNameClosedVendorList(String userType, String userId) {
+        return apiService.firmNameClosedVendorList(userType, userId);
+    }
+
+    @Override
+    public Flowable<List<StatusOfApplicationResponse>> statusOfApplication(String applicationId) {
+        return apiService.statusOfApplication(applicationId);
     }
 
 }

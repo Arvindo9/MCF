@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.indtel.mcf.core.fragments.dashboard.DashboardViewModel;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentViewModel;
+import com.indtel.mcf.core.fragments.sse.SseViewModel;
 import com.indtel.mcf.ui.home.sse.SseHomeViewModel;
 import com.indtel.mcf.ui.home.vendor.VendorHomeViewModel;
 import com.indtel.mcf.ui.launcher.credential.LoginViewModel;
@@ -117,6 +118,10 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         else if (modelClass.isAssignableFrom(CasesAfterAssessmentViewModel.class)) {
             //noinspection unchecked
             return (T) new CasesAfterAssessmentViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(SseViewModel.class)) {
+            //noinspection unchecked
+            return (T) new SseViewModel(dataManager,schedulerProvider);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

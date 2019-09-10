@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.indtel.mcf.base.BaseActivity;
 import com.indtel.mcf.core.fragments.dashboard.DashboardFragment;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentFragment;
+import com.indtel.mcf.core.fragments.sse.SseFragment;
 import com.indtel.mcf.core.fragments.statusOfApplication.StatusOfApplicationFragment;
 import com.indtel.mcf.core.fragments.viewItem.ViewItemFragment;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
@@ -48,6 +49,7 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
     public static final String TAG = FragmentHandlerActivity.class.getSimpleName();
 
     public static final String KEY_OPEN_INTERFACE = "KEY_OPEN_INTERFACE";
+    public static final String KEY_APPLICATION_ID = "KEY_APPLICATION_ID";
 
     public int OPEN_INTERFACE = 0;
     public static final int DEFAULT_INTERFACE = 0;
@@ -58,6 +60,15 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
     public static final int CASES_AFTER_ASSESSMENT_FRESH = 5;
     public static final int CASES_AFTER_ASSESSMENT_REVERTED = 6;
 
+    public static final int SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS = 7;
+    public static final int SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY = 8;
+
+    public static final int SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT  = 9;
+
+    public static final int VENDOR_WISE_REPORT_CASE_IN_PROGRESS  = 10;
+    public static final int VENDOR_WISE_REPORT_APPROVED  = 11;
+    public static final int VENDOR_WISE_REPORT_CLOSED  = 12;
+
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
     @Inject
@@ -65,10 +76,12 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
     private ActivityFragmentHandlerBinding binding;
     private FragmentHandlerViewModel viewModel;
     private FragmentManager manager;
+    private String applicationId = "";
 
-    public static Intent newIntent(Context context, int openInterface) {
+    public static Intent newIntent(Context context, int openInterface, String application) {
         Intent intent = new Intent(context, FragmentHandlerActivity.class);
         intent.putExtra(KEY_OPEN_INTERFACE, openInterface);
+        intent.putExtra(KEY_APPLICATION_ID, application);
         return intent;
     }
 
@@ -122,6 +135,7 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
     @Override
     public FragmentHandlerViewModel getViewModel() {
         OPEN_INTERFACE = getIntent().getIntExtra(KEY_OPEN_INTERFACE, DEFAULT_INTERFACE);
+        applicationId = getIntent().getStringExtra(KEY_APPLICATION_ID);
         return viewModel = ViewModelProviders.of(this,factory).get(FragmentHandlerViewModel.class);
     }
 
@@ -152,7 +166,7 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
 
         switch (OPEN_INTERFACE){
             case STATUS_OF_APPLICATION:
-                StatusOfApplicationFragment fragment = StatusOfApplicationFragment.newInstance();
+                StatusOfApplicationFragment fragment = StatusOfApplicationFragment.newInstance("");
                 fragment.setCallBack(this);
                 transaction.replace(R.id.fragment, fragment, StatusOfApplicationFragment.TAG);
                 transaction.addToBackStack(StatusOfApplicationFragment.TAG);
@@ -178,6 +192,42 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 casesAfterAssessmentFragment.setCallBack(this);
                 transaction.replace(R.id.fragment, casesAfterAssessmentFragment, CasesAfterAssessmentFragment.TAG);
                 transaction.addToBackStack(CasesAfterAssessmentFragment.TAG);
+                transaction.commit();
+                break;
+
+            case SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS:
+            case SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY:
+                SseFragment sseFragment =
+                        SseFragment.newInstance(OPEN_INTERFACE, "");
+                sseFragment.setCallBack(this);
+                transaction.replace(R.id.fragment, sseFragment, SseFragment.TAG);
+                transaction.addToBackStack(SseFragment.TAG);
+                transaction.commit();
+                break;
+
+            case SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
+                sseFragment = SseFragment.newInstance(OPEN_INTERFACE, "");
+                sseFragment.setCallBack(this);
+                transaction.replace(R.id.fragment, sseFragment, SseFragment.TAG);
+                transaction.addToBackStack(SseFragment.TAG);
+                transaction.commit();
+                break;
+
+            case VENDOR_WISE_REPORT_CASE_IN_PROGRESS:
+            case VENDOR_WISE_REPORT_APPROVED:
+            case VENDOR_WISE_REPORT_CLOSED:
+/*
+                sseFragment = SseFragment.newInstance(OPEN_INTERFACE, applicationId);
+                sseFragment.setCallBack(this);
+                transaction.replace(R.id.fragment, sseFragment, SseFragment.TAG);
+                transaction.addToBackStack(SseFragment.TAG);
+                transaction.commit();
+*/
+
+                fragment = StatusOfApplicationFragment.newInstance(applicationId);
+                fragment.setCallBack(this);
+                transaction.replace(R.id.fragment, fragment, StatusOfApplicationFragment.TAG);
+                transaction.addToBackStack(StatusOfApplicationFragment.TAG);
                 transaction.commit();
                 break;
         }

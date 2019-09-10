@@ -31,7 +31,7 @@ public class StatusOfApplicationViewModel extends BaseViewModel<StatusOfApplicat
     public StatusOfApplicationViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
         modelLiveData = new MutableLiveData<>();
-        callApi();
+//        callApi();
     }
 
     //List view---------------------------------------
@@ -53,6 +53,31 @@ public class StatusOfApplicationViewModel extends BaseViewModel<StatusOfApplicat
     }
 
     //APIs--------------------------------------------
+
+    void callApi(String applicationId) {
+        if(applicationId.isEmpty()){
+            callApi();
+        }
+        else {
+            callApiWithId(applicationId);
+        }
+    }
+
+    private void callApiWithId(String applicationId) {
+        setIsLoading(true);
+        getCompositeDisposable().add(getDataManager()
+                .statusOfApplication(applicationId)
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(response -> {
+                    if (response != null) {
+                        modelLiveData.setValue(response);
+                    }
+                    setIsLoading(false);
+                }, throwable -> {
+                    setIsLoading(false);
+                }));
+    }
 
     private void  callApi() {
         setIsLoading(true);
@@ -85,5 +110,4 @@ public class StatusOfApplicationViewModel extends BaseViewModel<StatusOfApplicat
     public void onSearchClick(){
         getNavigator().onSearchClick();
     }
-
 }

@@ -19,6 +19,7 @@ import com.indtel.mcf.core.dialogs.vendorWise.VendorWiseDialog;
 import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.databinding.ActivitySseHomeBinding;
 import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.utils.AppConstants;
 
 import javax.inject.Inject;
 
@@ -172,7 +173,8 @@ public class SseHomeActivity extends BaseActivity<ActivitySseHomeBinding, SseHom
 
     @Override
     public void onRevertCasesClick() {
-
+        startActivity(FragmentHandlerActivity.newIntent(this,
+                FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT, ""));
     }
 
     @Override
@@ -184,7 +186,8 @@ public class SseHomeActivity extends BaseActivity<ActivitySseHomeBinding, SseHom
 
     @Override
     public void onDashboardClick() {
-        startActivity(FragmentHandlerActivity.newIntent(this, FragmentHandlerActivity.DASHBOARD));
+        startActivity(FragmentHandlerActivity.newIntent(this,
+                FragmentHandlerActivity.DASHBOARD, ""));
     }
 
     //Dialogs-----------------------
@@ -202,9 +205,13 @@ public class SseHomeActivity extends BaseActivity<ActivitySseHomeBinding, SseHom
 
             if(selection.equals(DEFICIENCY_AFTER_SCRUTINY)){
                 //open DEFICIENCY_AFTER_SCRUTINY
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS, ""));
             }
             else {
                 //open DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY, ""));
             }
         }
         else if(tag.equals(CasesDialog.TAG) && params != null && params.length >= 1){
@@ -213,14 +220,35 @@ public class SseHomeActivity extends BaseActivity<ActivitySseHomeBinding, SseHom
             if(selection.equals(FRESH_CASES)){
                 //open FRESH_CASES
                 startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_FRESH));
+                        FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_FRESH, ""));
             }
             else {
                 //open CASES_REVERTED_BY_AME_VDC
                 startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_REVERTED));
+                        FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_REVERTED, ""));
             }
         }
+        else if(tag.equals(VendorWiseDialog.TAG) && params != null && params.length >= 1){
+            String selection = params[0];
+            String application = params[1];
+
+            if(selection.equals(AppConstants.CASE_IN_PROGRESS)){
+                //open CASE_IN_PROGRESS
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.VENDOR_WISE_REPORT_CASE_IN_PROGRESS, application));
+            }
+            else if(selection.equals(AppConstants.APPROVED)){
+                //open CASES_AFTER_ASSESSMENT_FRESH
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.VENDOR_WISE_REPORT_APPROVED, application));
+            }
+            else if(selection.equals(AppConstants.CLOSED)){
+                //open CASES_AFTER_ASSESSMENT_FRESH
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.VENDOR_WISE_REPORT_CLOSED, application));
+            }
+        }
+
     }
 
     //Additional---------------------

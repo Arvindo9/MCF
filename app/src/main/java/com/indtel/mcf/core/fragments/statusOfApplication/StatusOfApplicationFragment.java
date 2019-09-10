@@ -34,6 +34,7 @@ public class StatusOfApplicationFragment extends
         BaseFragment<FragmentStatusOfApplicationBinding, StatusOfApplicationViewModel>
         implements StatusOfApplicationNavigator, StatusOfApplicationAdapter.AdapterListener {
     public static final String TAG = StatusOfApplicationFragment.class.getSimpleName();
+    public static final String KEY_APPLICATION_ID = "KEY_APPLICATION_ID";
 
     @Inject
     ViewModelProviderFactory factory;
@@ -42,10 +43,12 @@ public class StatusOfApplicationFragment extends
     private FragmentStatusOfApplicationBinding binding;
     private StatusOfApplicationViewModel viewModel;
     private FragmentListener callBack;
+    private String applicationId = "";
 
-    public static StatusOfApplicationFragment newInstance() {
+    public static StatusOfApplicationFragment newInstance(String applicationId) {
         Bundle args = new Bundle();
         StatusOfApplicationFragment fragment = new StatusOfApplicationFragment();
+        args.putString(KEY_APPLICATION_ID, applicationId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -77,6 +80,7 @@ public class StatusOfApplicationFragment extends
      */
     @Override
     public StatusOfApplicationViewModel getViewModel() {
+        applicationId = getArguments() != null? getArguments().getString(KEY_APPLICATION_ID) : "";
         return viewModel = ViewModelProviders.of(this,factory).get(StatusOfApplicationViewModel.class);
     }
 
@@ -112,6 +116,7 @@ public class StatusOfApplicationFragment extends
      */
     @Override
     protected void init() {
+        viewModel.callApi(applicationId);
         subscribeToLiveData();
         setRecyclerView();
 //        setFilter();
@@ -123,7 +128,12 @@ public class StatusOfApplicationFragment extends
     }
 
     private void setRecyclerView(){
-        adapter.setListener(this);
+        if(applicationId.isEmpty()) {
+            adapter.setListener(this, true);
+        }
+        else{
+            adapter.setListener(this, false);
+        }
         binding.listView.setAdapter(adapter);
     }
 

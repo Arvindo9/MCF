@@ -5,6 +5,8 @@ import com.indtel.mcf.core.fragments.dashboard.DashboardFragment;
 import com.indtel.mcf.core.fragments.dashboard.DashboardModule;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentFragment;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentModule;
+import com.indtel.mcf.core.fragments.sse.SseFragment;
+import com.indtel.mcf.core.fragments.sse.SseModule;
 import com.indtel.mcf.core.fragments.statusOfApplication.StatusOfApplicationFragment;
 import com.indtel.mcf.core.fragments.statusOfApplication.StatusOfApplicationModule;
 import com.indtel.mcf.core.fragments.viewItem.ViewItemFragment;
@@ -48,4 +50,7 @@ public abstract class FragmentHandlerProvider {
 
     @ContributesAndroidInjector(modules = CasesAfterAssessmentModule.class)
     abstract CasesAfterAssessmentFragment provideCasesAfterAssessmentFragment();
+
+    @ContributesAndroidInjector(modules = SseModule.class)
+    abstract SseFragment provideSseFragment();
 }
