@@ -17,7 +17,7 @@ import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentFragm
 import com.indtel.mcf.core.fragments.sse.SseFragment;
 import com.indtel.mcf.core.fragments.statusOfApplication.StatusOfApplicationFragment;
 import com.indtel.mcf.core.fragments.viewItem.ViewItemFragment;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
 import com.indtel.mcf.core.fragments.casesAfterAssessment.CasesAfterAssessmentFragment;

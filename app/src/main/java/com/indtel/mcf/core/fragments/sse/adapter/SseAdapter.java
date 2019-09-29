@@ -104,14 +104,14 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
                         break;
 
                     case SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY:
-                        binding.itemNameText.setVisibility(View.GONE);
-                        binding.empty1Text.setVisibility(View.GONE);
-                        binding.empty2Text.setVisibility(View.GONE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.empty1Layout.setVisibility(View.GONE);
+                        binding.empty2Layout.setVisibility(View.GONE);
                         break;
 
                     case SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
-                        binding.empty1Text.setVisibility(View.GONE);
-                        binding.empty2Text.setVisibility(View.GONE);
+                        binding.empty1Layout.setVisibility(View.GONE);
+                        binding.empty2Layout.setVisibility(View.GONE);
                         break;
                 }
             }

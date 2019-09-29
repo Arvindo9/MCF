@@ -11,7 +11,7 @@ import com.indtel.mcf.core.fragments.FragmentListener;
 import com.indtel.mcf.core.fragments.dashboard.adapter.DashboardAdapter;
 import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
 import com.indtel.mcf.databinding.FragmentDashboardBinding;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package com.indtel.mcf.core.dialogs.vendorWise;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
@@ -11,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.indtel.mcf.base.BaseDialog;
 import com.indtel.mcf.core.dialogs.DialogListener;
 import com.indtel.mcf.data.model.apis.firmName.FirmName;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 import com.indtel.mcf.utils.AppConstants;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
@@ -208,5 +207,6 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
         Integer id = map.get(binding.firmNameAuto.getText().toString());
 
         callBack.onSuccessDialogResponse(TAG, selectionRadio, String.valueOf(id));
+        dismiss();
     }
 }

@@ -78,6 +78,7 @@ public enum  AppConstants {
 
     public static final String USER_TYPE_VENDOR = "VENDOR";
     public static final String USER_TYPE_SSE = "SSE";
+    public static final String USER_TYPE_AO = "AO";
 
     //Extra--------------------------------
 

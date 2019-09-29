@@ -76,8 +76,8 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends BaseView
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         performDependencyInjection();
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         context = this;
         activity = this;

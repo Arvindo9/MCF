@@ -11,9 +11,7 @@ import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.core.fragments.FragmentListener;
 import com.indtel.mcf.core.fragments.sse.adapter.SseAdapter;
 import com.indtel.mcf.databinding.FragmentSseBinding;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
-
-import java.io.Serializable;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 
 import javax.inject.Inject;
 

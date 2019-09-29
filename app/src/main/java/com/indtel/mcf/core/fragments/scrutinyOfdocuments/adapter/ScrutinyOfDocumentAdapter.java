@@ -95,7 +95,7 @@ public class ScrutinyOfDocumentAdapter extends BaseAdapter<AdapterScrutinyOfDocu
              */
             @Override
             protected void bindData(DashboardScrutinyOfDocument data) {
-                binding.setData(new ScrutinyOfDocumentAdapterViewModel(String.valueOf(position), data));
+                binding.setData(new ScrutinyOfDocumentAdapterViewModel(String.valueOf(position+1), data));
             }
 
             /**

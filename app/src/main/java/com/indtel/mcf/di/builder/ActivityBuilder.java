@@ -1,5 +1,7 @@
 package com.indtel.mcf.di.builder;
 
+import com.indtel.mcf.ui.home.ao.AoHomeActivity;
+import com.indtel.mcf.ui.home.ao.AoHomeProvider;
 import com.indtel.mcf.ui.home.sse.SseHomeActivity;
 import com.indtel.mcf.ui.home.sse.SseHomeProvider;
 import com.indtel.mcf.ui.home.vendor.VendorHomeActivity;
@@ -47,5 +49,8 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = SseHomeProvider.class)
     abstract SseHomeActivity bindSseHomeActivity();
+
+    @ContributesAndroidInjector(modules = AoHomeProvider.class)
+    abstract AoHomeActivity bindAoHomeActivity();
 
 }

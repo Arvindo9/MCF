@@ -1,4 +1,4 @@
-package com.indtel.mcf.di.module;
+package com.indtel.mcf.di.builder;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.indtel.mcf.core.fragments.dashboard.DashboardViewModel;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentViewModel;
 import com.indtel.mcf.core.fragments.sse.SseViewModel;
+import com.indtel.mcf.ui.home.ao.AoHomeViewModel;
 import com.indtel.mcf.ui.home.sse.SseHomeViewModel;
 import com.indtel.mcf.ui.home.vendor.VendorHomeViewModel;
 import com.indtel.mcf.ui.launcher.credential.LoginViewModel;
@@ -122,6 +123,10 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         else if (modelClass.isAssignableFrom(SseViewModel.class)) {
             //noinspection unchecked
             return (T) new SseViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(AoHomeViewModel.class)) {
+            //noinspection unchecked
+            return (T) new AoHomeViewModel(dataManager,schedulerProvider);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

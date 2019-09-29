@@ -6,6 +6,7 @@ import com.indtel.mcf.utils.Logger;
 import com.indtel.mcf.utils.rx.SchedulerProvider;
 import com.indtel.mcf.utils.tasks.Task;
 
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_AO;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_SSE;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
 
@@ -57,6 +58,10 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                         if(response.getUserType() != null && response.getUserType().equals(USER_TYPE_SSE)){
                             getDataManager().setUserType(USER_TYPE_SSE);
                             getNavigator().openSSEHome();
+                        }
+                        else if(response.getUserType() != null && response.getUserType().equals(USER_TYPE_AO)){
+                            getDataManager().setUserType(USER_TYPE_AO);
+                            getNavigator().openAoHome();
                         }
 
 

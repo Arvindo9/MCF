@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.indtel.mcf.base.BaseDialog;
 import com.indtel.mcf.core.dialogs.DialogListener;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 import com.indtel.mcf.utils.AppConstants;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
@@ -130,5 +130,6 @@ public class DeficienciesDialog extends BaseDialog<DialogDeficienciesBinding, De
                 callBack.onSuccessDialogResponse(TAG, AppConstants.DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY);
                 break;
         }
+        dismiss();
     }
 }

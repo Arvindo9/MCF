@@ -11,7 +11,7 @@ import com.indtel.mcf.core.fragments.FragmentListener;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.adapter.ScrutinyOfDocumentAdapter;
 import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
 import com.indtel.mcf.databinding.FragmentScrutinyOfDocumentBinding;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 
 import java.util.List;
 

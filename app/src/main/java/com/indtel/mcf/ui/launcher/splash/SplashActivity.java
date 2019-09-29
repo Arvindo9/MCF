@@ -12,7 +12,7 @@ import com.indtel.mcf.ui.launcher.credential.LoginActivity;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
 import com.indtel.mcf.databinding.SplashActivityBinding;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 import com.indtel.mcf.ui.home.sse.SseHomeActivity;
 import com.indtel.mcf.ui.home.vendor.VendorHomeActivity;
 

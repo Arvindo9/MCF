@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.indtel.mcf.base.BaseDialog;
 import com.indtel.mcf.core.dialogs.DialogListener;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 import com.indtel.mcf.utils.AppConstants;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
@@ -117,6 +117,7 @@ public class CasesDialog extends BaseDialog<DialogCasesBinding, CasesViewModel> 
     @Override
     public void onSelectionClick(View view) {
         boolean checked = ((RadioButton) view).isChecked();
+
         switch (view.getId()){
             case R.id.freshCases:
                 if(checked)
@@ -128,5 +129,6 @@ public class CasesDialog extends BaseDialog<DialogCasesBinding, CasesViewModel> 
                     callBack.onSuccessDialogResponse(TAG, AppConstants.CASES_REVERTED_BY_AME_VDC);
                 break;
         }
+        dismiss();
     }
 }

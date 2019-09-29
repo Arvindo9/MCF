@@ -16,7 +16,7 @@ import com.indtel.mcf.ui.launcher.credential.LoginActivity;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
 import com.indtel.mcf.databinding.WelcomeActivityBinding;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 import com.indtel.mcf.utils.Logger;
 
 import java.io.IOException;

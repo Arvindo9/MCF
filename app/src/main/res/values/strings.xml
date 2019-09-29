@@ -64,4 +64,5 @@
     <string name="tender_date">Tender date</string>
     <string name="letter_no">Letter no.</string>
     <string name="letter_date">Letter date</string>
+    <string name="cases_for_assessment">Cases for assessment</string>
 </resources>

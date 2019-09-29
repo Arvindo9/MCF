@@ -18,7 +18,7 @@ import com.indtel.mcf.core.dialogs.deficiencies.DeficienciesDialog;
 import com.indtel.mcf.core.dialogs.vendorWise.VendorWiseDialog;
 import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.databinding.ActivitySseHomeBinding;
-import com.indtel.mcf.di.module.ViewModelProviderFactory;
+import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 import com.indtel.mcf.utils.AppConstants;
 
 import javax.inject.Inject;
