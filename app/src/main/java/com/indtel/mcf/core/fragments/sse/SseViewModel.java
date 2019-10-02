@@ -6,12 +6,14 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseViewModel;
+import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.data.DataManager;
 import com.indtel.mcf.data.model.apis.sse.CaseList;
 import com.indtel.mcf.utils.rx.SchedulerProvider;
 
 import java.util.List;
 
+import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.CASES_FOR_RECOMMENDATION;
 import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY;
 import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS;
 import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT;
@@ -123,6 +125,25 @@ public class SseViewModel extends BaseViewModel<SseNavigator> {
                     }));
                 break;
 
+            case CASES_FOR_RECOMMENDATION:
+                getCompositeDisposable().add(getDataManager()
+                        .casesForRecommendation(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
             case VENDOR_WISE_REPORT_CASE_IN_PROGRESS:
             case VENDOR_WISE_REPORT_APPROVED:
             case VENDOR_WISE_REPORT_CLOSED:
@@ -142,6 +163,84 @@ public class SseViewModel extends BaseViewModel<SseNavigator> {
                         getNavigator().handleMessage(R.string.default_error);
                         setIsLoading(false);
                     }));*/
+                break;
+
+
+            case FragmentHandlerActivity.CASES_FOR_SCRUTINY_FRESH_CASES:
+                getCompositeDisposable().add(getDataManager()
+                        .bindScrutinyAssessment(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_NOMINATIONS:
+                getCompositeDisposable().add(getDataManager()
+                        .bindNomination(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_ASSESSMENT:
+                getCompositeDisposable().add(getDataManager()
+                        .bindAssessmentReport(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+
+            case FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY:
+                getCompositeDisposable().add(getDataManager()
+                        .bindSSEAssessmentVendor(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
                 break;
         }
     }

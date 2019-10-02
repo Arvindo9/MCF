@@ -12,7 +12,10 @@ import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
 import com.indtel.mcf.databinding.ActivityLoginBinding;
 import com.indtel.mcf.di.builder.ViewModelProviderFactory;
+import com.indtel.mcf.ui.home.ame.AmeHomeActivity;
 import com.indtel.mcf.ui.home.ao.AoHomeActivity;
+import com.indtel.mcf.ui.home.cple.CpleHomeActivity;
+import com.indtel.mcf.ui.home.dycme.DyCmeHomeActivity;
 import com.indtel.mcf.ui.home.sse.SseHomeActivity;
 import com.indtel.mcf.ui.home.vendor.VendorHomeActivity;
 import com.indtel.mcf.utils.util.Resource;
@@ -32,7 +35,8 @@ import javax.inject.Inject;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginNavigator{
+public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel>
+        implements LoginNavigator{
 
     @Inject
     ViewModelProviderFactory factory;
@@ -138,6 +142,30 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     public void openAoHome() {
         Intent intent = AoHomeActivity.newIntent(this);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openAmeHome() {
+        Intent intent = AmeHomeActivity.newIntent(this);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openDyCmeHome() {
+        Intent intent = DyCmeHomeActivity.newIntent(this);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openCpleHome() {
+        Intent intent = CpleHomeActivity.newIntent(this);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

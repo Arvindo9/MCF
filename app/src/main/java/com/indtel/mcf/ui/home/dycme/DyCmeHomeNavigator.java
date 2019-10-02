@@ -1,10 +1,10 @@
-package com.indtel.mcf.ui.launcher.credential;
+package com.indtel.mcf.ui.home.dycme;
 
 import com.indtel.mcf.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 28-07-2019
+ * Created on   : 01-10-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -15,18 +15,16 @@ import com.indtel.mcf.base.BaseNavigator;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-interface LoginNavigator extends BaseNavigator {
-    void onLoginClick();
+public interface DyCmeHomeNavigator extends BaseNavigator {
+    void onLogOutClick();
 
-    void openVendorHome();
+    void onVendorWiseReportClick();
 
-    void openSSEHome();
+    void onDashboardClick();
 
-    void openAoHome();
+    void onCaseForScrutinyClick();
 
-    void openAmeHome();
+    void onCaseForNominationClick();
 
-    void openDyCmeHome();
-
-    void openCpleHome();
+    void onCasesForAssessmentClick();
 }

@@ -8,6 +8,10 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.indtel.mcf.base.BaseActivity;
+import com.indtel.mcf.ui.home.ame.AmeHomeActivity;
+import com.indtel.mcf.ui.home.ao.AoHomeActivity;
+import com.indtel.mcf.ui.home.cple.CpleHomeActivity;
+import com.indtel.mcf.ui.home.dycme.DyCmeHomeActivity;
 import com.indtel.mcf.ui.launcher.credential.LoginActivity;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
@@ -31,7 +35,8 @@ import javax.inject.Inject;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashViewModel> implements SplashNavigator {
+public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashViewModel>
+        implements SplashNavigator {
 
 
     @Inject
@@ -113,7 +118,6 @@ public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashVi
     @Override
     public void openVendorHomeActivity() {
         Intent intent = VendorHomeActivity.newIntent(this);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
@@ -121,7 +125,34 @@ public class SplashActivity extends BaseActivity<SplashActivityBinding, SplashVi
     @Override
     public void openSseHomeActivity() {
         Intent intent = SseHomeActivity.newIntent(this);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openAmeHomeActivity() {
+        Intent intent = AmeHomeActivity.newIntent(this);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openAoHomeActivity() {
+        Intent intent = AoHomeActivity.newIntent(this);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openDyCmeHomeActivity() {
+        Intent intent = DyCmeHomeActivity.newIntent(this);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openCpleHomeActivity() {
+        Intent intent = CpleHomeActivity.newIntent(this);
         startActivity(intent);
         finish();
     }

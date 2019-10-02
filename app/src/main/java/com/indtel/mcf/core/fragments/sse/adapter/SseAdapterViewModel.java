@@ -2,12 +2,9 @@ package com.indtel.mcf.core.fragments.sse.adapter;
 
 import androidx.databinding.ObservableField;
 
+import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.data.model.apis.sse.CaseList;
 import com.indtel.mcf.utils.util.General;
-
-import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY;
-import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS;
-import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT;
 
 /**
  * Author       : Arvindo Mondal
@@ -33,6 +30,7 @@ public class SseAdapterViewModel {
     public final ObservableField<String> date;
     public final ObservableField<String> status;
     public final ObservableField<String> remark;
+    public final ObservableField<String> attachmentText;
 
     public SseAdapterViewModel(CaseList data, int openInterface, int position) {
         sNo = new ObservableField<>(String.valueOf(position));
@@ -44,13 +42,14 @@ public class SseAdapterViewModel {
         remark = new ObservableField<>();
         empty1Text = new ObservableField<>();
         empty2Text = new ObservableField<>();
+        attachmentText = new ObservableField<>();
 
         setData(data, openInterface);
     }
 
     private void setData(CaseList data, int openInterface) {
         switch (openInterface){
-            case SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS:
+            case FragmentHandlerActivity.SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS:
                 itemName.set(data.getTenderNo());
                 empty1Text.set(validateDate(data.getTenderDate()));
                 empty2Text.set(data.getLetterNo());
@@ -58,15 +57,56 @@ public class SseAdapterViewModel {
                 remark.set(data.getRemarkByVendor());
                 break;
 
-            case SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY:
+            case FragmentHandlerActivity.SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY:
                 status.set(data.getStatusBySSEVDC());
                 remark.set(data.getRemarkByVendor());
                 break;
 
-            case SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
+            case FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
                 itemName.set(data.getItemName());
                 status.set(data.getStatusBySSEVDC());
                 remark.set(data.getRemarkBySSEVDC());
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_RECOMMENDATION:
+                empty1Text.set(data.getrECOMMENDEDAONAME());
+                empty2Text.set(data.getrEMARKOFSCRUTINY());
+                date.set(validateDate(data.getdATEOFSCRUTINY()));
+
+                //download ATTACHMENT_OF_SCRUTINY
+                //text Attachment by SSE
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_SCRUTINY_FRESH_CASES:
+                empty1Text.set(data.getISASSESSMENTRERQUIRED());
+                status.set(data.getSTATUSOFASSESSMENTREPORTSSE());
+                remark.set(data.getREMARKOFSSEONASSESSMENT());
+                date.set(validateDate(data.getDATEOFREMARKOFSSEONASSESSMENT()));
+
+                //download ATTACHMENT_OF_ASSESSMENT_REPORT
+                //text Initial Scutiny Report
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_NOMINATIONS:
+                remark.set(data.getrEMARK_BY_AME_ON_RECOMMENDATION());
+                date.set(validateDate(data.getdATEOFSCRUTINY()));
+
+                //download ATTACHMENT_OF_SCRUTINY
+                //text Attachment by SSE
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_ASSESSMENT:
+                remark.set(data.getREMARK_OF_DYCME());
+                date.set(validateDate(data.getDATE_OF_SUBMISSION()));
+                empty1Text.set(validateDate(data.getPROBABLE_DATE_OF_VISIT()));
+
+                //no attachment
+                break;
+
+            case FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY:
+                status.set(data.getSTATUSOFASSESSMENTREPORTSSE());
+                remark.set(data.getREMARKOFSSEONASSESSMENT());
+                date.set(validateDate(data.getDATE_OF_SUBMISSION()));
                 break;
         }
     }

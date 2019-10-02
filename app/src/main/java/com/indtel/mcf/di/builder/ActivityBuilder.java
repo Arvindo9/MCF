@@ -1,7 +1,12 @@
 package com.indtel.mcf.di.builder;
 
+import com.indtel.mcf.ui.home.ame.AmeHomeActivity;
+import com.indtel.mcf.ui.home.ame.AmeHomeProvider;
 import com.indtel.mcf.ui.home.ao.AoHomeActivity;
 import com.indtel.mcf.ui.home.ao.AoHomeProvider;
+import com.indtel.mcf.ui.home.cple.CpleHomeActivity;
+import com.indtel.mcf.ui.home.dycme.DyCmeHomeActivity;
+import com.indtel.mcf.ui.home.dycme.DyCmeProvider;
 import com.indtel.mcf.ui.home.sse.SseHomeActivity;
 import com.indtel.mcf.ui.home.sse.SseHomeProvider;
 import com.indtel.mcf.ui.home.vendor.VendorHomeActivity;
@@ -52,5 +57,14 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = AoHomeProvider.class)
     abstract AoHomeActivity bindAoHomeActivity();
+
+    @ContributesAndroidInjector(modules = AmeHomeProvider.class)
+    abstract AmeHomeActivity bindAmeHomeActivity();
+
+    @ContributesAndroidInjector(modules = DyCmeProvider.class)
+    abstract DyCmeHomeActivity bindDyCmeHomeActivity();
+
+    @ContributesAndroidInjector(modules = DyCmeProvider.class)
+    abstract CpleHomeActivity bindCpleHomeActivity();
 
 }

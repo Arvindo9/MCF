@@ -1,10 +1,12 @@
-package com.indtel.mcf.ui.launcher.credential;
+package com.indtel.mcf.core.dialogs.caseDefault;
+
+import android.view.View;
 
 import com.indtel.mcf.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 28-07-2019
+ * Created on   : 30-09-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -15,18 +17,8 @@ import com.indtel.mcf.base.BaseNavigator;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-interface LoginNavigator extends BaseNavigator {
-    void onLoginClick();
+public interface CaseDefaultNavigator extends BaseNavigator {
+    void onCancelClick();
 
-    void openVendorHome();
-
-    void openSSEHome();
-
-    void openAoHome();
-
-    void openAmeHome();
-
-    void openDyCmeHome();
-
-    void openCpleHome();
+    void onSelectionClick(View view);
 }

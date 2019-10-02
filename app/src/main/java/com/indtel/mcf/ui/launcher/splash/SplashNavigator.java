@@ -26,4 +26,12 @@ public interface SplashNavigator extends BaseNavigator {
     void openVendorHomeActivity();
 
     void openSseHomeActivity();
+
+    void openAmeHomeActivity();
+
+    void openAoHomeActivity();
+
+    void openDyCmeHomeActivity();
+
+    void openCpleHomeActivity();
 }

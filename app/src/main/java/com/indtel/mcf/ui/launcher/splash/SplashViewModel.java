@@ -7,6 +7,10 @@ import com.indtel.mcf.data.DataManager;
 import com.indtel.mcf.utils.rx.SchedulerProvider;
 import com.indtel.mcf.utils.tasks.Task;
 
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_AME;
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_AO;
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_CPLE;
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_DYCME;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_SSE;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
 
@@ -34,14 +38,7 @@ public class SplashViewModel extends BaseViewModel<SplashNavigator> {
 
     private final int LOGGED_IN_MODE_FIRST_TIME = 0;
     private final int LOGGED_IN_MODE_LOGGED_OUT = 1;
-    private final int LOGGED_IN_MODE_REGISTRATION_PHASE_1 = 2;
-    private final int LOGGED_IN_MODE_REGISTRATION_PHASE_2 = 3;
-    private final int LOGGED_IN_MODE_REGISTRATION_PHASE_3 = 4;
-    private final int LOGGED_IN_MODE_REGISTRATION_PHASE_4 = 5;
-    private final int LOGGED_IN_MODE_LOGGED_IN_SECURITY_IMAGE = 6;
-    private final int LOGGED_IN_MODE_LOGGED_IN_PROFILE_IMAGE = 7;
     private final int LOGGED_IN_MODE_LOGGED_IN_HOME = 8;
-    private final int LOGGED_IN_MODE_UPDATE_PLAY_STORE = 9;
 
     public SplashViewModel(DataManager dataManager, SchedulerProvider schedulerProvider, Task task) {
         super(dataManager, schedulerProvider);
@@ -90,6 +87,21 @@ public class SplashViewModel extends BaseViewModel<SplashNavigator> {
                     }
                     else if(getDataManager().getUserType().equals(USER_TYPE_SSE)){
                         getNavigator().openSseHomeActivity();
+                    }
+                    else if(getDataManager().getUserType().equals(USER_TYPE_AO)){
+                        getNavigator().openAoHomeActivity();
+                    }
+                    else if(getDataManager().getUserType().equals(USER_TYPE_AME)){
+                        getNavigator().openAmeHomeActivity();
+                    }
+                    else if(getDataManager().getUserType().equals(USER_TYPE_AME)){
+                        getNavigator().openAmeHomeActivity();
+                    }
+                    else if(getDataManager().getUserType().equals(USER_TYPE_DYCME)){
+                        getNavigator().openDyCmeHomeActivity();
+                    }
+                    else if(getDataManager().getUserType().equals(USER_TYPE_CPLE)){
+                        getNavigator().openCpleHomeActivity();
                     }
 //                    getNavigator().openHomeActivity();
                     break;

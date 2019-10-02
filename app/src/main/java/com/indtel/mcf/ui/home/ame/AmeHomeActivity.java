@@ -1,4 +1,4 @@
-package com.indtel.mcf.ui.home.vendor;
+package com.indtel.mcf.ui.home.ame;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,15 +8,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.indtel.mcf.base.BaseActivity;
-import com.indtel.mcf.core.dialogs.DialogListener;
-import com.indtel.mcf.ui.launcher.splash.SplashActivity;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
+import com.indtel.mcf.base.BaseActivity;
+import com.indtel.mcf.core.dialogs.DialogListener;
+import com.indtel.mcf.core.dialogs.caseDefault.CaseDefaultDialog;
+import com.indtel.mcf.core.dialogs.cases.CasesDialog;
 import com.indtel.mcf.core.dialogs.deficiencies.DeficienciesDialog;
+import com.indtel.mcf.core.dialogs.vendorWise.VendorWiseDialog;
 import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
-import com.indtel.mcf.databinding.ActivityVendorHomeBinding;
+import com.indtel.mcf.databinding.ActivityAmeHomeBinding;
+import com.indtel.mcf.databinding.ActivitySseHomeBinding;
 import com.indtel.mcf.di.builder.ViewModelProviderFactory;
+import com.indtel.mcf.ui.home.sse.SseHomeActivity;
+import com.indtel.mcf.ui.home.sse.SseHomeViewModel;
+import com.indtel.mcf.ui.launcher.splash.SplashActivity;
+import com.indtel.mcf.utils.AppConstants;
 
 import javax.inject.Inject;
 
@@ -24,12 +31,12 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY;
 import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
+import static com.indtel.mcf.utils.AppConstants.FRESH_CASES;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 05-08-2019
+ * Created on   : 30-09-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -40,25 +47,23 @@ import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, VendorHomeViewModel> implements
-        VendorHomeNavigator, HasSupportFragmentInjector, DialogListener {
-    public static final String TAG = VendorHomeActivity.class.getSimpleName();
+public class AmeHomeActivity extends BaseActivity<ActivityAmeHomeBinding, AmeHomeViewModel>
+        implements AmeHomeNavigator, HasSupportFragmentInjector, DialogListener {
+    public static final String TAG = AmeHomeActivity.class.getSimpleName();
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
     @Inject
     ViewModelProviderFactory factory;
-    private VendorHomeViewModel viewModel;
+    private AmeHomeViewModel viewModel;
 
-    private ActivityVendorHomeBinding binding;
+    private ActivityAmeHomeBinding binding;
+
 
     public static Intent newIntent(Context context) {
-        return new Intent(context, VendorHomeActivity.class);
+        return new Intent(context, AmeHomeActivity.class);
     }
 
-    /**
-     * Returns an {@link AndroidInjector} of {@link Fragment}s.
-     */
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return fragmentDispatchingAndroidInjector;
@@ -68,7 +73,7 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
      * @param binding activity class data binding
      */
     @Override
-    public void getActivityBinding(ActivityVendorHomeBinding binding) {
+    public void getActivityBinding(ActivityAmeHomeBinding binding) {
         this.binding = binding;
     }
 
@@ -85,7 +90,7 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
      */
     @Override
     protected int getLayout() {
-        return R.layout.activity_vendor_home;
+        return R.layout.activity_ame_home;
     }
 
     /**
@@ -104,8 +109,8 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
      * @return viewModel = ViewModelProviders.of(this,factory).get(WelcomeViewModel.class);
      */
     @Override
-    public VendorHomeViewModel getViewModel() {
-        return viewModel = ViewModelProviders.of(this,factory).get(VendorHomeViewModel.class);
+    public AmeHomeViewModel getViewModel() {
+        return viewModel = ViewModelProviders.of(this,factory).get(AmeHomeViewModel.class);
     }
 
     /**
@@ -156,16 +161,29 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
     }
 
     @Override
-    public void onStatusOfApplicationClick() {
+    public void onCaseForRecommendationClick() {
         startActivity(FragmentHandlerActivity.newIntent(this,
-                FragmentHandlerActivity.STATUS_OF_APPLICATION, ""));
+                FragmentHandlerActivity.CASES_FOR_RECOMMENDATION, ""));
     }
 
     @Override
-    public void onDeficienciesAdvisedClick() {
-        DeficienciesDialog selectionDialog = DeficienciesDialog.newInstance();
+    public void onCaseForScrutinyClick() {
+        CaseDefaultDialog selectionDialog = CaseDefaultDialog.newInstance(TAG, AppConstants.CASES_FOR_SCRUTINY);
         selectionDialog.setCallBack(this);
-        selectionDialog.show(getSupportFragmentManager(), DeficienciesDialog.TAG);
+        selectionDialog.show(getSupportFragmentManager(), CaseDefaultDialog.TAG);
+    }
+
+    @Override
+    public void onVendorWiseReportClick() {
+        VendorWiseDialog selectionDialog = VendorWiseDialog.newInstance();
+        selectionDialog.setCallBack(this);
+        selectionDialog.show(getSupportFragmentManager(), VendorWiseDialog.TAG);
+    }
+
+    @Override
+    public void onDashboardClick() {
+        startActivity(FragmentHandlerActivity.newIntent(this,
+                FragmentHandlerActivity.DASHBOARD, ""));
     }
 
     //Dialogs-----------------------
@@ -178,17 +196,44 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
      */
     @Override
     public void onSuccessDialogResponse(String tag, String... params) {
-        if(tag.equals(DeficienciesDialog.TAG) && params != null && params.length >= 1){
+        if(tag.equals(VendorWiseDialog.TAG) && params != null && params.length >= 1){
             String selection = params[0];
+            String application = params[1];
 
-            if(selection.equals(DEFICIENCY_AFTER_SCRUTINY)){
-                //open DEFICIENCY_AFTER_SCRUTINY
-            }
-            else if(selection.equals(DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY)){
-                //open DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY
-
+            if(selection.equals(AppConstants.CASE_IN_PROGRESS)){
+                //open CASE_IN_PROGRESS
                 startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY, ""));
+                        FragmentHandlerActivity.VENDOR_WISE_REPORT_CASE_IN_PROGRESS, application));
+            }
+            else if(selection.equals(AppConstants.APPROVED)){
+                //open CASES_AFTER_ASSESSMENT_FRESH
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.VENDOR_WISE_REPORT_APPROVED, application));
+            }
+            else if(selection.equals(AppConstants.CLOSED)){
+                //open CASES_AFTER_ASSESSMENT_FRESH
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.VENDOR_WISE_REPORT_CLOSED, application));
+            }
+        }
+        else if(tag.equals(CaseDefaultDialog.TAG) && params != null && params.length >= 2){
+            String type = params[0];
+            String selection = params[1];
+
+            if(selection.equals(AppConstants.FRESH_CASES)){
+                //open CASE_IN_PROGRESS
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.CASES_FOR_SCRUTINY_FRESH_CASES, ""));
+            }
+            else if(selection.equals(AppConstants.REVERT_CASES_FROM_SSE_SDC)){
+                //open CASES_AFTER_ASSESSMENT_FRESH
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_SSE, ""));
+            }
+            else if(selection.equals(AppConstants.CASES_REVERTED_BY_DY_CME)){
+                //open CASES_AFTER_ASSESSMENT_FRESH
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_CME, ""));
             }
         }
     }

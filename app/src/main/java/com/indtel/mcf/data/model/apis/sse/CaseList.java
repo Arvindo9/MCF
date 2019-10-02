@@ -17,10 +17,10 @@ import com.google.gson.annotations.SerializedName;
  * Website      : www.aiprog.in
  */
 public class CaseList {
-    @SerializedName("ReferenceId")
+    @SerializedName(value = "ReferenceId", alternate = "ID")
     @Expose
     private Integer referenceId;
-    @SerializedName("FirmName")
+    @SerializedName(value = "FirmName", alternate = "NAMEOFFIRM")
     @Expose
     private String firmName = "";
     @SerializedName("TenderNo")
@@ -44,6 +44,9 @@ public class CaseList {
     @SerializedName("AttachmentByVendor")
     @Expose
     private String attachmentByVendor = "";
+    @SerializedName("ATTACHMENT_TO_VENDOR")
+    @Expose
+    private String ATTACHMENT_TO_VENDOR = "";
     @SerializedName("StatusBySSEVDC")
     @Expose
     private String statusBySSEVDC;
@@ -52,7 +55,7 @@ public class CaseList {
     private String attachmentReport;
 
 
-    @SerializedName("ItemName")
+    @SerializedName(value = "ItemName", alternate = "ITEM_NAME")
     @Expose
     private String itemName;
     @SerializedName("IsAssessmentRequired")
@@ -64,6 +67,9 @@ public class CaseList {
     @SerializedName("RemarkByAO")
     @Expose
     private String remarkByAO;
+    @SerializedName("REMARK_OF_DYCME")
+    @Expose
+    private String REMARK_OF_DYCME;
 
     @SerializedName("AssessmentReport")
     @Expose
@@ -72,6 +78,9 @@ public class CaseList {
     @SerializedName("RemarkBySSEVDC")
     @Expose
     private String remarkBySSEVDC;
+    @SerializedName("DATE_OF_SUBMISSION")
+    @Expose
+    private String DATE_OF_SUBMISSION;
 
 
 
@@ -214,5 +223,208 @@ public class CaseList {
 
     public void setRemarkBySSEVDC(String remarkBySSEVDC) {
         this.remarkBySSEVDC = remarkBySSEVDC;
+    }
+
+
+
+
+
+
+    @SerializedName("RECOMMENDED_AO_NAME")
+    @Expose
+    private String rECOMMENDEDAONAME = "";
+    @SerializedName("REMARK_OF_SCRUTINY")
+    @Expose
+    private String rEMARKOFSCRUTINY = "";
+    @SerializedName("ATTACHMENT_OF_SCRUTINY")
+    @Expose
+    private String aTTACHMENTOFSCRUTINY = "";
+    @SerializedName("DATE_OF_SCRUTINY")
+    @Expose
+    private String dATEOFSCRUTINY = "";
+    @SerializedName("REMARK_BY_AME_ON_RECOMMENDATION")
+    @Expose
+    private String rEMARK_BY_AME_ON_RECOMMENDATION = "";
+
+    public String getrECOMMENDEDAONAME() {
+        return rECOMMENDEDAONAME;
+    }
+
+    public void setrECOMMENDEDAONAME(String rECOMMENDEDAONAME) {
+        this.rECOMMENDEDAONAME = rECOMMENDEDAONAME;
+    }
+
+    public String getrEMARKOFSCRUTINY() {
+        return rEMARKOFSCRUTINY;
+    }
+
+    public void setrEMARKOFSCRUTINY(String rEMARKOFSCRUTINY) {
+        this.rEMARKOFSCRUTINY = rEMARKOFSCRUTINY;
+    }
+
+    public String getdATEOFSCRUTINY() {
+        return dATEOFSCRUTINY;
+    }
+
+    public void setdATEOFSCRUTINY(String dATEOFSCRUTINY) {
+        this.dATEOFSCRUTINY = dATEOFSCRUTINY;
+    }
+
+
+
+
+
+
+
+    @SerializedName("STATUS_OF_ASSESSMENT_REPORT_SSE")
+    @Expose
+    private String sTATUSOFASSESSMENTREPORTSSE = "";
+    @SerializedName("REMARK_OF_SSE_ON_ASSESSMENT")
+    @Expose
+    private String rEMARKOFSSEONASSESSMENT = "";
+    @SerializedName("DATE_OF_REMARK_OF_SSE_ON_ASSESSMENT")
+    @Expose
+    private String dATEOFREMARKOFSSEONASSESSMENT = "";
+    @SerializedName("ATTACHMENT_OF_ASSESSMENT_REPORT")
+    @Expose
+    private String aTTACHMENTOFASSESSMENTREPORT = "";
+    @SerializedName("DATE_OF_REMARK_ON_ASSESSMENT_BY_AME")
+    @Expose
+    private String dATEOFREMARKONASSESSMENTBYAME = "";
+    @SerializedName("AME_ID")
+    @Expose
+    private Double aMEID;
+    @SerializedName("IS_ASSESSMENT_RERQUIRED")
+    @Expose
+    private String iSASSESSMENTRERQUIRED = "";
+    @SerializedName("REVERT_AME_ASSESSMENT")
+    @Expose
+    private String rEVERTAMEASSESSMENT = "";
+    @SerializedName("DATE_OF_REMARK_OF_ASSESSMENT")
+    @Expose
+    private String dATEOFREMARKOFASSESSMENT = "";
+
+    @SerializedName("PROBABLE_DATE_OF_VISIT")
+    @Expose
+    private String PROBABLE_DATE_OF_VISIT = "";
+
+    public String getSTATUSOFASSESSMENTREPORTSSE() {
+        return sTATUSOFASSESSMENTREPORTSSE;
+    }
+
+    public void setSTATUSOFASSESSMENTREPORTSSE(String sTATUSOFASSESSMENTREPORTSSE) {
+        this.sTATUSOFASSESSMENTREPORTSSE = sTATUSOFASSESSMENTREPORTSSE;
+    }
+
+    public String getREMARKOFSSEONASSESSMENT() {
+        return rEMARKOFSSEONASSESSMENT;
+    }
+
+    public void setREMARKOFSSEONASSESSMENT(String rEMARKOFSSEONASSESSMENT) {
+        this.rEMARKOFSSEONASSESSMENT = rEMARKOFSSEONASSESSMENT;
+    }
+
+    public String getDATEOFREMARKOFSSEONASSESSMENT() {
+        return dATEOFREMARKOFSSEONASSESSMENT;
+    }
+
+    public void setDATEOFREMARKOFSSEONASSESSMENT(String dATEOFREMARKOFSSEONASSESSMENT) {
+        this.dATEOFREMARKOFSSEONASSESSMENT = dATEOFREMARKOFSSEONASSESSMENT;
+    }
+
+    public String getATTACHMENTOFASSESSMENTREPORT() {
+        return aTTACHMENTOFASSESSMENTREPORT;
+    }
+
+    public void setATTACHMENTOFASSESSMENTREPORT(String aTTACHMENTOFASSESSMENTREPORT) {
+        this.aTTACHMENTOFASSESSMENTREPORT = aTTACHMENTOFASSESSMENTREPORT;
+    }
+
+    public String getDATEOFREMARKONASSESSMENTBYAME() {
+        return dATEOFREMARKONASSESSMENTBYAME;
+    }
+
+    public void setDATEOFREMARKONASSESSMENTBYAME(String dATEOFREMARKONASSESSMENTBYAME) {
+        this.dATEOFREMARKONASSESSMENTBYAME = dATEOFREMARKONASSESSMENTBYAME;
+    }
+
+    public Double getAMEID() {
+        return aMEID;
+    }
+
+    public void setAMEID(Double aMEID) {
+        this.aMEID = aMEID;
+    }
+
+    public String getISASSESSMENTRERQUIRED() {
+        return iSASSESSMENTRERQUIRED;
+    }
+
+    public void setISASSESSMENTRERQUIRED(String iSASSESSMENTRERQUIRED) {
+        this.iSASSESSMENTRERQUIRED = iSASSESSMENTRERQUIRED;
+    }
+
+    public String getREVERTAMEASSESSMENT() {
+        return rEVERTAMEASSESSMENT;
+    }
+
+    public void setREVERTAMEASSESSMENT(String rEVERTAMEASSESSMENT) {
+        this.rEVERTAMEASSESSMENT = rEVERTAMEASSESSMENT;
+    }
+
+    public String getDATEOFREMARKOFASSESSMENT() {
+        return dATEOFREMARKOFASSESSMENT;
+    }
+
+    public void setDATEOFREMARKOFASSESSMENT(String dATEOFREMARKOFASSESSMENT) {
+        this.dATEOFREMARKOFASSESSMENT = dATEOFREMARKOFASSESSMENT;
+    }
+
+    public String getrEMARK_BY_AME_ON_RECOMMENDATION() {
+        return rEMARK_BY_AME_ON_RECOMMENDATION;
+    }
+
+    public void setrEMARK_BY_AME_ON_RECOMMENDATION(String rEMARK_BY_AME_ON_RECOMMENDATION) {
+        this.rEMARK_BY_AME_ON_RECOMMENDATION = rEMARK_BY_AME_ON_RECOMMENDATION;
+    }
+
+    public String getREMARK_OF_DYCME() {
+        return REMARK_OF_DYCME;
+    }
+
+    public void setREMARK_OF_DYCME(String REMARK_OF_DYCME) {
+        this.REMARK_OF_DYCME = REMARK_OF_DYCME;
+    }
+
+    public String getDATE_OF_SUBMISSION() {
+        return DATE_OF_SUBMISSION;
+    }
+
+    public void setDATE_OF_SUBMISSION(String DATE_OF_SUBMISSION) {
+        this.DATE_OF_SUBMISSION = DATE_OF_SUBMISSION;
+    }
+
+    public String getPROBABLE_DATE_OF_VISIT() {
+        return PROBABLE_DATE_OF_VISIT;
+    }
+
+    public void setPROBABLE_DATE_OF_VISIT(String PROBABLE_DATE_OF_VISIT) {
+        this.PROBABLE_DATE_OF_VISIT = PROBABLE_DATE_OF_VISIT;
+    }
+
+    public String getaTTACHMENTOFSCRUTINY() {
+        return aTTACHMENTOFSCRUTINY;
+    }
+
+    public void setaTTACHMENTOFSCRUTINY(String aTTACHMENTOFSCRUTINY) {
+        this.aTTACHMENTOFSCRUTINY = aTTACHMENTOFSCRUTINY;
+    }
+
+    public String getATTACHMENT_TO_VENDOR() {
+        return ATTACHMENT_TO_VENDOR;
+    }
+
+    public void setATTACHMENT_TO_VENDOR(String ATTACHMENT_TO_VENDOR) {
+        this.ATTACHMENT_TO_VENDOR = ATTACHMENT_TO_VENDOR;
     }
 }

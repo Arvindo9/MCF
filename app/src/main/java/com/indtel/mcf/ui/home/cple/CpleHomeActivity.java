@@ -1,4 +1,4 @@
-package com.indtel.mcf.ui.home.ao;
+package com.indtel.mcf.ui.home.cple;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,13 +12,11 @@ import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseActivity;
 import com.indtel.mcf.core.dialogs.DialogListener;
-import com.indtel.mcf.core.dialogs.cases.CasesDialog;
-import com.indtel.mcf.core.dialogs.deficiencies.DeficienciesDialog;
+import com.indtel.mcf.core.dialogs.caseDefault.CaseDefaultDialog;
 import com.indtel.mcf.core.dialogs.vendorWise.VendorWiseDialog;
 import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
-import com.indtel.mcf.databinding.ActivityAoHomeBinding;
+import com.indtel.mcf.databinding.ActivityCpleHomeBinding;
 import com.indtel.mcf.di.builder.ViewModelProviderFactory;
-import com.indtel.mcf.ui.home.sse.SseHomeActivity;
 import com.indtel.mcf.ui.launcher.splash.SplashActivity;
 import com.indtel.mcf.utils.AppConstants;
 
@@ -28,12 +26,9 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-import static com.indtel.mcf.utils.AppConstants.DEFICIENCY_AFTER_SCRUTINY;
-import static com.indtel.mcf.utils.AppConstants.FRESH_CASES;
-
 /**
  * Author       : Arvindo Mondal
- * Created on   : 29-09-2019
+ * Created on   : 01-10-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -44,26 +39,22 @@ import static com.indtel.mcf.utils.AppConstants.FRESH_CASES;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeViewModel>
-        implements AoHomeNavigator, HasSupportFragmentInjector, DialogListener {
-    public static final String TAG = AoHomeActivity.class.getSimpleName();
+public class CpleHomeActivity extends BaseActivity<ActivityCpleHomeBinding, CpleHomeViewModel>
+        implements CpleHomeNavigator, HasSupportFragmentInjector, DialogListener {
+    public static final String TAG = CpleHomeActivity.class.getSimpleName();
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
     @Inject
     ViewModelProviderFactory factory;
-    private AoHomeViewModel viewModel;
-
-    private ActivityAoHomeBinding binding;
+    private CpleHomeViewModel viewModel;
+    private ActivityCpleHomeBinding binding;
 
 
     public static Intent newIntent(Context context) {
-        return new Intent(context, AoHomeActivity.class);
+        return new Intent(context, CpleHomeActivity.class);
     }
 
-    /**
-     * Returns an {@link AndroidInjector} of {@link Fragment}s.
-     */
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return fragmentDispatchingAndroidInjector;
@@ -73,7 +64,7 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
      * @param binding activity class data binding
      */
     @Override
-    public void getActivityBinding(ActivityAoHomeBinding binding) {
+    public void getActivityBinding(ActivityCpleHomeBinding binding) {
         this.binding = binding;
     }
 
@@ -90,7 +81,7 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
      */
     @Override
     protected int getLayout() {
-        return R.layout.activity_ao_home;
+        return R.layout.activity_cple_home;
     }
 
     /**
@@ -100,7 +91,7 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
      */
     @Override
     public int getBindingVariable() {
-        return BR.data;
+        return com.indtel.mcf.BR.data;
     }
 
     /**
@@ -109,8 +100,8 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
      * @return viewModel = ViewModelProviders.of(this,factory).get(WelcomeViewModel.class);
      */
     @Override
-    public AoHomeViewModel getViewModel() {
-        return viewModel = ViewModelProviders.of(this,factory).get(AoHomeViewModel.class);
+    public CpleHomeViewModel getViewModel() {
+        return viewModel = ViewModelProviders.of(this,factory).get(CpleHomeViewModel.class);
     }
 
     /**
@@ -120,22 +111,16 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
     @Override
     protected void init() {
         viewModel.setNavigator(this);
-        setUp();
     }
 
-    private void setUp() {
-        setSupportActionBar(binding.toolbarLayout.toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setTitle(R.string.home);
-
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+    //----------
+    @Override
+    public void onLogOutClick() {
+        Intent intent = SplashActivity.newIntent(this);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
-
-    //Navigator---------------------
 
     @Override
     public void handleError(Throwable throwable) {
@@ -144,27 +129,24 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
 
     @Override
     public void handleMessage(String message) {
-        showToast(message);
+
     }
 
     @Override
     public void handleMessage(int index) {
-        showToast(index);
+
     }
 
     @Override
-    public void onCaseForAssessmentClick() {
-        //TODO CaseForAssessmentClick pending same as DyCme
-        startActivity(FragmentHandlerActivity.newIntent(this,
-                FragmentHandlerActivity.CASES_FOR_ASSESSMENT, ""));
+    public void onCasesForAssessmentClick() {
+        //TODO CaseForAssessmentClick pending same as aO, dycme, cple
     }
 
     @Override
-    public void onLogOutClick() {
-        Intent intent = SplashActivity.newIntent(this);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+    public void onCasesForApprovalRejectionClick() {
+        CaseDefaultDialog selectionDialog = CaseDefaultDialog.newInstance(TAG, AppConstants.CASES_FOR_SCRUTINY);
+        selectionDialog.setCallBack(this);
+        selectionDialog.show(getSupportFragmentManager(), CaseDefaultDialog.TAG);
     }
 
     @Override
@@ -190,35 +172,7 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
      */
     @Override
     public void onSuccessDialogResponse(String tag, String... params) {
-        if(tag.equals(DeficienciesDialog.TAG) && params != null && params.length >= 1){
-            String selection = params[0];
-
-            if(selection.equals(DEFICIENCY_AFTER_SCRUTINY)){
-                //open DEFICIENCY_AFTER_SCRUTINY
-                startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS, ""));
-            }
-            else {
-                //open DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY
-                startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY, ""));
-            }
-        }
-        else if(tag.equals(CasesDialog.TAG) && params != null && params.length >= 1){
-            String selection = params[0];
-
-            if(selection.equals(FRESH_CASES)){
-                //open FRESH_CASES
-                startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_FRESH, ""));
-            }
-            else {
-                //open CASES_REVERTED_BY_AME_VDC
-                startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_REVERTED, ""));
-            }
-        }
-        else if(tag.equals(VendorWiseDialog.TAG) && params != null && params.length >= 1){
+        if(tag.equals(VendorWiseDialog.TAG) && params != null && params.length >= 1){
             String selection = params[0];
             String application = params[1];
 
@@ -238,9 +192,22 @@ public class AoHomeActivity extends BaseActivity<ActivityAoHomeBinding, AoHomeVi
                         FragmentHandlerActivity.VENDOR_WISE_REPORT_CLOSED, application));
             }
         }
+        else if(tag.equals(CaseDefaultDialog.TAG) && params != null && params.length >= 2){
+            String type = params[0];
+            String selection = params[1];
 
+            if(selection.equals(AppConstants.FRESH_CASES)){
+                //open CASE_IN_PROGRESS
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.CASES_APPROVE_REJECT_FRESH, ""));
+            }
+            else if(selection.equals(AppConstants.CASES_REVERTED_BY_DY_CME)){
+                //open CASES_AFTER_ASSESSMENT_FRESH
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.CASES_REVERT_BY_DYCME, ""));
+            }
+        }
     }
 
     //Additional---------------------
-
 }

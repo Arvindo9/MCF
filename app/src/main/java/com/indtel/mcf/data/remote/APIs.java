@@ -2,10 +2,12 @@ package com.indtel.mcf.data.remote;
 
 
 import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
+import com.indtel.mcf.data.model.apis.casesForRecommendation.CasesForRecommendation;
 import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
 import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
 import com.indtel.mcf.data.model.apis.firmName.FirmName;
 import com.indtel.mcf.data.model.apis.flag.FlagApi;
+import com.indtel.mcf.data.model.apis.sse.CaseList;
 import com.indtel.mcf.data.model.apis.sse.SseResponse;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
@@ -121,6 +123,31 @@ public class APIs implements APIService {
     @Override
     public Flowable<List<StatusOfApplicationResponse>> statusOfApplication(String applicationId) {
         return apiService.statusOfApplication(applicationId);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> casesForRecommendation(String id) {
+        return apiService.casesForRecommendation(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindScrutinyAssessment(String id) {
+        return apiService.bindScrutinyAssessment(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindNomination(String id) {
+        return apiService.bindNomination(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindAssessmentReport(String id) {
+        return apiService.bindAssessmentReport(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindSSEAssessmentVendor(String id) {
+        return apiService.bindSSEAssessmentVendor(id);
     }
 
 }

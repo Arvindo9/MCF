@@ -34,6 +34,9 @@
         <activity android:name=".core.fragments.FragmentHandlerActivity" />
         <activity android:name=".ui.home.sse.SseHomeActivity" />
         <activity android:name=".ui.home.ao.AoHomeActivity" />
+        <activity android:name=".ui.home.ame.AmeHomeActivity" />
+        <activity android:name=".ui.home.dycme.DyCmeHomeActivity" />
+        <activity android:name=".ui.home.cple.CpleHomeActivity" />
 
         <!--android:name="android.support.v4.content.FileProvider"-->
         <provider
@@ -48,6 +51,22 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_paths" />
         </provider>
+
+        <activity
+            android:name=".utils.download.ReadFileNotifyActivity"
+            android:excludeFromRecents="true"
+            android:label="Take Action"
+            android:launchMode="singleTask"
+            android:taskAffinity="">
+
+        </activity>
+
+        <service
+            android:name=".utils.download.FileDownloaded"
+            android:enabled="true"
+            android:label="FileDownload">
+
+        </service>
 
     </application>
 </manifest>

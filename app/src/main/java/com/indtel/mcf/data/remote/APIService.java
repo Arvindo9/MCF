@@ -2,10 +2,12 @@ package com.indtel.mcf.data.remote;
 
 
 import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
+import com.indtel.mcf.data.model.apis.casesForRecommendation.CasesForRecommendation;
 import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
 import com.indtel.mcf.data.model.apis.dashboard.DashboardScrutinyOfDocument;
 import com.indtel.mcf.data.model.apis.firmName.FirmName;
 import com.indtel.mcf.data.model.apis.flag.FlagApi;
+import com.indtel.mcf.data.model.apis.sse.CaseList;
 import com.indtel.mcf.data.model.apis.sse.SseResponse;
 import com.indtel.mcf.data.model.apis.statusOfApplication.StatusOfApplicationResponse;
 import com.indtel.mcf.data.model.apis.viewItem.ViewItem;
@@ -119,17 +121,47 @@ public interface APIService {
     );
 
     @FormUrlEncoded
-    @POST("/mcf_vr/DataService.asmx/App_ClosedVendorList ")
+    @POST("/mcf_vr/DataService.asmx/App_ClosedVendorList")
     Flowable<List<FirmName>> firmNameClosedVendorList(
             @Field("OfficerUserType") String userType,
             @Field("OfficerId") String userId
     );
 
     @FormUrlEncoded
-    @POST("/mcf_vr/DataService.asmx/StatusOfApplication  ")
+    @POST("/mcf_vr/DataService.asmx/StatusOfApplication")
     Flowable<List<StatusOfApplicationResponse>> statusOfApplication (
             @Field("id") String applicationId
     );
 
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindRecommendation")
+    Flowable<List<CaseList>> casesForRecommendation (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindScrutinyAssessment")
+    Flowable<List<CaseList>> bindScrutinyAssessment (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindNomination")
+    Flowable<List<CaseList>> bindNomination (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindAssessmentReport")
+    Flowable<List<CaseList>> bindAssessmentReport (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindSSEAssessmentVendor")
+    Flowable<List<CaseList>> bindSSEAssessmentVendor  (
+            @Field("id") String id
+    );
 
 }

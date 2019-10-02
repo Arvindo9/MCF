@@ -30,11 +30,10 @@ package com.indtel.mcf.utils;
  * Website      : www.aiprog.in
  */
 
-public enum  AppConstants {
-
-    INSTANCE;
+public class AppConstants {
 
     public static final String FIREBASE_NOTIFICATION_TOPIC = "NOTIFICATION_TOPIC_GENERAL";
+
     AppConstants() {
         // This utility class is not publicly instantiable
     }
@@ -79,6 +78,9 @@ public enum  AppConstants {
     public static final String USER_TYPE_VENDOR = "VENDOR";
     public static final String USER_TYPE_SSE = "SSE";
     public static final String USER_TYPE_AO = "AO";
+    public static final String USER_TYPE_AME = "AME";
+    public static final String USER_TYPE_DYCME = "DYCME";
+    public static final String USER_TYPE_CPLE = "CPLE";
 
     //Extra--------------------------------
 
@@ -89,5 +91,15 @@ public enum  AppConstants {
     public static final String CASE_IN_PROGRESS = "caseInProgress";
     public static final String APPROVED = "approved";
     public static final String CLOSED = "closed";
+    public static final String REVERT_CASES_FROM_SSE_SDC = "REVERT_CASES_FROM_SSE_SDC";
+    public static final String CASES_REVERTED_BY_DY_CME = "CASES_REVERTED_BY_DY_CME";
+
+    //Dialogs
+    public static final String CASES_FOR_SCRUTINY = "CASES_FOR_SCRUTINY";
+
+
+    //File---------------------------
+
+    public static final String MAIN_FOLDER = "MCF";
 
 }

@@ -69,6 +69,26 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
     public static final int VENDOR_WISE_REPORT_APPROVED  = 11;
     public static final int VENDOR_WISE_REPORT_CLOSED  = 12;
 
+    //Ao
+    public static final int CASES_FOR_ASSESSMENT  = 20;
+
+    //Ame
+    public static final int CASES_FOR_RECOMMENDATION  = 13;
+    public static final int CASES_FOR_SCRUTINY_FRESH_CASES  = 14;
+    public static final int CASES_FOR_SCRUTINY_REVERT_CASE_SSE = 15;
+    public static final int CASES_FOR_SCRUTINY_REVERT_CASE_CME  = 16;
+
+    //DyCme
+    public static final int CASES_FOR_NOMINATIONS  = 17;
+
+    //Cple
+    public static final int CASES_APPROVE_REJECT_FRESH  = 18;
+    public static final int CASES_REVERT_BY_DYCME  = 19;
+
+    //vendor
+    public static final int VENDOR_DEFICIENCY_AFTER_SCRUTINY  = 20;
+    public static final int VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY  = 21;
+
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
     @Inject
@@ -205,6 +225,27 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 transaction.commit();
                 break;
 
+            case CASES_FOR_ASSESSMENT:
+
+                //ame-------
+            case CASES_FOR_SCRUTINY_FRESH_CASES:
+            case CASES_FOR_SCRUTINY_REVERT_CASE_SSE:
+            case CASES_FOR_SCRUTINY_REVERT_CASE_CME:
+
+            case CASES_FOR_RECOMMENDATION:
+
+                //DYCME---------
+            case CASES_FOR_NOMINATIONS:
+
+                //CPLE--------------
+            case CASES_APPROVE_REJECT_FRESH:
+            case CASES_REVERT_BY_DYCME:
+
+                //Vendor-----------
+            case VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY:
+
+                //------------------
+
             case SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
                 sseFragment = SseFragment.newInstance(OPEN_INTERFACE, "");
                 sseFragment.setCallBack(this);
@@ -230,6 +271,7 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 transaction.addToBackStack(StatusOfApplicationFragment.TAG);
                 transaction.commit();
                 break;
+
         }
     }
 
@@ -320,6 +362,21 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                     fragment.setCallBack(this);
                     transaction.replace(R.id.fragment, fragment, ScrutinyOfDocumentFragment.TAG);
                     transaction.addToBackStack(ScrutinyOfDocumentFragment.TAG);
+                    transaction.commit();
+                }
+            }
+        }
+        else if(tag.equals(SseFragment.TAG)){
+            if(params != null && params.length >= 2){
+                String data = params[0];
+
+                if(data.equals(String.valueOf(CASES_FOR_ASSESSMENT)) ||
+                        data.equals(String.valueOf(VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY))) {
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    ViewItemFragment fragment = ViewItemFragment.newInstance(params[1]);
+                    fragment.setCallBack(this);
+                    transaction.replace(R.id.fragment, fragment, ViewItemFragment.TAG);
+                    transaction.addToBackStack(ViewItemFragment.TAG);
                     transaction.commit();
                 }
             }

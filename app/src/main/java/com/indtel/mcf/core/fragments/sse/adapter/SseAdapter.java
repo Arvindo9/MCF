@@ -1,18 +1,24 @@
 package com.indtel.mcf.core.fragments.sse.adapter;
 
+import android.content.Context;
 import android.view.View;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.indtel.mcf.R;
+import com.indtel.mcf.base.BaseActivity;
 import com.indtel.mcf.base.BaseAdapter;
+import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
+import com.indtel.mcf.core.fragments.viewItem.ViewItemFragment;
 import com.indtel.mcf.data.model.apis.sse.CaseList;
 import com.indtel.mcf.databinding.AdapterSseBinding;
+import com.indtel.mcf.utils.download.DownloadFileTask;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY;
-import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS;
-import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT;
+import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.DASHBOARD_SCRUTINY_OF_DOCUMENTS;
 
 /**
  * Author       : Arvindo Mondal
@@ -31,6 +37,7 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
     public static final String TAG = SseAdapter.class.getSimpleName();
     private AdapterListener listener;
     private int openInterface;
+    private Context context;
 
     /**
      * @param adapterList list args require to bind adapter up to the size of array
@@ -39,10 +46,16 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
         super(adapterList);
     }
 
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
     public interface AdapterListener {
         void onRetryClick();
 
         void onCardClick(int openInterfaceType, String applicationId);
+
+        void onViewItemDetailsClick(int openInterface, String id);
     }
 
     public void setListener(AdapterListener listener, int openInterface) {
@@ -96,22 +109,71 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
             @Override
             protected void doSomeWorkHere(AdapterSseBinding binding, CaseList data, int position) {
                 switch (openInterface){
-                    case SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS:
+                    case FragmentHandlerActivity.SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS:
                         binding.itemNameText.setText(R.string.tender_no);
                         binding.empty1Text.setText(R.string.tender_date);
                         binding.empty2Text.setText(R.string.letter_no);
                         binding.status.setText(R.string.letter_date);
                         break;
 
-                    case SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY:
+                    case FragmentHandlerActivity.SSE_CASES_AFTER_ASSESSMENT_REPORT_SCRUTINY:
                         binding.itemNameLayout.setVisibility(View.GONE);
                         binding.empty1Layout.setVisibility(View.GONE);
                         binding.empty2Layout.setVisibility(View.GONE);
                         break;
 
-                    case SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
+                    case FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
                         binding.empty1Layout.setVisibility(View.GONE);
                         binding.empty2Layout.setVisibility(View.GONE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_FOR_RECOMMENDATION:
+                        binding.empty1Text.setText(R.string.recommended_ao);
+                        binding.empty2Text.setText(R.string.remark_by_sse);
+                        binding.attachmentText.setText(R.string.attachment_by_SSE);
+                        binding.attachmentLayout.setVisibility(View.VISIBLE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.statusLayout.setVisibility(View.GONE);
+                        binding.remarkLayout.setVisibility(View.GONE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_FOR_SCRUTINY_FRESH_CASES:
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.statusText.setText(R.string.initial_scrutiny_report);
+                        binding.attachmentText.setText(R.string.attachment_by_SSE);
+                        binding.attachmentLayout.setVisibility(View.VISIBLE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_FOR_NOMINATIONS:
+                        binding.attachmentText.setText(R.string.attachment_by_SSE);
+                        binding.attachmentLayout.setVisibility(View.VISIBLE);
+                        binding.empty1Text.setText(R.string.recommendedAO);
+                        binding.remarkText.setText(R.string.remarkByAME);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.statusLayout.setVisibility(View.GONE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_FOR_ASSESSMENT:
+                        binding.remarkText.setText(R.string.remark_by_DyCME);
+                        binding.empty1Text.setText(R.string.probable_Date_for_Firm_Visit);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.statusLayout.setVisibility(View.GONE);
+                        break;
+
+                        //vendor
+                    case FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY:
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.empty1Layout.setVisibility(View.GONE);
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.statusText.setText(R.string.status_by_SSE);
+                        binding.remarkText.setText(R.string.remark_by_sse);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        binding.attachmentText.setText(R.string.deficiency_attachment);
+                        binding.attachmentLayout.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -121,7 +183,7 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
              */
             @Override
             protected void bindData(CaseList data) {
-                binding.setData(new SseAdapterViewModel(data, openInterface, position));
+                binding.setData(new SseAdapterViewModel(data, openInterface, position+1));
             }
 
             /**
@@ -134,21 +196,54 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
             @Override
             public void setClickListeners(ViewHolderClickListener thisContext, AdapterSseBinding binding,
                                           CaseList data) {
-
+                binding.viewItemButton.setOnClickListener(thisContext);
+                binding.attached.setOnClickListener(thisContext);
             }
 
             /**
-             * Initialised holder by new operator
-             *
-             * @param binding  DataBinding
-             * @param data     dataList
-             * @param position of adapter
              * @return new ViewHolderClickListener<B, D>(binding, data, position)
              */
             @Override
             protected ViewHolderClickListener viewHolderReference(AdapterSseBinding binding, CaseList data,
                                                                   int position) {
-                return null;
+                return new ViewHolderClickListener<AdapterSseBinding, CaseList>(binding, data, position) {
+                    /**
+                     * Called when a view has been clicked.
+                     *
+                     * @param view The view that was clicked.
+                     *             switch (view.getId()){
+                     *             case R.id.id:
+                     *             break;
+                     *             }
+                     */
+                    @Override
+                    public void onClick(View view) {
+                        if (view.getId() == R.id.viewItemButton){
+                            if(openInterface == FragmentHandlerActivity.CASES_FOR_ASSESSMENT ||
+                                openInterface == FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY){
+                                String id = data.getReferenceId().toString();
+                                listener.onCardClick(openInterface, id);
+                            }
+                        }
+                        else if(view.getId() == R.id.attached){
+                            if(openInterface == FragmentHandlerActivity.CASES_FOR_RECOMMENDATION) {
+                                DownloadFileTask.startDownloading(context, data.getReferenceId().toString(),
+                                        data.getaTTACHMENTOFSCRUTINY());
+                            }else if(openInterface == FragmentHandlerActivity.CASES_FOR_SCRUTINY_FRESH_CASES) {
+                                DownloadFileTask.startDownloading(context, data.getReferenceId().toString(),
+                                        data.getATTACHMENTOFASSESSMENTREPORT());
+                            }else if(openInterface == FragmentHandlerActivity.CASES_FOR_NOMINATIONS) {
+                                DownloadFileTask.startDownloading(context, data.getReferenceId().toString(),
+                                        data.getaTTACHMENTOFSCRUTINY());
+                            }else if(openInterface ==
+                                    FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY) {
+                                DownloadFileTask.startDownloading(context, data.getReferenceId().toString(),
+                                        data.getATTACHMENT_TO_VENDOR());
+                            }
+
+                        }
+                    }
+                };
             }
         };
     }

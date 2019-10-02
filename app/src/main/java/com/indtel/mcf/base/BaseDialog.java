@@ -21,6 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import org.jetbrains.annotations.NotNull;
+
 import dagger.android.support.AndroidSupportInjection;
 
 /**
@@ -77,11 +79,12 @@ public abstract class BaseDialog<B extends ViewDataBinding, V extends BaseViewMo
 
     /**
      * Do anything on onCreateView after binding
+     * viewModel.setNavigator(this);
      */
     protected abstract void init();
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NotNull Context context) {
         super.onAttach(context);
         if (context instanceof BaseActivity) {
             BaseActivity activity = (BaseActivity) context;

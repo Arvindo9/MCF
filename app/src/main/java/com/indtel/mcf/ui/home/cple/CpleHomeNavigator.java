@@ -1,10 +1,10 @@
-package com.indtel.mcf.ui.launcher.credential;
+package com.indtel.mcf.ui.home.cple;
 
 import com.indtel.mcf.base.BaseNavigator;
 
 /**
  * Author       : Arvindo Mondal
- * Created on   : 28-07-2019
+ * Created on   : 01-10-2019
  * Email        : arvindo@aiprog.in
  * Company      : AIPROG
  * Designation  : Programmer
@@ -15,18 +15,15 @@ import com.indtel.mcf.base.BaseNavigator;
  * Skills       : Algorithms and logic
  * Website      : www.aiprog.in
  */
-interface LoginNavigator extends BaseNavigator {
-    void onLoginClick();
+interface CpleHomeNavigator extends BaseNavigator {
+    void onLogOutClick();
 
-    void openVendorHome();
+    void onCasesForAssessmentClick();
 
-    void openSSEHome();
+    void onVendorWiseReportClick();
 
-    void openAoHome();
+    void onDashboardClick();
 
-    void openAmeHome();
+    void onCasesForApprovalRejectionClick();
 
-    void openDyCmeHome();
-
-    void openCpleHome();
 }

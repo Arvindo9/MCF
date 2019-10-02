@@ -6,7 +6,10 @@ import com.indtel.mcf.utils.Logger;
 import com.indtel.mcf.utils.rx.SchedulerProvider;
 import com.indtel.mcf.utils.tasks.Task;
 
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_AME;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_AO;
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_CPLE;
+import static com.indtel.mcf.utils.AppConstants.USER_TYPE_DYCME;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_SSE;
 import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
 
@@ -62,6 +65,18 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                         else if(response.getUserType() != null && response.getUserType().equals(USER_TYPE_AO)){
                             getDataManager().setUserType(USER_TYPE_AO);
                             getNavigator().openAoHome();
+                        }
+                        else if(response.getUserType() != null && response.getUserType().equals(USER_TYPE_AME)){
+                            getDataManager().setUserType(USER_TYPE_AME);
+                            getNavigator().openAmeHome();
+                        }
+                        else if(response.getUserType() != null && response.getUserType().equals(USER_TYPE_DYCME)){
+                            getDataManager().setUserType(USER_TYPE_DYCME);
+                            getNavigator().openDyCmeHome();
+                        }
+                        else if(response.getUserType() != null && response.getUserType().equals(USER_TYPE_CPLE)){
+                            getDataManager().setUserType(USER_TYPE_CPLE);
+                            getNavigator().openCpleHome();
                         }
 
 

@@ -3,10 +3,15 @@ package com.indtel.mcf.di.builder;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.indtel.mcf.core.dialogs.caseDefault.CaseDefaultViewModel;
 import com.indtel.mcf.core.fragments.dashboard.DashboardViewModel;
 import com.indtel.mcf.core.fragments.scrutinyOfdocuments.ScrutinyOfDocumentViewModel;
 import com.indtel.mcf.core.fragments.sse.SseViewModel;
+import com.indtel.mcf.ui.home.ame.AmeHomeViewModel;
 import com.indtel.mcf.ui.home.ao.AoHomeViewModel;
+import com.indtel.mcf.ui.home.cple.CpleHomeViewModel;
+import com.indtel.mcf.ui.home.dycme.DyCmeHomeActivity;
+import com.indtel.mcf.ui.home.dycme.DyCmeHomeViewModel;
 import com.indtel.mcf.ui.home.sse.SseHomeViewModel;
 import com.indtel.mcf.ui.home.vendor.VendorHomeViewModel;
 import com.indtel.mcf.ui.launcher.credential.LoginViewModel;
@@ -127,6 +132,22 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         else if (modelClass.isAssignableFrom(AoHomeViewModel.class)) {
             //noinspection unchecked
             return (T) new AoHomeViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(AmeHomeViewModel.class)) {
+            //noinspection unchecked
+            return (T) new AmeHomeViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(CaseDefaultViewModel.class)) {
+            //noinspection unchecked
+            return (T) new CaseDefaultViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(DyCmeHomeViewModel.class)) {
+            //noinspection unchecked
+            return (T) new DyCmeHomeViewModel(dataManager,schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(CpleHomeViewModel.class)) {
+            //noinspection unchecked
+            return (T) new CpleHomeViewModel(dataManager,schedulerProvider);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

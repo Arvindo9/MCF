@@ -2,6 +2,7 @@ package com.indtel.mcf.core.fragments.sse;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.indtel.mcf.R;
@@ -10,6 +11,7 @@ import com.indtel.mcf.base.BaseFragment;
 import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.core.fragments.FragmentListener;
 import com.indtel.mcf.core.fragments.sse.adapter.SseAdapter;
+import com.indtel.mcf.core.fragments.viewItem.ViewItemFragment;
 import com.indtel.mcf.databinding.FragmentSseBinding;
 import com.indtel.mcf.di.builder.ViewModelProviderFactory;
 
@@ -133,6 +135,7 @@ public class SseFragment extends BaseFragment<FragmentSseBinding, SseViewModel> 
     private void setRecyclerView(){
         adapter.setListener(this, OPEN_INTERFACE);
         binding.listView.setAdapter(adapter);
+        adapter.setContext(getBaseActivity());
     }
 
     //Navigator------------------------
@@ -175,5 +178,10 @@ public class SseFragment extends BaseFragment<FragmentSseBinding, SseViewModel> 
     @Override
     public void onCardClick(int openInterfaceType, String applicationId) {
         callBack.onSuccessResponse(TAG, String.valueOf(openInterfaceType), applicationId);
+    }
+
+    @Override
+    public void onViewItemDetailsClick(int openInterface, String id) {
+
     }
 }
