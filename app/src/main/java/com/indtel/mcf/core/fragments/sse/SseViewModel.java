@@ -242,6 +242,176 @@ public class SseViewModel extends BaseViewModel<SseNavigator> {
                             setIsLoading(false);
                         }));
                 break;
+
+            case FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_CME:
+                getCompositeDisposable().add(getDataManager()
+                        .bindScrutinyAssessmentRevert(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_SSE:
+                getCompositeDisposable().add(getDataManager()
+                        .bindScrutinyAssessmentSSERevert(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+            case FragmentHandlerActivity.CASES_ALLOTED_TO_INSPECTOR:
+                getCompositeDisposable().add(getDataManager()
+                        .bindAllotedInspector(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+
+            case FragmentHandlerActivity.CASES_APPROVE_REJECT_FRESH:
+                getCompositeDisposable().add(getDataManager()
+                        .bindApproval(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+            case FragmentHandlerActivity.CASES_REVERT_BY_DYCME:
+                getCompositeDisposable().add(getDataManager()
+                        .bindApprovalRevert(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+            case FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_SCRUTINY:
+                getCompositeDisposable().add(getDataManager()
+                        .bindVendorRevert(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_VERIFICATION_FRESH_CASES:
+                getCompositeDisposable().add(getDataManager()
+                        .bindBindAssessmentVerification(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+            case FragmentHandlerActivity.CASES_FOR_VERIFICATION_REPLY_BY_AME:
+                getCompositeDisposable().add(getDataManager()
+                        .bindAssessmentVerificationRevert(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
+            case FragmentHandlerActivity.CASES_FOR_VERIFICATION_REVERT_CASE_CPLE:
+                getCompositeDisposable().add(getDataManager()
+                        .bindBindAssessmentVerificationCPLERevert(userId)
+                        .subscribeOn(getSchedulerProvider().io())
+                        .observeOn(getSchedulerProvider().ui())
+                        .subscribe(response -> {
+                            if (response != null && !response.isEmpty()) {
+                                modelLiveData.setValue(response);
+                            }
+                            else {
+                                getNavigator().handleMessage(R.string.default_error);
+                            }
+                            setIsLoading(false);
+                        }, throwable -> {
+                            getNavigator().handleMessage(R.string.default_error);
+                            setIsLoading(false);
+                        }));
+                break;
         }
     }
 

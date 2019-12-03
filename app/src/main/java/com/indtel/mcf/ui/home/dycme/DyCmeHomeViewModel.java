@@ -39,6 +39,8 @@ public class DyCmeHomeViewModel extends BaseViewModel<DyCmeHomeNavigator> {
     }
     public void onCasesForAssessmentClick(){
         getNavigator().onCasesForAssessmentClick();
+    }public void onCaseAllotToInspectorClick(){
+        getNavigator().onCaseAllotToInspectorClick();
     }
     public void onCaseForScrutinyClick(){
         getNavigator().onCaseForScrutinyClick();

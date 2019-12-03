@@ -21,22 +21,32 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:targetApi="n">
 
-        <activity android:name=".ui.launcher.splash.SplashActivity">
+        <activity android:name=".ui.launcher.splash.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.launcher.welcome.WelcomeActivity" />
-        <activity android:name=".ui.launcher.credential.LoginActivity" />
-        <activity android:name=".ui.home.vendor.VendorHomeActivity" />
-        <activity android:name=".core.fragments.FragmentHandlerActivity" />
-        <activity android:name=".ui.home.sse.SseHomeActivity" />
-        <activity android:name=".ui.home.ao.AoHomeActivity" />
-        <activity android:name=".ui.home.ame.AmeHomeActivity" />
-        <activity android:name=".ui.home.dycme.DyCmeHomeActivity" />
-        <activity android:name=".ui.home.cple.CpleHomeActivity" />
+        <activity android:name=".ui.launcher.welcome.WelcomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.launcher.credential.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.vendor.VendorHomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".core.fragments.FragmentHandlerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.sse.SseHomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.ao.AoHomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.ame.AmeHomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.dycme.DyCmeHomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.cple.CpleHomeActivity"
+            android:screenOrientation="portrait"/>
 
         <!--android:name="android.support.v4.content.FileProvider"-->
         <provider
@@ -57,7 +67,8 @@
             android:excludeFromRecents="true"
             android:label="Take Action"
             android:launchMode="singleTask"
-            android:taskAffinity="">
+            android:taskAffinity=""
+            android:screenOrientation="portrait">
 
         </activity>
 

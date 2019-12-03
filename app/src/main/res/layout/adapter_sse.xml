@@ -180,6 +180,7 @@
                         android:id="@+id/firmNameText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="@string/firm_name"
                         android:textColor="@color/textColorGeneral"
                         android:textSize="@dimen/_16sp"
@@ -191,6 +192,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginStart="@dimen/_8dp"
                         android:layout_marginLeft="@dimen/_8dp"
                         android:text="@string/colon"
@@ -205,6 +207,7 @@
                         android:id="@+id/firmName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginStart="@dimen/_8dp"
                         android:layout_marginLeft="@dimen/_8dp"
                         android:text="@{data.firmName}"
@@ -234,6 +237,7 @@
                         android:id="@+id/itemNameText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="@string/item_name"
                         android:textColor="@color/textColorGeneral"
                         android:textSize="@dimen/_16sp"
@@ -247,6 +251,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8dp"
                         android:layout_marginLeft="@dimen/_8dp"
+                        android:layout_weight="1"
                         android:text="@string/colon"
                         android:textColor="@color/textColorGeneral"
                         android:textSize="@dimen/_16sp"
@@ -259,6 +264,7 @@
                         android:id="@+id/itemName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginStart="@dimen/_8dp"
                         android:layout_marginLeft="@dimen/_8dp"
                         android:text="@{data.itemName}"
@@ -392,6 +398,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/statusText"
+                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/status"
@@ -405,6 +412,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginStart="@dimen/_8dp"
                         android:layout_marginLeft="@dimen/_8dp"
                         android:text="@string/colon"
@@ -417,6 +425,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/status"
+                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8dp"
@@ -446,9 +455,11 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/remarkText"
+                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/remark"
+                        tools:text="kdmfmdsfmsd dsfm sdf msdfs"
                         android:textColor="@color/textColorGeneral"
                         android:textSize="@dimen/_16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -459,6 +470,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginStart="@dimen/_8dp"
                         android:layout_marginLeft="@dimen/_8dp"
                         android:text="@string/colon"
@@ -471,6 +483,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/remark"
+                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8dp"
@@ -481,7 +494,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.09"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="340" />
+                        tools:text="mnvmncnvmnxvncxvxmcvcvmcvcmv,ccv"
+                        />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -493,7 +507,8 @@
                     android:layout_marginTop="@dimen/_8dp"
                     android:layout_marginEnd="@dimen/_8dp"
                     android:layout_marginRight="@dimen/_8dp"
-                    android:padding="@dimen/_4dp"
+                    android:layout_marginBottom="@dimen/_20dp"
+                    android:padding="@dimen/_8dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -568,6 +583,13 @@
                     </androidx.appcompat.widget.LinearLayoutCompat>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
+                <RelativeLayout
+                    android:id="@+id/tmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/dateLayout"/>
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:visibility="gone"
                     android:id="@+id/viewItemButton"
@@ -585,7 +607,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/viewApplicationButton"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dateLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/tmp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:visibility="gone"

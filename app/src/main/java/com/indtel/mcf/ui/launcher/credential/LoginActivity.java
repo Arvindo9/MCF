@@ -171,6 +171,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         finish();
     }
 
+    @Override
+    public void onGuideLineClick() {
+
+    }
+
     //Additional-------------
 
     private void submitForm() {
@@ -184,6 +189,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         String userId = binding.userId.getText() != null ? binding.userId.getText().toString() : "";
         String password = binding.password.getText() != null ? binding.password.getText().toString() : "";
 
-        viewModel.doLogin(userId, password);
+        if(isNetworkAvailable()) {
+            viewModel.doLogin(userId, password);
+        }
+        else{
+            showToast(R.string.network_error);
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.indtel.mcf.base.BaseAdapter;
 import com.indtel.mcf.R;
+import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
 import com.indtel.mcf.data.model.apis.casesAfterAssessmen.CasesAfterAssessment;
 import com.indtel.mcf.databinding.AdapterCasesAfterAssessmentBinding;
 
@@ -89,7 +90,13 @@ public class CasesAfterAssessmentAdapter extends BaseAdapter<AdapterCasesAfterAs
              */
             @Override
             protected void doSomeWorkHere(AdapterCasesAfterAssessmentBinding binding, CasesAfterAssessment data, int position) {
-
+                if(openInterface == FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_FRESH){
+                    binding.statusText.setText(R.string.status_by_Assessment_Officer);
+                    binding.remarkText.setText(R.string.remark_by_AO);
+                }else if(openInterface == FragmentHandlerActivity.CASES_AFTER_ASSESSMENT_REVERTED){
+                    binding.statusText.setText(R.string.status_by_AME_VDC);
+                    binding.remarkText.setText(R.string.remark_by_AME_VDC);
+                }
             }
 
             /**

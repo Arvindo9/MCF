@@ -37,7 +37,7 @@ public class DashboardAdapter extends BaseAdapter<AdapterDashboardBinding, Dashb
     public interface AdapterListener {
         void onRetryClick();
 
-        void onViewItemDetailsClick(int openInterfaceType, String applicationId);
+        void onViewItemDetailsClick(int openInterfaceType, String applicationId, String title);
     }
 
     public void setListener(AdapterListener listener) {
@@ -142,7 +142,7 @@ public class DashboardAdapter extends BaseAdapter<AdapterDashboardBinding, Dashb
                                 //TODO open dashboard
                                 String id = data.getID().toString();
                                 String ids = id.contains(".") ? id.substring(0, id.indexOf(".")) : id;
-                                listener.onViewItemDetailsClick(DASHBOARD_SCRUTINY_OF_DOCUMENTS, ids);
+                                listener.onViewItemDetailsClick(DASHBOARD_SCRUTINY_OF_DOCUMENTS, ids, data.getSTAGE());
                                 break;
                         }
                     }

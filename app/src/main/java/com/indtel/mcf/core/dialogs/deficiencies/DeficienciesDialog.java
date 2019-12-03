@@ -32,16 +32,23 @@ import javax.inject.Inject;
 public class DeficienciesDialog extends BaseDialog<DialogDeficienciesBinding, DeficienciesViewModel>
         implements DeficienciesNavigator{
     public static final String TAG = DeficienciesDialog.class.getSimpleName();
+    private static final String KEY_TYPE = "KEY_TYPE";
+
+
+    public static final String TYPE_VENDOR = "Vendor";
+    public static final String TYPE_SSE = "SSE";
 
     @Inject
     ViewModelProviderFactory factory;
     private DeficienciesViewModel viewModel;
     private DialogDeficienciesBinding binding;
     private DialogListener callBack;
+    private String type = TYPE_VENDOR;
 
-    public static DeficienciesDialog newInstance() {
+    public static DeficienciesDialog newInstance(String type) {
         DeficienciesDialog fragment = new DeficienciesDialog();
         Bundle bundle = new Bundle();
+        bundle.putString(KEY_TYPE, type);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -65,6 +72,7 @@ public class DeficienciesDialog extends BaseDialog<DialogDeficienciesBinding, De
      */
     @Override
     public DeficienciesViewModel getViewModel() {
+        type = getArguments()!=null ? getArguments().getString(KEY_TYPE):"";
         return viewModel = ViewModelProviders.of(this,factory).get(DeficienciesViewModel.class);
     }
 
@@ -92,6 +100,16 @@ public class DeficienciesDialog extends BaseDialog<DialogDeficienciesBinding, De
     @Override
     protected void init() {
         viewModel.setNavigator(this);
+
+        setUp();
+    }
+
+    private void setUp() {
+        if(type.equals(TYPE_SSE)){
+            binding.deficiencyAfterScrutiny.setText(R.string.cases_for_scrutiny_doc);
+            binding.deficiencyAfterAssessmentScrutiny.setText(R.string.cases_for_assessment_report);
+            binding.title.setText(R.string.vendor_replied_cases);
+        }
     }
 
     //Navigator-----------------------

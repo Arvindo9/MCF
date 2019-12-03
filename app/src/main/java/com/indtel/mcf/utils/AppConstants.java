@@ -96,6 +96,7 @@ public class AppConstants {
 
     //Dialogs
     public static final String CASES_FOR_SCRUTINY = "CASES_FOR_SCRUTINY";
+    public static final String CASES_FOR_VERIFICATION = "CASES_FOR_VERIFICATION";
 
 
     //File---------------------------

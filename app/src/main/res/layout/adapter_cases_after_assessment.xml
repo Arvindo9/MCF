@@ -145,6 +145,7 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:visibility="gone"
                     android:id="@+id/attachedLetter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -507,6 +508,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/dateLayout" />
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:visibility="gone"
                     android:id="@+id/viewApplicationButton"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"

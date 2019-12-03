@@ -3,22 +3,15 @@ package com.indtel.mcf.core.fragments.sse.adapter;
 import android.content.Context;
 import android.view.View;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.indtel.mcf.R;
-import com.indtel.mcf.base.BaseActivity;
 import com.indtel.mcf.base.BaseAdapter;
 import com.indtel.mcf.core.fragments.FragmentHandlerActivity;
-import com.indtel.mcf.core.fragments.viewItem.ViewItemFragment;
 import com.indtel.mcf.data.model.apis.sse.CaseList;
 import com.indtel.mcf.databinding.AdapterSseBinding;
 import com.indtel.mcf.utils.download.DownloadFileTask;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.indtel.mcf.core.fragments.FragmentHandlerActivity.DASHBOARD_SCRUTINY_OF_DOCUMENTS;
 
 /**
  * Author       : Arvindo Mondal
@@ -125,6 +118,10 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
                     case FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT:
                         binding.empty1Layout.setVisibility(View.GONE);
                         binding.empty2Layout.setVisibility(View.GONE);
+                        binding.statusText.setText(R.string.status_by_SSE);
+                        binding.remarkText.setText(R.string.remark_by_sse);
+                        binding.attachmentText.setText(R.string.assesment_Report);
+                        binding.attachmentLayout.setVisibility(View.VISIBLE);
                         break;
 
                     case FragmentHandlerActivity.CASES_FOR_RECOMMENDATION:
@@ -175,6 +172,72 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
                         binding.attachmentText.setText(R.string.deficiency_attachment);
                         binding.attachmentLayout.setVisibility(View.VISIBLE);
                         break;
+
+                    case FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_CME:
+                        binding.empty2Text.setText(R.string.is_Reverted_by_Dy_CME);
+                        binding.statusText.setText(R.string.status_by_dy);
+                        binding.remarkText.setText(R.string.remark_by_Dy);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        binding.attachmentText.setText(R.string.initial_scrutiny_report);
+                        binding.attachmentLayout.setVisibility(View.VISIBLE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_SSE:
+                        binding.empty1Text.setText(R.string.initial_Scutiny_Report);
+                        binding.empty2Text.setText(R.string.is_Case_Reverted_by_SSE);
+                        binding.statusText.setText(R.string.status_by_SSE);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_ALLOTED_TO_INSPECTOR:
+                        binding.empty1Text.setText(R.string.assessment_Officer_Name);
+                        binding.empty2Text.setText(R.string.probable_Date_ofVisit);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.statusLayout.setVisibility(View.GONE);
+                        binding.remarkLayout.setVisibility(View.GONE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_APPROVE_REJECT_FRESH:
+                        binding.empty1Layout.setVisibility(View.GONE);
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.statusText.setText(R.string.status_by_dy);
+                        binding.remarkText.setText(R.string.remark_by_DyCME);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_REVERT_BY_DYCME:
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.empty1Text.setText(R.string.is_Reverted_to_Dy);
+                        binding.statusText.setText(R.string.status_by_dy);
+                        binding.remarkText.setText(R.string.remark_by_DyCME);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        break;
+
+                    case FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_SCRUTINY:
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.empty1Layout.setVisibility(View.GONE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.statusLayout.setVisibility(View.GONE);
+                        binding.remarkText.setText(R.string.remark_by_DyCME);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        break;
+
+                    case FragmentHandlerActivity.CASES_FOR_VERIFICATION_FRESH_CASES:
+                        break;
+                    case FragmentHandlerActivity.CASES_FOR_VERIFICATION_REPLY_BY_AME:
+                        binding.empty2Layout.setVisibility(View.GONE);
+                        binding.itemNameLayout.setVisibility(View.GONE);
+                        binding.viewItemButton.setVisibility(View.VISIBLE);
+                        binding.remarkText.setText(R.string.remark_by_AME_VDC);
+                        binding.statusText.setText(R.string.status_by_AME_VDC);
+                        binding.empty1Text.setText(R.string.is_Reverted_by_ame);
+                        break;
+                    case FragmentHandlerActivity.CASES_FOR_VERIFICATION_REVERT_CASE_CPLE:
+                        break;
                 }
             }
 
@@ -220,7 +283,21 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
                     public void onClick(View view) {
                         if (view.getId() == R.id.viewItemButton){
                             if(openInterface == FragmentHandlerActivity.CASES_FOR_ASSESSMENT ||
-                                openInterface == FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY){
+                                openInterface == FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY ||
+                                openInterface == FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_SSE ||
+                                openInterface == FragmentHandlerActivity.CASES_ALLOTED_TO_INSPECTOR ||
+                                openInterface == FragmentHandlerActivity.CASES_APPROVE_REJECT_FRESH ||
+                                openInterface == FragmentHandlerActivity.CASES_REVERT_BY_DYCME ||
+                                openInterface == FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_SCRUTINY ||
+                                openInterface == FragmentHandlerActivity.CASES_FOR_VERIFICATION_REPLY_BY_AME){
+                                String id = data.getReferenceId().toString();
+                                listener.onCardClick(openInterface, id);
+                            }
+                            else if(openInterface == FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT){
+                                String id = data.getReferenceId().toString();
+                                listener.onCardClick(openInterface, id);
+                            }
+                            else if(openInterface == FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_CME){
                                 String id = data.getReferenceId().toString();
                                 listener.onCardClick(openInterface, id);
                             }
@@ -239,6 +316,16 @@ public class SseAdapter extends BaseAdapter<AdapterSseBinding, CaseList> {
                                     FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY) {
                                 DownloadFileTask.startDownloading(context, data.getReferenceId().toString(),
                                         data.getATTACHMENT_TO_VENDOR());
+                            }else if(openInterface ==
+                                    FragmentHandlerActivity.SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT) {
+                                String s = data.getAssessmentReport().substring(
+                                        data.getAssessmentReport().lastIndexOf("/")+1);
+                                DownloadFileTask.startDownloading(context, data.getReferenceId().toString(),
+                                        s);
+                            }else if(openInterface ==
+                                    FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_CME) {
+                                DownloadFileTask.startDownloading(context, data.getReferenceId().toString(),
+                                        data.getATTACHMENTOFASSESSMENTREPORT());
                             }
 
                         }

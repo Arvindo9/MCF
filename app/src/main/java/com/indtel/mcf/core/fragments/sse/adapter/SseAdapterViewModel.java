@@ -66,10 +66,11 @@ public class SseAdapterViewModel {
                 itemName.set(data.getItemName());
                 status.set(data.getStatusBySSEVDC());
                 remark.set(data.getRemarkBySSEVDC());
+                date.set(validateDate(data.getDateOfReceiving()));
                 break;
 
             case FragmentHandlerActivity.CASES_FOR_RECOMMENDATION:
-                empty1Text.set(data.getrECOMMENDEDAONAME());
+                empty1Text.set(data.getRECOMMENDED_AO_NAME());
                 empty2Text.set(data.getrEMARKOFSCRUTINY());
                 date.set(validateDate(data.getdATEOFSCRUTINY()));
 
@@ -88,6 +89,7 @@ public class SseAdapterViewModel {
                 break;
 
             case FragmentHandlerActivity.CASES_FOR_NOMINATIONS:
+                empty1Text.set(data.getRECOMMENDED_AO_NAME());
                 remark.set(data.getrEMARK_BY_AME_ON_RECOMMENDATION());
                 date.set(validateDate(data.getdATEOFSCRUTINY()));
 
@@ -107,6 +109,60 @@ public class SseAdapterViewModel {
                 status.set(data.getSTATUSOFASSESSMENTREPORTSSE());
                 remark.set(data.getREMARKOFSSEONASSESSMENT());
                 date.set(validateDate(data.getDATE_OF_SUBMISSION()));
+                break;
+
+
+            case FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_CME:
+                itemName.set(data.getItemName());
+                empty1Text.set(data.getISASSESSMENTRERQUIRED());
+                empty2Text.set(data.getREVERTAMEASSESSMENT());
+                status.set(data.getSTATUS_OF_VERIFICATION_BY_DYCME());
+                remark.set(data.getVERIFICATION_REMARK_BY_DYCME());
+                date.set(validateDate(data.getDATE_OF_VERIFICATION_BY_DYCME()));
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_SSE:
+                empty1Text.set(data.getSCRUTINY_STATUS_OF_ASSESSMENT_REPORT());
+                empty2Text.set(data.getREVERT_SSE_ASSESSMENT());
+                status.set(data.getSCRUTINY_STATUS_OF_ASSESSMENT_REPORT());
+                remark.set(data.getREMARKOFSSEONASSESSMENT());
+                date.set(validateDate(data.getDATEOFREMARKOFSSEONASSESSMENT()));
+                break;
+
+            case FragmentHandlerActivity.CASES_ALLOTED_TO_INSPECTOR:
+                empty1Text.set(data.getAO_NAME());
+                empty2Text.set(data.getPROBABLE_DATE_OF_VISIT());
+                date.set(validateDate(data.getDATE_OF_REMARK_BY_AME_ON_RECOMMENDATION()));
+                break;
+
+            case FragmentHandlerActivity.CASES_APPROVE_REJECT_FRESH:
+                status.set(data.getSTATUS_OF_VERIFICATION_BY_DYCME());
+                remark.set(data.getVERIFICATION_REMARK_BY_DYCME());
+                date.set(validateDate(data.getDATE_OF_VERIFICATION_BY_DYCME()));
+                break;
+
+            case FragmentHandlerActivity.CASES_REVERT_BY_DYCME:
+                empty1Text.set(data.getISASSESSMENTRERQUIRED());
+                status.set(data.getSTATUS_OF_VERIFICATION_BY_DYCME());
+                remark.set(data.getVERIFICATION_REMARK_BY_DYCME());
+                date.set(validateDate(data.getDATE_OF_VERIFICATION_BY_DYCME()));
+                break;
+
+            case FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_SCRUTINY:
+                remark.set(data.getrEMARKOFSCRUTINY());
+                date.set(validateDate(data.getdATEOFSCRUTINY()));
+                break;
+
+            case FragmentHandlerActivity.CASES_FOR_VERIFICATION_FRESH_CASES:
+                break;
+            case FragmentHandlerActivity.CASES_FOR_VERIFICATION_REPLY_BY_AME:
+                empty1Text.set(data.getREVERTAMEASSESSMENT());
+                status.set(data.getSCRUTINY_STATUS_OF_ASSESSMENT_REPORT());
+                remark.set(data.getrEMARK_BY_AME_ON_RECOMMENDATION());
+                date.set(validateDate(data.getDATE_OF_REMARK_BY_DYCME()));
+
+                break;
+            case FragmentHandlerActivity.CASES_FOR_VERIFICATION_REVERT_CASE_CPLE:
                 break;
         }
     }

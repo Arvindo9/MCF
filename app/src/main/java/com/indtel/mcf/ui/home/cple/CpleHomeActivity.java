@@ -111,7 +111,21 @@ public class CpleHomeActivity extends BaseActivity<ActivityCpleHomeBinding, Cple
     @Override
     protected void init() {
         viewModel.setNavigator(this);
+        setUp();
     }
+
+    private void setUp() {
+        setSupportActionBar(binding.toolbarLayout.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle(R.string.home);
+
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
 
     //----------
     @Override
@@ -140,6 +154,8 @@ public class CpleHomeActivity extends BaseActivity<ActivityCpleHomeBinding, Cple
     @Override
     public void onCasesForAssessmentClick() {
         //TODO CaseForAssessmentClick pending same as aO, dycme, cple
+        startActivity(FragmentHandlerActivity.newIntent(this,
+                FragmentHandlerActivity.CASES_FOR_ASSESSMENT, ""));
     }
 
     @Override

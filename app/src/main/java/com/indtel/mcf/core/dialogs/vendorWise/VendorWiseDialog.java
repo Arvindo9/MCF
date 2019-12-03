@@ -1,7 +1,9 @@
 package com.indtel.mcf.core.dialogs.vendorWise;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 
@@ -45,6 +47,7 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
     private DialogListener callBack;
     private String selectionRadio = "";
     private HashMap<String, Integer> map;
+    private Integer id = -1;
 
     public static VendorWiseDialog newInstance() {
         VendorWiseDialog fragment = new VendorWiseDialog();
@@ -100,21 +103,41 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
     protected void init() {
         viewModel.setNavigator(this);
         setUp();
-//        setUpSpinner();
+        setUpSpinner();
     }
 
-/*
     private void setUpSpinner() {
-        binding.firmNameAuto.setOnItemClickListener((parent, view, position, id) -> {
+/*        binding.firmNameAuto.setOnItemClickListener((parent, view, position, id) -> {
 
-            String key = binding.firmNameAuto.getText().toString();
+//            String key = binding.firmNameAuto.getText().toString();
+            String key = parent.getItemAtPosition(position).toString();
 //            String idTb = hashMap.get(key);
 
+            this.id = map.get(key);
+
             Log.e("Text", key);
-//            Log.e("idcc", idTb);
+            Log.e("idcc", id + "");
+        });
+        */
+        binding.firmNameAuto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //            String key = binding.firmNameAuto.getText().toString();
+                String key = parent.getItemAtPosition(position).toString();
+//            String idTb = hashMap.get(key);
+
+                VendorWiseDialog.this.id = map.get(key);
+
+                Log.e("Text", key);
+                Log.e("idcc", VendorWiseDialog.this.id + "");
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
     }
-*/
 
     private void setUp() {
         map = new HashMap<>();
@@ -172,7 +195,7 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
                 if(checked) {
                     viewModel.onProcessListOfVendors();
                     selectionRadio = AppConstants.CASE_IN_PROGRESS;
-                    binding.firmNameAuto.setText("");
+                    binding.firmNameAuto.setAdapter(null);
                 }
                 break;
 
@@ -180,7 +203,8 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
                 if(checked) {
                     viewModel.onApprovedVendorList();
                     selectionRadio = AppConstants.APPROVED;
-                    binding.firmNameAuto.setText("");
+//                    binding.firmNameAuto.setText("");
+                    binding.firmNameAuto.setAdapter(null);
                 }
                 break;
 
@@ -188,7 +212,8 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
                 if(checked) {
                     viewModel.onClosedVendorList();
                     selectionRadio = AppConstants.CLOSED;
-                    binding.firmNameAuto.setText("");
+//                    binding.firmNameAuto.setText("");
+                    binding.firmNameAuto.setAdapter(null);
                 }
                 break;
         }
@@ -200,11 +225,15 @@ public class VendorWiseDialog extends BaseDialog<DialogVendorWiseBinding, Vendor
             return;
         }
 
-        if(binding.firmNameAuto.getText() != null && binding.firmNameAuto.getText().toString().equals("")){
+//        if(binding.firmNameAuto.getText() != null && binding.firmNameAuto.getText().toString().equals("")){
+//            return;
+//        }
+
+        if(this.id < 1){
             return;
         }
 
-        Integer id = map.get(binding.firmNameAuto.getText().toString());
+//        Integer id = map.get(binding.firmNameAuto.getText().toString());
 
         callBack.onSuccessDialogResponse(TAG, selectionRadio, String.valueOf(id));
         dismiss();

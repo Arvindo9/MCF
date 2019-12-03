@@ -113,7 +113,7 @@ public class StatusOfApplicationAdapter extends BaseAdapter<AdapterStatusOfAppli
                                           AdapterStatusOfApplicationBinding binding, StatusOfApplicationResponse data) {
                 binding.viewApplicationButton.setOnClickListener(thisContext);
                 binding.viewItemButton.setOnClickListener(thisContext);
-                binding.attachedLetter.setOnClickListener(thisContext);
+//                binding.attachedLetter.setOnClickListener(thisContext);
             }
 
             /**

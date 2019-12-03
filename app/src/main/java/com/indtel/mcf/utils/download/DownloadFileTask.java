@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.content.FileProvider;
@@ -62,7 +63,9 @@ public class DownloadFileTask extends AsyncTask<String, String, String> {
     }
 
     public static void startDownloading(Context context, String referenceId, String fileName){
-        new DownloadFileTask(context).execute(getUrl(referenceId, fileName), fileName);
+        String url = getUrl(referenceId, fileName);
+        Logger.e(TAG + " Url :" + url);
+        new DownloadFileTask(context).execute(url, fileName);
     }
 
     @Override
@@ -86,9 +89,7 @@ public class DownloadFileTask extends AsyncTask<String, String, String> {
             //Get File if SD card is present
             if (isSDCardPresent()) {
                 apkStorage1 = new File(getDirectory(), AppConstants.MAIN_FOLDER);
-            } else
-                Toast.makeText(contextReference.get(),
-                        "Oops!! There is no SD Card.", Toast.LENGTH_SHORT).show();
+            }
 
             //If File is not present create directory
             if (!apkStorage1.exists()) {

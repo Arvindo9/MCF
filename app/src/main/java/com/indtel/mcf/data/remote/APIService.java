@@ -164,4 +164,59 @@ public interface APIService {
             @Field("id") String id
     );
 
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindScrutinyAssessmentRevert")
+    Flowable<List<CaseList>> bindScrutinyAssessmentRevert  (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindScrutinyAssessmentSSERevert")
+    Flowable<List<CaseList>> bindScrutinyAssessmentSSERevert  (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindAllotedInspector")
+    Flowable<List<CaseList>> bindAllotedInspector  (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindApproval")
+    Flowable<List<CaseList>> bindApproval  (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindApprovalRevert")
+    Flowable<List<CaseList>> bindApprovalRevert  (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindVendorRevert")
+    Flowable<List<CaseList>> bindVendorRevert  (
+            @Field("id") String id
+    );
+
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindAssessmentVerificationRevert")
+    Flowable<List<CaseList>> bindAssessmentVerificationRevert  (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindAssessmentVerification")
+    Flowable<List<CaseList>> bindBindAssessmentVerification  (
+            @Field("id") String id
+    );
+
+    @FormUrlEncoded
+    @POST("/mcf_vr/DataService.asmx/BindAssessmentVerificationCPLERevert")
+    Flowable<List<CaseList>> bindBindAssessmentVerificationCPLERevert  (
+            @Field("id") String id
+    );
+
 }

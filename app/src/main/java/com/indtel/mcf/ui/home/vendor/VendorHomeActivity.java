@@ -163,7 +163,7 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
 
     @Override
     public void onDeficienciesAdvisedClick() {
-        DeficienciesDialog selectionDialog = DeficienciesDialog.newInstance();
+        DeficienciesDialog selectionDialog = DeficienciesDialog.newInstance(DeficienciesDialog.TYPE_VENDOR);
         selectionDialog.setCallBack(this);
         selectionDialog.show(getSupportFragmentManager(), DeficienciesDialog.TAG);
     }
@@ -183,6 +183,8 @@ public class VendorHomeActivity extends BaseActivity<ActivityVendorHomeBinding, 
 
             if(selection.equals(DEFICIENCY_AFTER_SCRUTINY)){
                 //open DEFICIENCY_AFTER_SCRUTINY
+                startActivity(FragmentHandlerActivity.newIntent(this,
+                        FragmentHandlerActivity.VENDOR_DEFICIENCY_AFTER_SCRUTINY, ""));
             }
             else if(selection.equals(DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY)){
                 //open DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY

@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import com.indtel.mcf.base.BaseFragment;
 import com.indtel.mcf.BR;
 import com.indtel.mcf.R;
+import com.indtel.mcf.base.BaseFragment;
 import com.indtel.mcf.core.fragments.FragmentListener;
 import com.indtel.mcf.core.fragments.dashboard.adapter.DashboardAdapter;
 import com.indtel.mcf.data.model.apis.dashboard.Dashboard;
@@ -155,8 +155,8 @@ public class DashboardFragment extends BaseFragment<FragmentDashboardBinding, Da
     }
 
     @Override
-    public void onViewItemDetailsClick(int openInterfaceType, String applicationId) {
-        callBack.onSuccessResponse(TAG, String.valueOf(openInterfaceType), applicationId);
+    public void onViewItemDetailsClick(int openInterfaceType, String applicationId, String title) {
+        callBack.onSuccessResponse(TAG, String.valueOf(openInterfaceType), applicationId, title);
     }
 
     //Additional----------------------------

@@ -150,4 +150,49 @@ public class APIs implements APIService {
         return apiService.bindSSEAssessmentVendor(id);
     }
 
+    @Override
+    public Flowable<List<CaseList>> bindScrutinyAssessmentRevert(String id) {
+        return apiService.bindScrutinyAssessmentRevert(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindScrutinyAssessmentSSERevert(String id) {
+        return apiService.bindScrutinyAssessmentSSERevert(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindApproval(String id) {
+        return apiService.bindApproval(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindApprovalRevert(String id) {
+        return apiService.bindApprovalRevert(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindVendorRevert(String id) {
+        return apiService.bindVendorRevert(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindAssessmentVerificationRevert(String id) {
+        return apiService.bindAssessmentVerificationRevert(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindBindAssessmentVerification(String id) {
+        return apiService.bindBindAssessmentVerification(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindBindAssessmentVerificationCPLERevert(String id) {
+        return apiService.bindBindAssessmentVerificationCPLERevert(id);
+    }
+
+    @Override
+    public Flowable<List<CaseList>> bindAllotedInspector(String id) {
+        return apiService.bindAllotedInspector(id);
+    }
+
 }

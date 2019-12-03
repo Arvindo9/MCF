@@ -55,7 +55,7 @@
     <string name="select_the_following">Select the following</string>
     <string name="deficiency_after_scrutiny">Deficiency after Scrutiny</string>
     <string name="deficiency_after_assessment_scrutiny">Deficiency after Assessment Scrutiny</string>
-    <string name="modern_coach_factory_nraebareli">Modern Coach Factory,  Raebareli</string>
+    <string name="modern_coach_factory_nraebareli">Modern Coach Factory\nRaebareli</string>
     <string name="vendor_replied_cases">Vendor Replied Cases</string>
     <string name="cases_after_assessment">Cases After Assessment</string>
     <string name="revert_cases">Revert Cases</string>
@@ -63,7 +63,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="fresh_cases">Fresh cases</string>
     <string name="cases_reverted_by_ame_vdc">Cases reverted by AME/VDC</string>
-    <string name="case_in_progress">Case in Progress</string>
+    <string name="case_in_progress">Case in Process</string>
     <string name="approved">Approved</string>
     <string name="closed">Closed</string>
     <string name="proceed">Proceed</string>
@@ -105,4 +105,27 @@
     <string name="initial_scrutiny_report">Initial Scutiny Report</string>
     <string name="attachment_of_scrutiny">ATTACHMENT_OF_SCRUTINY</string>
     <string name="deficiency_attachment">Deficiency Attachment</string>
+    <string name="status_by_Assessment_Officer">Status by Assessment Officer</string>
+    <string name="remark_by_AO">Remark by AO</string>
+    <string name="status_by_AME_VDC">Status by AME/VDC</string>
+    <string name="remark_by_AME_VDC">Remark by AME/VDC</string>
+    <string name="assesment_Report">Assesment Report</string>
+    <string name="is_Reverted_by_Dy_CME">Is Reverted by Dy.CME</string>
+    <string name="status_by_dy">Status by Dy.CME</string>
+    <string name="remark_by_Dy">Remark by Dy.CME</string>
+    <string name="initial_Scutiny_Report">Initial Scutiny Report</string>
+    <string name="is_Case_Reverted_by_SSE">Is Case Reverted by SSE/VDC</string>
+    <string name="caseAllotToInspector">Cases Alloted to Inspector</string>
+    <string name="assessment_Officer_Name">Assessment Officer Name</string>
+    <string name="probable_Date_ofVisit">Probable Date of Visit</string>
+    <string name="is_Reverted_to_Dy">Is Reverted to Dy.CME</string>
+    <string name="cases_by_ame">Cases Reply by AME/VDC</string>
+    <string name="cese_revert_by_cple">Cases Reverted by CPLE</string>
+    <string name="is_Reverted_by_ame">Is Reverted to AME/VDC</string>
+    <string name="login_fail">User name or password not correct</string>
+    <string name="cases_for_scrutiny_doc">Cases after Scrutiny of Documents</string>
+    <string name="cases_for_assessment_report">Cases after Assessment Report Scrutiny</string>
+    <string name="guideline">Guideline for new vendors</string>
+    <string name="mcl_logo">Vendor Registration Information</string>
+    <string name="cases">Cases</string>
 </resources>

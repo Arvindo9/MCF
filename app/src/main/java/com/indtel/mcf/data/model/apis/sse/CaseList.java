@@ -49,38 +49,44 @@ public class CaseList {
     private String ATTACHMENT_TO_VENDOR = "";
     @SerializedName("StatusBySSEVDC")
     @Expose
-    private String statusBySSEVDC;
+    private String statusBySSEVDC = "";
     @SerializedName("AttachmentReport")
     @Expose
-    private String attachmentReport;
+    private String attachmentReport = "";
 
 
     @SerializedName(value = "ItemName", alternate = "ITEM_NAME")
     @Expose
-    private String itemName;
+    private String itemName = "";
     @SerializedName("IsAssessmentRequired")
     @Expose
-    private String isAssessmentRequired;
+    private String isAssessmentRequired = "";
     @SerializedName("StatusByAssessmentOfficer")
     @Expose
-    private String statusByAssessmentOfficer;
+    private String statusByAssessmentOfficer = "";
     @SerializedName("RemarkByAO")
     @Expose
-    private String remarkByAO;
+    private String remarkByAO = "";
     @SerializedName("REMARK_OF_DYCME")
     @Expose
-    private String REMARK_OF_DYCME;
+    private String REMARK_OF_DYCME = "";
 
     @SerializedName("AssessmentReport")
     @Expose
-    private String assessmentReport;
+    private String assessmentReport = "";
 
     @SerializedName("RemarkBySSEVDC")
     @Expose
-    private String remarkBySSEVDC;
+    private String remarkBySSEVDC = "";
     @SerializedName("DATE_OF_SUBMISSION")
     @Expose
-    private String DATE_OF_SUBMISSION;
+    private String DATE_OF_SUBMISSION = "";
+    @SerializedName("AO_NAME")
+    @Expose
+    private String AO_NAME = "";
+    @SerializedName("RECOMMENDED_AO_NAME")
+    @Expose
+    private String RECOMMENDED_AO_NAME = "";
 
 
 
@@ -230,9 +236,9 @@ public class CaseList {
 
 
 
-    @SerializedName("RECOMMENDED_AO_NAME")
+    @SerializedName("DATE_OF_REMARK_BY_DYCME")
     @Expose
-    private String rECOMMENDEDAONAME = "";
+    private String DATE_OF_REMARK_BY_DYCME = "";
     @SerializedName("REMARK_OF_SCRUTINY")
     @Expose
     private String rEMARKOFSCRUTINY = "";
@@ -245,14 +251,6 @@ public class CaseList {
     @SerializedName("REMARK_BY_AME_ON_RECOMMENDATION")
     @Expose
     private String rEMARK_BY_AME_ON_RECOMMENDATION = "";
-
-    public String getrECOMMENDEDAONAME() {
-        return rECOMMENDEDAONAME;
-    }
-
-    public void setrECOMMENDEDAONAME(String rECOMMENDEDAONAME) {
-        this.rECOMMENDEDAONAME = rECOMMENDEDAONAME;
-    }
 
     public String getrEMARKOFSCRUTINY() {
         return rEMARKOFSCRUTINY;
@@ -276,6 +274,12 @@ public class CaseList {
 
 
 
+    @SerializedName("VERIFICATION_REMARK_BY_DYCME")
+    @Expose
+    private String VERIFICATION_REMARK_BY_DYCME = "";
+    @SerializedName("STATUS_OF_VERIFICATION_BY_DYCME")
+    @Expose
+    private String STATUS_OF_VERIFICATION_BY_DYCME = "";
     @SerializedName("STATUS_OF_ASSESSMENT_REPORT_SSE")
     @Expose
     private String sTATUSOFASSESSMENTREPORTSSE = "";
@@ -291,6 +295,12 @@ public class CaseList {
     @SerializedName("DATE_OF_REMARK_ON_ASSESSMENT_BY_AME")
     @Expose
     private String dATEOFREMARKONASSESSMENTBYAME = "";
+    @SerializedName("DATE_OF_REMARK_BY_AME_ON_RECOMMENDATION")
+    @Expose
+    private String DATE_OF_REMARK_BY_AME_ON_RECOMMENDATION = "";
+    @SerializedName("DATE_OF_VERIFICATION_BY_DYCME")
+    @Expose
+    private String DATE_OF_VERIFICATION_BY_DYCME = "";
     @SerializedName("AME_ID")
     @Expose
     private Double aMEID;
@@ -307,6 +317,12 @@ public class CaseList {
     @SerializedName("PROBABLE_DATE_OF_VISIT")
     @Expose
     private String PROBABLE_DATE_OF_VISIT = "";
+    @SerializedName("SCRUTINY_STATUS_OF_ASSESSMENT_REPORT")
+    @Expose
+    private String SCRUTINY_STATUS_OF_ASSESSMENT_REPORT = "";
+    @SerializedName("REVERT_SSE_ASSESSMENT")
+    @Expose
+    private String REVERT_SSE_ASSESSMENT = "";
 
     public String getSTATUSOFASSESSMENTREPORTSSE() {
         return sTATUSOFASSESSMENTREPORTSSE;
@@ -426,5 +442,77 @@ public class CaseList {
 
     public void setATTACHMENT_TO_VENDOR(String ATTACHMENT_TO_VENDOR) {
         this.ATTACHMENT_TO_VENDOR = ATTACHMENT_TO_VENDOR;
+    }
+
+    public String getSTATUS_OF_VERIFICATION_BY_DYCME() {
+        return STATUS_OF_VERIFICATION_BY_DYCME;
+    }
+
+    public void setSTATUS_OF_VERIFICATION_BY_DYCME(String STATUS_OF_VERIFICATION_BY_DYCME) {
+        this.STATUS_OF_VERIFICATION_BY_DYCME = STATUS_OF_VERIFICATION_BY_DYCME;
+    }
+
+    public String getVERIFICATION_REMARK_BY_DYCME() {
+        return VERIFICATION_REMARK_BY_DYCME;
+    }
+
+    public void setVERIFICATION_REMARK_BY_DYCME(String VERIFICATION_REMARK_BY_DYCME) {
+        this.VERIFICATION_REMARK_BY_DYCME = VERIFICATION_REMARK_BY_DYCME;
+    }
+
+    public String getDATE_OF_VERIFICATION_BY_DYCME() {
+        return DATE_OF_VERIFICATION_BY_DYCME;
+    }
+
+    public void setDATE_OF_VERIFICATION_BY_DYCME(String DATE_OF_VERIFICATION_BY_DYCME) {
+        this.DATE_OF_VERIFICATION_BY_DYCME = DATE_OF_VERIFICATION_BY_DYCME;
+    }
+
+    public String getSCRUTINY_STATUS_OF_ASSESSMENT_REPORT() {
+        return SCRUTINY_STATUS_OF_ASSESSMENT_REPORT;
+    }
+
+    public void setSCRUTINY_STATUS_OF_ASSESSMENT_REPORT(String SCRUTINY_STATUS_OF_ASSESSMENT_REPORT) {
+        this.SCRUTINY_STATUS_OF_ASSESSMENT_REPORT = SCRUTINY_STATUS_OF_ASSESSMENT_REPORT;
+    }
+
+    public String getREVERT_SSE_ASSESSMENT() {
+        return REVERT_SSE_ASSESSMENT;
+    }
+
+    public void setREVERT_SSE_ASSESSMENT(String REVERT_SSE_ASSESSMENT) {
+        this.REVERT_SSE_ASSESSMENT = REVERT_SSE_ASSESSMENT;
+    }
+
+    public String getAO_NAME() {
+        return AO_NAME;
+    }
+
+    public void setAO_NAME(String AO_NAME) {
+        this.AO_NAME = AO_NAME;
+    }
+
+    public String getRECOMMENDED_AO_NAME() {
+        return RECOMMENDED_AO_NAME;
+    }
+
+    public void setRECOMMENDED_AO_NAME(String RECOMMENDED_AO_NAME) {
+        this.RECOMMENDED_AO_NAME = RECOMMENDED_AO_NAME;
+    }
+
+    public String getDATE_OF_REMARK_BY_AME_ON_RECOMMENDATION() {
+        return DATE_OF_REMARK_BY_AME_ON_RECOMMENDATION;
+    }
+
+    public void setDATE_OF_REMARK_BY_AME_ON_RECOMMENDATION(String DATE_OF_REMARK_BY_AME_ON_RECOMMENDATION) {
+        this.DATE_OF_REMARK_BY_AME_ON_RECOMMENDATION = DATE_OF_REMARK_BY_AME_ON_RECOMMENDATION;
+    }
+
+    public String getDATE_OF_REMARK_BY_DYCME() {
+        return DATE_OF_REMARK_BY_DYCME;
+    }
+
+    public void setDATE_OF_REMARK_BY_DYCME(String DATE_OF_REMARK_BY_DYCME) {
+        this.DATE_OF_REMARK_BY_DYCME = DATE_OF_REMARK_BY_DYCME;
     }
 }

@@ -159,7 +159,7 @@ public class SseHomeActivity extends BaseActivity<ActivitySseHomeBinding, SseHom
 
     @Override
     public void onVendorRepliedCasesClick() {
-        DeficienciesDialog selectionDialog = DeficienciesDialog.newInstance();
+        DeficienciesDialog selectionDialog = DeficienciesDialog.newInstance(DeficienciesDialog.TYPE_SSE);
         selectionDialog.setCallBack(this);
         selectionDialog.show(getSupportFragmentManager(), DeficienciesDialog.TAG);
     }

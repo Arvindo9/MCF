@@ -80,14 +80,19 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
 
     //DyCme
     public static final int CASES_FOR_NOMINATIONS  = 17;
+    public static final int CASES_ALLOTED_TO_INSPECTOR = 23;
+
+    public static final int CASES_FOR_VERIFICATION_FRESH_CASES = 24;
+    public static final int CASES_FOR_VERIFICATION_REPLY_BY_AME = 25;
+    public static final int CASES_FOR_VERIFICATION_REVERT_CASE_CPLE = 26;
 
     //Cple
     public static final int CASES_APPROVE_REJECT_FRESH  = 18;
     public static final int CASES_REVERT_BY_DYCME  = 19;
 
     //vendor
-    public static final int VENDOR_DEFICIENCY_AFTER_SCRUTINY  = 20;
-    public static final int VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY  = 21;
+    public static final int VENDOR_DEFICIENCY_AFTER_SCRUTINY  = 21;
+    public static final int VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY  = 22;
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
@@ -191,6 +196,9 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 transaction.replace(R.id.fragment, fragment, StatusOfApplicationFragment.TAG);
                 transaction.addToBackStack(StatusOfApplicationFragment.TAG);
                 transaction.commit();
+//                if(getSupportActionBar()!=null){
+//                    getSupportActionBar().setTitle(R.string.status_of_application);
+//                }
                 break;
 
             case VIEW_ITEM_DETAILS:
@@ -203,6 +211,9 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 transaction.replace(R.id.fragment, dashboardFragment, DashboardFragment.TAG);
                 transaction.addToBackStack(DashboardFragment.TAG);
                 transaction.commit();
+//                if(getSupportActionBar()!=null){
+//                    getSupportActionBar().setTitle(R.string.dashboard);
+//                }
                 break;
 
             case CASES_AFTER_ASSESSMENT_FRESH:
@@ -213,6 +224,9 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 transaction.replace(R.id.fragment, casesAfterAssessmentFragment, CasesAfterAssessmentFragment.TAG);
                 transaction.addToBackStack(CasesAfterAssessmentFragment.TAG);
                 transaction.commit();
+//                if(getSupportActionBar()!=null){
+//                    getSupportActionBar().setTitle(R.string.cases_after_assessment);
+//                }
                 break;
 
             case SSE_CASES_AFTER_SERUTINY_OF_DOCUMENTS:
@@ -223,6 +237,9 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 transaction.replace(R.id.fragment, sseFragment, SseFragment.TAG);
                 transaction.addToBackStack(SseFragment.TAG);
                 transaction.commit();
+                if(getSupportActionBar()!=null){
+                    getSupportActionBar().setTitle(R.string.cases);
+                }
                 break;
 
             case CASES_FOR_ASSESSMENT:
@@ -236,12 +253,18 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
 
                 //DYCME---------
             case CASES_FOR_NOMINATIONS:
+            case CASES_ALLOTED_TO_INSPECTOR:
+
+            case CASES_FOR_VERIFICATION_FRESH_CASES:
+            case CASES_FOR_VERIFICATION_REPLY_BY_AME:
+            case CASES_FOR_VERIFICATION_REVERT_CASE_CPLE:
 
                 //CPLE--------------
             case CASES_APPROVE_REJECT_FRESH:
             case CASES_REVERT_BY_DYCME:
 
                 //Vendor-----------
+            case VENDOR_DEFICIENCY_AFTER_SCRUTINY:
             case VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY:
 
                 //------------------
@@ -252,6 +275,9 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 transaction.replace(R.id.fragment, sseFragment, SseFragment.TAG);
                 transaction.addToBackStack(SseFragment.TAG);
                 transaction.commit();
+                if(getSupportActionBar()!=null){
+                    getSupportActionBar().setTitle(R.string.cases);
+                }
                 break;
 
             case VENDOR_WISE_REPORT_CASE_IN_PROGRESS:
@@ -358,7 +384,7 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
 
                 if(data.equals(String.valueOf(DASHBOARD_SCRUTINY_OF_DOCUMENTS))) {
                     FragmentTransaction transaction = manager.beginTransaction();
-                    ScrutinyOfDocumentFragment fragment = ScrutinyOfDocumentFragment.newInstance(params[1]);
+                    ScrutinyOfDocumentFragment fragment = ScrutinyOfDocumentFragment.newInstance(params[1], params[2]);
                     fragment.setCallBack(this);
                     transaction.replace(R.id.fragment, fragment, ScrutinyOfDocumentFragment.TAG);
                     transaction.addToBackStack(ScrutinyOfDocumentFragment.TAG);
@@ -371,7 +397,15 @@ public class FragmentHandlerActivity extends BaseActivity<ActivityFragmentHandle
                 String data = params[0];
 
                 if(data.equals(String.valueOf(CASES_FOR_ASSESSMENT)) ||
-                        data.equals(String.valueOf(VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY))) {
+                        data.equals(String.valueOf(VENDOR_DEFICIENCY_AFTER_ASSESSMENT_SCRUTINY)) ||
+                        data.equals(String.valueOf(SSE_CASES_REVERT_TO_VENDOR_AFTER_ASSESSMENT_REPORT)) ||
+                        data.equals(String.valueOf(CASES_FOR_SCRUTINY_REVERT_CASE_CME))||
+                        data.equals(String.valueOf(CASES_FOR_SCRUTINY_REVERT_CASE_SSE))||
+                        data.equals(String.valueOf(CASES_ALLOTED_TO_INSPECTOR)) ||
+                        data.equals(String.valueOf(CASES_APPROVE_REJECT_FRESH)) ||
+                        data.equals(String.valueOf(CASES_REVERT_BY_DYCME)) ||
+                        data.equals(String.valueOf(CASES_FOR_VERIFICATION_REPLY_BY_AME)) ||
+                        data.equals(String.valueOf(VENDOR_DEFICIENCY_AFTER_SCRUTINY))) {
                     FragmentTransaction transaction = manager.beginTransaction();
                     ViewItemFragment fragment = ViewItemFragment.newInstance(params[1]);
                     fragment.setCallBack(this);

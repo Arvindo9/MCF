@@ -111,7 +111,7 @@
                         android:layout_marginEnd="@dimen/_8dp"
                         android:layout_marginRight="@dimen/_8dp">
 
-                        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        <androidx.appcompat.widget.AppCompatSpinner
                             android:id="@+id/firmNameAuto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

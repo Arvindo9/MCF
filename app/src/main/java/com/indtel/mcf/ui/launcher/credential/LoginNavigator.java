@@ -29,4 +29,6 @@ interface LoginNavigator extends BaseNavigator {
     void openDyCmeHome();
 
     void openCpleHome();
+
+    void onGuideLineClick();
 }

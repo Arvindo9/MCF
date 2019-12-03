@@ -110,7 +110,22 @@ public class DyCmeHomeActivity extends BaseActivity<ActivityDycmeHomeBinding, Dy
     @Override
     protected void init() {
         viewModel.setNavigator(this);
+        setUp();
     }
+
+
+    private void setUp() {
+        setSupportActionBar(binding.toolbarLayout.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle(R.string.home);
+
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
 
     @Override
     public void onLogOutClick() {
@@ -132,6 +147,12 @@ public class DyCmeHomeActivity extends BaseActivity<ActivityDycmeHomeBinding, Dy
     }
 
     @Override
+    public void onCaseAllotToInspectorClick() {
+        startActivity(FragmentHandlerActivity.newIntent(this,
+                FragmentHandlerActivity.CASES_ALLOTED_TO_INSPECTOR, ""));
+    }
+
+    @Override
     public void handleError(Throwable throwable) {
 
     }
@@ -148,7 +169,8 @@ public class DyCmeHomeActivity extends BaseActivity<ActivityDycmeHomeBinding, Dy
 
     @Override
     public void onCaseForScrutinyClick() {
-        CaseDefaultDialog selectionDialog = CaseDefaultDialog.newInstance(TAG, AppConstants.CASES_FOR_SCRUTINY);
+        //Cases for verification
+        CaseDefaultDialog selectionDialog = CaseDefaultDialog.newInstance(TAG, AppConstants.CASES_FOR_VERIFICATION);
         selectionDialog.setCallBack(this);
         selectionDialog.show(getSupportFragmentManager(), CaseDefaultDialog.TAG);
     }
@@ -203,17 +225,17 @@ public class DyCmeHomeActivity extends BaseActivity<ActivityDycmeHomeBinding, Dy
             if(selection.equals(AppConstants.FRESH_CASES)){
                 //open CASE_IN_PROGRESS
                 startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.CASES_FOR_SCRUTINY_FRESH_CASES, ""));
+                        FragmentHandlerActivity.CASES_FOR_VERIFICATION_FRESH_CASES, ""));
             }
             else if(selection.equals(AppConstants.REVERT_CASES_FROM_SSE_SDC)){
                 //open CASES_AFTER_ASSESSMENT_FRESH
                 startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_SSE, ""));
+                        FragmentHandlerActivity.CASES_FOR_VERIFICATION_REPLY_BY_AME, ""));
             }
             else if(selection.equals(AppConstants.CASES_REVERTED_BY_DY_CME)){
                 //open CASES_AFTER_ASSESSMENT_FRESH
                 startActivity(FragmentHandlerActivity.newIntent(this,
-                        FragmentHandlerActivity.CASES_FOR_SCRUTINY_REVERT_CASE_CME, ""));
+                        FragmentHandlerActivity.CASES_FOR_VERIFICATION_REVERT_CASE_CPLE, ""));
             }
         }
     }

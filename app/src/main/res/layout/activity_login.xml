@@ -54,7 +54,7 @@
                         android:text="@string/modern_coach_factory_nraebareli"
                         android:layout_centerInParent="true"
                         android:gravity="center"
-                        android:textSize="@dimen/_22sp"
+                        android:textSize="@dimen/_16sp"
                         android:textStyle="bold"
                         android:textColor="@color/textColorGeneral"/>
                 </RelativeLayout>
@@ -102,14 +102,25 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:onClick="@{() -> data.onLoginClick()}"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/_20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/login"
             android:text="@string/login"
+            android:layout_centerInParent="true"
             style="@style/Widget.AppCompat.Button.Colored"/>
     </RelativeLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:visibility="gone"
+        android:onClick="@{() -> data.onGuideClick()}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        android:text="@string/guideline"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"/>
 
     <androidx.core.widget.ContentLoadingProgressBar
         style="?android:attr/progressBarStyleHorizontal"

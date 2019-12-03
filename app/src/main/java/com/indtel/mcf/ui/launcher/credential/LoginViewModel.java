@@ -1,5 +1,6 @@
 package com.indtel.mcf.ui.launcher.credential;
 
+import com.indtel.mcf.R;
 import com.indtel.mcf.base.BaseViewModel;
 import com.indtel.mcf.data.DataManager;
 import com.indtel.mcf.utils.Logger;
@@ -28,6 +29,7 @@ import static com.indtel.mcf.utils.AppConstants.USER_TYPE_VENDOR;
  */
 public class LoginViewModel extends BaseViewModel<LoginNavigator> {
     private boolean isLoginError = false;
+    private int count = 0;
 
     public LoginViewModel(DataManager dataManager, SchedulerProvider schedulerProvider, Task task) {
         super(dataManager, schedulerProvider);
@@ -39,7 +41,12 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
         getNavigator().onLoginClick();
     }
 
+    public void onGuideClick(){
+        getNavigator().onGuideLineClick();
+    }
+
     public void doLogin(String userId, String password) {
+        count = 0;
         setIsLoading(true);
         getCompositeDisposable().add(getDataManager()
                 .userLogin(userId, password)
@@ -87,6 +94,8 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
 
                     setIsLoading(false);
                 }, throwable -> {
+                    count++;
+                    checkLoginFailed();
                     if(isLoginError) {
                         getNavigator().handleError(throwable);
                     }
@@ -120,8 +129,16 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
                         setIsLoading(false);
                     }
                 }, throwable -> {
+                    count++;
+                    checkLoginFailed();
                     getNavigator().handleError(throwable);
                     setIsLoading(false);}
                 ));
+    }
+
+    private void checkLoginFailed(){
+        if(count >= 2){
+            getNavigator().handleMessage(R.string.login_fail);
+        }
     }
 }

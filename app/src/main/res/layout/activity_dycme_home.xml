@@ -148,6 +148,7 @@ app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:visibility="gone"
             android:id="@+id/caseForAssessment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -179,7 +180,7 @@ app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/layout4"
+        android:id="@+id/layout6"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_120dp"
         android:orientation="horizontal"
@@ -188,6 +189,48 @@ app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout1">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/caseAllotToInspector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_16dp"
+            android:layout_weight="1"
+            android:onClick="@{() -> data.onCaseAllotToInspectorClick()}"
+            app:cardBackgroundColor="@color/cardColorShadow"
+            card_view:cardCornerRadius="@dimen/_8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_3dp"
+                android:background="@color/cardColor"
+                android:padding="@dimen/_4dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/caseAllotToInspector"
+                    android:textColor="@color/textColorCard"
+                    android:textSize="@dimen/_16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout6">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/caseForVerification"

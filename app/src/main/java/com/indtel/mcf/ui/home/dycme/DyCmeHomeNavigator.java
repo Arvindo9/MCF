@@ -27,4 +27,6 @@ public interface DyCmeHomeNavigator extends BaseNavigator {
     void onCaseForNominationClick();
 
     void onCasesForAssessmentClick();
+
+    void onCaseAllotToInspectorClick();
 }

@@ -30,6 +30,7 @@ public class ScrutinyOfDocumentFragment extends BaseFragment<FragmentScrutinyOfD
         implements ScrutinyOfDocumentNavigator, ScrutinyOfDocumentAdapter.AdapterListener{
     public static final String TAG = ScrutinyOfDocumentFragment.class.getSimpleName();
     private static final String KEY_APPLICATION_ID = "KEY_APPLICATION_ID";
+    private static final String KEY_APPLICATION_TITLE = "KEY_APPLICATION_TITLE";
 
     @Inject
     ViewModelProviderFactory factory;
@@ -39,11 +40,13 @@ public class ScrutinyOfDocumentFragment extends BaseFragment<FragmentScrutinyOfD
     private ScrutinyOfDocumentViewModel viewModel;
     private FragmentListener callBack;
     private String applicationId;
+    private String title = "";
 
-    public static ScrutinyOfDocumentFragment newInstance(String applicationId) {
+    public static ScrutinyOfDocumentFragment newInstance(String applicationId, String title) {
         Bundle args = new Bundle();
         ScrutinyOfDocumentFragment fragment = new ScrutinyOfDocumentFragment();
         args.putString(KEY_APPLICATION_ID, applicationId);
+        args.putString(KEY_APPLICATION_TITLE, title);
         fragment.setArguments(args);
         return fragment;
     }
@@ -76,6 +79,7 @@ public class ScrutinyOfDocumentFragment extends BaseFragment<FragmentScrutinyOfD
     @Override
     public ScrutinyOfDocumentViewModel getViewModel() {
         applicationId = getArguments() != null? getArguments().getString(KEY_APPLICATION_ID, "0") : "0";
+        title = getArguments() != null? getArguments().getString(KEY_APPLICATION_TITLE, "0") : "0";
         return viewModel = ViewModelProviders.of(this,factory).get(ScrutinyOfDocumentViewModel.class);
     }
 
@@ -94,7 +98,8 @@ public class ScrutinyOfDocumentFragment extends BaseFragment<FragmentScrutinyOfD
      */
     @Override
     public int setTitle() {
-        return R.string.scrutiny_of_documents;
+//        return R.string.scrutiny_of_documents;
+        return 0;
     }
 
     /**
@@ -113,6 +118,7 @@ public class ScrutinyOfDocumentFragment extends BaseFragment<FragmentScrutinyOfD
     @Override
     protected void init() {
         viewModel.callApi(applicationId);
+        getBaseActivity().setTitle(title);
         subscribeToLiveData();
         setRecyclerView();
     }

@@ -41,6 +41,7 @@ public class CaseDefaultDialog extends BaseDialog<DialogCaseDefaultBinding, Case
     private static final String KEY_TAG = "KEY_TAG";
     private static final String KEY_TYPE = "KEY_TYPE";
 
+
     @Inject
     ViewModelProviderFactory factory;
     private CaseDefaultViewModel viewModel;
@@ -125,6 +126,13 @@ public class CaseDefaultDialog extends BaseDialog<DialogCaseDefaultBinding, Case
             binding.SecondSelect.setText(R.string.revert_cases_by_dycme);
             binding.ThirdSelect.setVisibility(View.GONE);
         }
+        else if(tag.equals(DyCmeHomeActivity.TAG) && type.equals(AppConstants.CASES_FOR_VERIFICATION)){
+            binding.title.setText(R.string.case_for_verification_of_assessment);
+
+            binding.FirstSelect.setText(R.string.fresh_cases);
+            binding.SecondSelect.setText(R.string.cases_by_ame);
+            binding.ThirdSelect.setText(R.string.cese_revert_by_cple);
+        }
     }
 
     @Override
@@ -161,6 +169,8 @@ public class CaseDefaultDialog extends BaseDialog<DialogCaseDefaultBinding, Case
                         string = AppConstants.FRESH_CASES;
                     }else if (tag.equals(CpleHomeActivity.TAG) && type.equals(AppConstants.CASES_FOR_SCRUTINY)) {
                         string = AppConstants.FRESH_CASES;
+                    }else if (tag.equals(DyCmeHomeActivity.TAG) && type.equals(AppConstants.CASES_FOR_VERIFICATION)) {
+                        string = AppConstants.FRESH_CASES;
                     }
                 }
                 break;
@@ -172,6 +182,8 @@ public class CaseDefaultDialog extends BaseDialog<DialogCaseDefaultBinding, Case
                         string = AppConstants.REVERT_CASES_FROM_SSE_SDC;
                     } else if (tag.equals(CpleHomeActivity.TAG) && type.equals(AppConstants.CASES_FOR_SCRUTINY)) {
                         string = AppConstants.CASES_REVERTED_BY_DY_CME;
+                    }else if (tag.equals(DyCmeHomeActivity.TAG) && type.equals(AppConstants.CASES_FOR_VERIFICATION)) {
+                        string = AppConstants.REVERT_CASES_FROM_SSE_SDC;
                     }
                 }
                 break;
@@ -180,6 +192,8 @@ public class CaseDefaultDialog extends BaseDialog<DialogCaseDefaultBinding, Case
                 if(checked){
                     if((tag.equals(AmeHomeActivity.TAG) || tag.equals(DyCmeHomeActivity.TAG))
                             && type.equals(AppConstants.CASES_FOR_SCRUTINY)){
+                        string = AppConstants.CASES_REVERTED_BY_DY_CME;
+                    }else if (tag.equals(DyCmeHomeActivity.TAG) && type.equals(AppConstants.CASES_FOR_VERIFICATION)) {
                         string = AppConstants.CASES_REVERTED_BY_DY_CME;
                     }
                 }
